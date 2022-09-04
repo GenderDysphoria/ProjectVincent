@@ -1,0 +1,5 @@
+{
+  "extends": [
+    "@twipped/eslint-config/node-esm"
+  ]
+}
