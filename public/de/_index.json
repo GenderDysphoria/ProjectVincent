@@ -31,8 +31,11 @@
     "description": "Eine ressource für diejenigen, die ihr geschlecht hinterfragen, sich bereits auf einer Gender-Reise befinden oder einfach nur mehr darüber erfahren möchten, was es bedeutet, transgender zu sein.",
     "url": "/de/druckbar"
   },
-  "pdf": "/de/gdb-de.pdf",
-  "string": {
+  "pdf": {
+    "url": "/de/gdb-de.pdf",
+    "caption": "PDF Herunterladen"
+  },
+  "messages": {
     "SITE_TITLE": "Das ist Gender Dysphorie",
     "SITE_DESCRIPTION": "Eine Informationsquelle für all jene, die ihr Geschlecht in Frage stellen, schon auf Ihrer persönlichen gender-Reise sind oder einfach mehr darüber lernen möchten was es bedeutet Transgender zu sein.",
 

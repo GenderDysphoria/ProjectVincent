@@ -1,0 +1,15 @@
+{
+  "title": "That's Gender Dysphoria, FYI",
+  "domain": "genderdysphoria.fyi",
+  "lang": "en",
+  "siteUrl": "https://genderdysphoria.fyi",
+  "description": "A resource for those questioning their gender, already on a gender journey, or simply wanting to learn more about what it is to be transgender.",
+  "creator": "Twippedtronic",
+  "author": "Jocelyn Badgley",
+  "rss": {
+    "title": "That's Gender Dysphoria, FYI",
+    "feed_url": "https://genderdysphoria.fyi/atom.xml",
+    "site_url": "https://genderdysphoria.fyi",
+    "image_url": "https://genderdysphoria.fyi/favicon228.png"
+  }
+}

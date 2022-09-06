@@ -4,18 +4,29 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import useToggledState from '@twipped/hooks/useToggledState';
 import useMemoObject from '@twipped/hooks/useMemoObject';
-import merge from 'lodash/merge';
 
 const fontFamily = '"Lato", "Arial", sans-serif';
 const fontFamilySecondary = '"Gothic A1", "Helvetica Neue", Helvetica, serif';
 const fontFamilyHeading = '"Roboto", "Helvetica Neue", "Helvetica", "Arial", sans-serif';
+const fontFamilyMonospace = 'SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace';
 
-export const base = {
+let theme = createTheme({});
+
+theme = createTheme(theme, {
   typography: {
     fontSize: 14,
     fontFamily,
     fontFamilySecondary,
     fontFamilyHeading,
+    fontFamilyMonospace,
+
+    fontWeightExtraLight: 100,
+    fontWeightLight: 300,
+    fontWeightRegular: 400,
+    // fontWeightMedium: 500,
+    // fontWeightSemiBold: 600,
+    fontWeightBold: 700,
+    fontWeightExtraBold: 900,
 
     disclaimer: {
       fontFamily: fontFamilySecondary,
@@ -38,12 +49,33 @@ export const base = {
     h4: {
       fontFamily: fontFamilyHeading,
       fontSize: '1.2rem',
-      fontWeight: 600,
+      fontWeight: 700,
     },
     h5: {
       fontFamily: fontFamilyHeading,
       fontSize: '1.15rem',
-      fontWeight: 600,
+      fontWeight: 700,
+    },
+    code: {
+      fontFamily: fontFamilyMonospace,
+      color: theme.palette.grey[200],
+      backgroundColor: theme.palette.grey[600],
+      paddingTop: 1,
+      paddingBottom: 1,
+      paddingLeft: 2,
+      paddingRight: 2,
+      display: 'inline-block',
+    },
+    truncate: {
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
+      whiteSpace: 'nowrap',
+    },
+    small: {
+      fontSize: '0.875rem',
+    },
+    large: {
+      fontSize: '1.25rem',
     },
   },
 
@@ -89,7 +121,7 @@ export const base = {
       xl: 1200,
     },
   },
-};
+});
 
 export const light = {
   palette: {
@@ -127,13 +159,12 @@ export default function GDBThemeProvider ({ children }) {
     toggle,
   } = useToggledState(useMediaQuery('(prefers-color-scheme: dark)'));
 
-  const theme = useMemo(
+  const currentTheme = useMemo(
     () =>
-      createTheme(merge(
-        {},
-        base,
+      createTheme(
+        theme,
         enabled ? dark : light
-      )),
+      ),
     [ enabled ]
   );
 
@@ -143,7 +174,7 @@ export default function GDBThemeProvider ({ children }) {
   });
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={currentTheme}>
       <DarkModeContext.Provider value={darkModeContext}>
         <CssBaseline />
         {children}

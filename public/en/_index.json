@@ -31,7 +31,10 @@
     "description": "A dive into the multitude of ways that gender dysphoria manifests and what it means to be transgender.",
     "url": "/en/printable"
   },
-  "pdf": "/en/gdb-en.pdf",
+  "pdf": {
+    "url": "/en/gdb-en.pdf",
+    "caption": "Download as PDF"
+  },
   "messages": {
     "SITE_TITLE": "That's Gender Dysphoria, FYI",
     "HEADER_TITLE": "That's Gender Dysphoria, <abbr title=\"For Your Information\">FYI</abbr>",

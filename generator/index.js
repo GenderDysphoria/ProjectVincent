@@ -2,15 +2,16 @@ import log from 'fancy-log';
 
 import metaTask from './tasks/meta.js';
 import cleanupTask from './tasks/cleanup.js';
+import webpackTask from './tasks/webpack.js';
 
 const tasks = {
-  // mdx: () => mdx([ 'public/**/*.mdx' ], '.compiled'),
-  // babelSrc: () => babel([ 'src/**/*.js' ], '.compiled'),
   scanPages: () => metaTask(),
-  clean: () => cleanupTask([ './.compiled', 'src/manifest.json' ]),
+  clean: () => cleanupTask([ 'compiled', 'dist' ]),
+  webpack: () => webpackTask(),
   build: [
     'clean',
     'scanPages',
+    'webpack',
   ],
 };
 

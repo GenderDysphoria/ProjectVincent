@@ -3,6 +3,9 @@ import path from 'node:path';
 import fs from 'fs-extra';
 import glob from 'fast-glob';
 
+import templateLangIndex from './template_lang_index.js';
+import templateLangRoot from './template_lang_root.js';
+
 async function loadPages (options = {}) {
   const {
     cwd = process.cwd(),
@@ -88,10 +91,29 @@ async function loadIndexes (options = {}) {
   return languages;
 }
 
-export default async function buildManifest (options = {}) {
+async function writeLangRouters (languages, options = {}) {
   const {
     cwd = process.cwd(),
-    destination = 'src/manifest.json',
+    languageDest = 'compiled/lang',
+  } = options;
+
+  await Promise.all(
+    Object.values(languages).map(async (lang) => {
+      const destPath = path.resolve(cwd, languageDest, lang.lang, 'index.js');
+      await fs.ensureFile(destPath);
+      await fs.writeFile(destPath, templateLangIndex(lang));
+    })
+  );
+
+  const destPath = path.resolve(cwd, languageDest, 'index.js');
+  await fs.ensureFile(destPath);
+  await fs.writeFile(destPath, templateLangRoot(languages));
+}
+
+export default async function buildLanguages (options = {}) {
+  const {
+    cwd = process.cwd(),
+    manifestDest = 'compiled/manifest.json',
   } = options;
 
   const [ { pages, routes }, languages ] = await Promise.all([
@@ -99,7 +121,9 @@ export default async function buildManifest (options = {}) {
     loadIndexes(options),
   ]);
 
-  const destPath = path.resolve(cwd, destination);
+  const destPath = path.resolve(cwd, manifestDest);
   await fs.ensureFile(destPath);
   await fs.writeFile(destPath, JSON.stringify({ pages, routes, languages }, null, 2));
+
+  await writeLangRouters(languages);
 }

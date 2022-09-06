@@ -1,6 +1,15 @@
 {
   "presets": [
-    "@babel/preset-env",
-    "@babel/preset-react"
+    [
+      "@babel/preset-env", {
+        "useBuiltIns": "entry",
+        "corejs": 3,
+        "modules": false,
+        "exclude": ["transform-typeof-symbol"]
+      }
+    ],
+    ["@babel/preset-react", {
+      "runtime": "automatic"
+    }]
   ]
 }
