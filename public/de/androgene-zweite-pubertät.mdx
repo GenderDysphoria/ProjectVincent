@@ -1,29 +1,14 @@
----
-date: "2020-01-26T20:41:55.827Z"
-title: "Androgene zweite Pubertät 101"
-linkTitle: "Androgene Pubertät"
-description: "Was ist von einer maskulinisierenden Hormonersatztherapie zu erwarten?"
-preBody: '_disclaimer'
-lang: de
-siblings:
-  prev: /de/hormone
-  prevCaption: Wie Hormone funktionieren
-  next: /de/östrogene-zweite-pubertat
-  nextCaption: Östrogene zweite Pubertät
-classes:
-  - gdb
-tweets:
-  - '1374054574579798016'
-  - '1374039857773875201'
-  - '1374040823382347778'
-  - '1374053191445270534'
-  - '1374060995778318347'
-  - '1374048251180027920'
-  - '1374076480985128970'
-  - '1374094470753423360'
-  - '1431244822044622848'
-  - '1431244926214356993'
----
+import { PageMeta, Note, Gutter, Card } from '#src/common';
+import Disclaimer from './_disclaimer.mdx';
+
+<PageMeta
+  title="Androgene zweite Pubertät 101"
+  linkTitle="Androgene Pubertät"
+  description="Was ist von einer maskulinisierenden Hormonersatztherapie zu erwarten?"
+/>
+
+<Disclaimer />
+
 
 # Androgene zweite Pubertät 101
 
@@ -41,9 +26,12 @@ Dies bedeutet nicht, dass Ihre Stimme automatisch als männlich gelesen wird. Di
 
 ### Änderungen der Körpertemperatur-Platzierung
 
-{!{ <div class="gutter">{{import '~/tweet' ids=[
-  '1374039857773875201'
-] tweets=meta.tweets className="hide-mentions" }}</div> }!}
+<Gutter>
+  <Tweet no-mentions>
+    <Tweet id="1374039857773875201" />
+    <Tweet id="1374070062236246022" />
+  </Tweet>
+</Gutter>
 
 Androgene fördern die zusätzliche Durchblutung der Extremitäten und machen sie wärmer. Aus diesem Grund haben Männer kühlere Körperkerne, aber wärmere Mund- und Oberflächentemperaturen. Möglicherweise bemerken Sie, wie Ihre Grundtemperatur steigt. Das Ergebnis ist, dass Sie sich wärmer fühlen und sich wahrscheinlich nicht mehr so dick mit Kleidung einpacken müssen wie zuvor. Um die Wärme abzuleiten ohne zu stark auszukühlen könnte es selbst in kälteren Gegenden angenehmer sein, kurze Hosen zu tragen.
 
@@ -119,10 +107,12 @@ Die Linderung von DPDR geht fast überall mit einer viel größeren Bandbreite v
 
 Die Fähigkeit Emotionen auszudrücken könnte jedoch verringert werden. Manche Menschen verlieren die Fähigkeit zu weinen, nachdem sie mit Testosteron begonnen haben. Dies ist aber keine universelle Erfahrung und kann mit der Höhe Ihrer Testosteron-Dosis zusammenhängen. Die Gründe dafür sind nicht bekannt, obwohl einige Studien herausgefunden haben, dass Androgene die Funktion in Teilen des Gehirns verändern, die mit der emotionalen Verarbeitung verbunden sind. Wenn Sie die Fähigkeit zu weinen verlieren, kann diese mit der Zeit zurückkehren, wenn sich Ihr Gehirn an das Testosteron gewöhnt hat und Sie die zweite Pubertät hinter sich lassen.
 
-{!{ <div class="gutter flex" style="justify-content: flex-end">{{import '~/tweet' ids=[
-  '1374060995778318347'
-  '1374070062236246022'
-] tweets=meta.tweets className="hide-mentions" }}</div> }!}
+<Gutter>
+  <Tweet unified>
+    <Tweet id="1374060995778318347" />
+    <Tweet id="1374070062236246022" />
+  </Tweet>
+</Gutter>
 
 ##### Erhöhter Appetit und Esskapazität
 
@@ -132,9 +122,9 @@ Sie werden schneller hungrig sein. Testosteron kurbelt den Stoffwechsel des Kör
 
 Manche Personen berichten von Schlaflosigkeit und dass Sie sich seltener an Träume erinnern. Dies ist jedoch alles andere als allgemeingültig.
 
-{!{ <div class="gutter flex" style="justify-content: flex-end">{{import '~/tweet' ids=[
-  '1374076480985128970'
-] tweets=meta.tweets className="hide-mentions" }}</div> }!}
+<Gutter>
+  <Tweet id="1374076480985128970" no-mentions />
+</Gutter>
 
 ##### Selbstvertrauen
 
@@ -146,11 +136,16 @@ Sehr häufig kommt es vor, dass Trans-Personen jeglichen Genders nach der Transi
 
 ### Genitalveränderungen
 
-{!{
-<div class="gutter flex flex-center">
-{{import '~/img' images.homology link='https://www.vielma.at/' }}
-</div>
-}!}
+<Gutter>
+  <Card>
+    <Card.Media
+      component={Image}
+      src="/en/images/homology.jpg"
+      alt="Chart of steroid metabolism flow"
+      href="https://www.vielma.at/"
+    />
+  </Card>
+</Gutter>
 
 Alle Genitalien sind aus dem gleichen Gewebe aufgebaut – sie wurden lediglich während der Schwangerschaft unterschiedlich organisiert. Das Verhalten des Gewebes wird zum großen Teil durch die Hormone gesteuert. Hautsekrete, Texturen, Empfindlichkeit und erektiles Verhalten sind alles hormonelle Ausdrücke. Beim Hinzufügen von Androgenen beginnt sich das Gewebe so zu verhalten als hätten sie die Form eines Penis und Hodensacks, auch wenn dies nicht der Fall ist.
 
@@ -158,16 +153,17 @@ Alle Genitalien sind aus dem gleichen Gewebe aufgebaut – sie wurden lediglich 
 
 DHT (oben erwähnt) spielt eine entscheidende Rolle bei der Entwicklung des Schwellkörpers in den Genitalien. Wenn der DHT-Spiegel mit dem Anstieg des Testosterons steigt, führt dies dazu, dass die Paraurethraldrüse (manchmal als weibliche Prostata bezeichnet) anschwillt. Dies führt zu zufälligen Erektionen in der Klitoris, wodurch das Schwellgewebe wächst. Das Wachstum variiert von Person zu Person, aber 2,5 bis 7,5cm sind üblich.
 
-{!{ <div class="gutter">{{import '~/tweet' ids=[
-  '1374094470753423360'
-] tweets=meta.tweets className="hide-mentions" }}</div> }!}
+<Gutter>
+  <Tweet id="1374094470753423360" no-mention />
+</Gutter>
 
 Die Klitoris Haube und die Schamlippen werden mit der Zeit trockener und dicker, und Haare können auch an den inneren Schamlippen wachsen. Die Selbstschmierung kann sich erheblich verringern und Penetration kann mit der Zeit schmerzhaft werden. Verwenden Sie mehr Gleitmittel, um Risse und Blutungen zu vermeiden.
 
-{!{ {{import '~/tweet' ids=[
-  '1431244822044622848'
-  '1431244926214356993'
-] tweets=meta.tweets className="grid-row" }} }!}
+<Tweet row>
+  <Tweet id="1431244822044622848" />
+  <Tweet id="1431244926214356993" />
+</Tweet>
+
 
 ##### Erhöhte Sekretemissionen während des Höhepunkts
 
@@ -183,17 +179,17 @@ Eine vaginale und uterine Verkümmerung tritt häufig innerhalb der ersten fünf
 
 ##### Erhöhter Libido
 
-{!{ <div class="gutter flex flex-end">{{import '~/tweet' ids=[
-  '1374040823382347778'
-] tweets=meta.tweets className="hide-mentions" }}</div> }!}
+<Gutter>
+  <Tweet id="1374040823382347778" no-mention />
+</Gutter>
 
 Die Libido wird in den ersten ein oder zwei Jahren mit ziemlicher Sicherheit durch die Decke gehen, am stärksten unmittelbar nach der Testosteron-Einnahme. Sie können beim Sex durchsetzungsfähiger und häufiger dominant und/oder ein Top sein.
 
 ##### Orgasmus
 
-{!{ <div class="gutter">{{import '~/tweet' ids=[
-  '1374053191445270534'
-] tweets=meta.tweets className="hide-mentions" }}</div> }!}
+<Gutter>
+  <Tweet id="1374053191445270534" no-mention />
+</Gutter>
 
 Die „Form“ des Orgasmus wird sich ändern. Statt einer Kaskade schlägt es wie eine Explosion aus der Leiste zu.
 
@@ -205,9 +201,9 @@ Es wurde gezeigt, dass Testosteron die Erregung durch visuelle Reize erhöht. Da
 
 Die Erhöhung von Androgenen im Körper bewirkt, dass der Hypothalamus die Produktion des Hormons GnRH herunterreguliert und damit die Eierstöcke anweist, weniger Östrogene zu produzieren. Dies reduziert das verfügbare Gesamtöstrogen und kann den Eisprung stoppen. Ohne Eisprung und mit niedrigeren FSH-Spiegeln neigt die Gebärmutter seltener dazu, eine Schleimhaut aufzubauen und freizusetzen, was den Menstruationszyklus zum Stillstand bringt.
 
-{!{ <div class="gutter">{{import '~/tweet' ids=[
-  '1374054574579798016'
-] tweets=meta.tweets className="hide-mentions" }}</div> }!}
+<Gutter>
+  <Tweet id="1374054574579798016" no-mention />
+</Gutter>
 
 Es können jedoch noch andere Periodensymptome auftreten, da der Hypothalamus weiterhin andere Aspekte des monatlichen Zyklus ausdrücken kann. In seltenen Fällen kann dies sogar nach einer totalen Hysterektomie weitergehen.
 

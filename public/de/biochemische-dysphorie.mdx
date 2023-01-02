@@ -1,29 +1,14 @@
----
-date: "2020-01-26T20:41:55.827Z"
-title: "Wie sich Gender Dysphorie äußert: Biochemische Dysphorie"
-linkTitle: "Biochemische Dysphorie"
-description: "Die sehr realen und biologischen Faktoren der Geschlechtsdysphorie, die psychische Störungen verursachen."
-preBody: '_disclaimer'
-lang: de
-siblings:
-  prev: /de/körperliche-dysphorie
-  prevCaption: Körperliche Dysphorie
-  next: /de/soziale-dysphorie
-  nextCaption: Soziale Dysphorie
-classes:
-  - gdb
-tweets:
-  - '1215716438972993536'
-  - '1215736608055537670'
-  - '1215738145473474560'
-  - '1215740224325783553'
-  - '1222738910821978113'
-  - '1222739427312750594'
-  - '1222740261178105856'
-  - '1222742135067303937'
-  - '1222743360034758656'
-  - '1222743749920464896'
----
+import { PageMeta, Tweet, Gutter, Card } from '#src/common';
+import Disclaimer from './_disclaimer.mdx';
+
+<PageMeta
+  title="Wie sich Gender Dysphorie äußert: Biochemische Dysphorie"
+  linkTitle="Biochemische Dysphorie"
+  description="Die sehr realen und biologischen Faktoren der Geschlechtsdysphorie, die psychische Störungen verursachen."
+/>
+
+<Disclaimer />
+
 
 # Biochemische Dysphorie
 
@@ -31,35 +16,35 @@ Die primären Geschlechtsmerkmale des Körpers entwickeln sich in der 8. Schwang
 
 Wenn Ihr Gehirn auf ein Geschlechtshormon (wie Testosteron) festgelegt ist, Ihr Körper aber das andere Hormon (wie Östradiol) produziert, kann dies zu einer biochemischen Fehlfunktion in Ihrer Gehirnchemie führen. Dies erzeugt eine Art Gehirnnebel, eine Verringerung der geistigen Leistungsfähigkeit und einen allgemeinen Zustand von Angst und Unbehagen. Dies ist die Ursache für die beiden Symptome „Depersonalisierung“ und „Derealisierung“ (DP und DR), die häufig durch eine medizinische Hormontherapie gelindert werden.
 
-{!{
-<div class="gutter">
-<a class="card ig-card" href="https://www.instagram.com/p/B4fwhWAH2F-/">
-  <div class="ig-header">
-    <div class="ig-avatar" style="background-image: url({{images.theredgrrl.sizes.0.url}});"></div>
-    <div class="ig-name">
-      <strong>Brea</strong>
-      <span>theredgrrl</span>
+{/*
+<Gutter>
+  <a class="card ig-card" href="https://www.instagram.com/p/B4fwhWAH2F-/">
+    <div class="ig-header">
+      <div class="ig-avatar" style="background-image: url({{images.theredgrrl.sizes.0.url}});"></div>
+      <div class="ig-name">
+        <strong>Brea</strong>
+        <span>theredgrrl</span>
+      </div>
     </div>
-  </div>
-  {{#with images.brea_eyes}}
-  <img
-    src="{{rev sizes.0.url}}"
-    alt="{{alt}}"
-    srcset="{{#join sizes}}{{rev url}} {{width}}w{{/join}}"
-    sizes="{{#if srcSizes}}{{srcSizes}}{{else}}(max-width: 576px) 100vw, 576px{{/if}}"
-    class="ig-image"
-  >
-  {{/with}}
-  <p class="ig-caption">
-    [Übers.]<br>
-    #TransformationTuesday - Wie ich schon oft beschrieben habe kann man die Lebensfreude an den Augen ablesen. Den größten Unterschied kann man bei Trans-Personen nach der Transition sehen. Vorher sehen sie traurig aus oder als ob Sie in der Vergangenheit schwelgen. Danach leuchten sie im Hier und Jetzt.
-  </p>
-  <p class="ig-footer">
-    <time datetime="2019-11-05T19:54:45+00:00">Nov 5, 2019</time>
-  </p>
-</a>
-</div>
-}!}
+    {{#with images.brea_eyes}}
+    <img
+      src="{{rev sizes.0.url}}"
+      alt="{{alt}}"
+      srcset="{{#join sizes}}{{rev url}} {{width}}w{{/join}}"
+      sizes="{{#if srcSizes}}{{srcSizes}}{{else}}(max-width: 576px) 100vw, 576px{{/if}}"
+      class="ig-image"
+    >
+    {{/with}}
+    <p class="ig-caption">
+      [Übers.]<br>
+      #TransformationTuesday - Wie ich schon oft beschrieben habe kann man die Lebensfreude an den Augen ablesen. Den größten Unterschied kann man bei Trans-Personen nach der Transition sehen. Vorher sehen sie traurig aus oder als ob Sie in der Vergangenheit schwelgen. Danach leuchten sie im Hier und Jetzt.
+    </p>
+    <p class="ig-footer">
+      <time datetime="2019-11-05T19:54:45+00:00">Nov 5, 2019</time>
+    </p>
+  </a>
+</Gutter>
+*/}
 
 **Depersonalisierung** ist eine Trennung von Ihrem eigenen Körper, eine Unfähigkeit zu glauben, dass die Person, die Sie im Spiegel sehen, tatsächlich Sie selbst sind. Sie haben das Gefühl, jemand anderen in Ihrem Körper zu beobachten. Möglicherweise kümmern Sie sich nicht darum, was mit Ihrem Körper passiert. Sie sorgen sich nicht um Gewichtsveränderungen oder Ihre Fitness, weil Sie kein Eigentum an dieser fleischigen Hülle haben, die Sie durch Ihr Leben transportiert.
 
@@ -82,12 +67,14 @@ Möglicherweise legen Sie wenig Wert auf Ihr Erscheinungsbild: auf das nötigste
 
 Möglicherweise kümmert Sie der Zustand Ihres Körpers nicht, eventuell fürchten Sie nicht einmal den Tod, weil Sie so wenig an dieses Leben gebunden sind.
 
-{!{ <div class="gutter">{{import '~/tweet' ids=[
-  '1215716438972993536'
-  '1215736608055537670'
-  '1215738145473474560'
-  '1215740224325783553'
-] tweets=meta.tweets className="oneblock" }}</div> }!}
+<Gutter>
+  <Tweet unified>
+    <Tweet id="1215716438972993536" />
+    <Tweet id="1215736608055537670" />
+    <Tweet id="1215738145473474560" />
+    <Tweet id="1215740224325783553" />
+  </Tweet>
+</Gutter>
 
 **Derealisierung** ist eine Ablösung von der Welt um Sie herum. Ein Gefühl, dass alles Wahrgenommene, irgendwie falsch ist.
 
@@ -123,14 +110,16 @@ All diese Gefühle sind gültig und nur weil Sie sich an einem Tag sehr dysphori
 
 ### Das passiert in beide Richtungen
 
-{!{ <div class="gutter">{{import '~/tweet' ids=[
-  '1222738910821978113'
-  '1222739427312750594'
-  '1222740261178105856'
-  '1222742135067303937'
-  '1222743360034758656'
-  '1222743749920464896'
-] tweets=meta.tweets className="oneblock" }}</div> }!}
+<Gutter>
+  <Tweet unified>
+    <Tweet id="1222738910821978113" />
+    <Tweet id="1222739427312750594" />
+    <Tweet id="1222740261178105856" />
+    <Tweet id="1222742135067303937" />
+    <Tweet id="1222743360034758656" />
+    <Tweet id="1222743749920464896" />
+  </Tweet>
+</Gutter>
 
 Manche Leute behaupten, dass eine Hormonersatztherapie immer die psychische Gesundheit verbessert. Auch ich habe das schon mal gehört, zum Beispiel als seine Mutter kam und meinte: "Östrogen macht alle glücklicher." Das ist absolut falsch. Wenn Cis-Patienten eine Gegengeschlechtliche Hormonersatztherapie erhalten, führt dies immer zu Dysphorie. Dies ist ein Grund, warum Spironolacton (Testosteronblocker) Männern selten verschrieben wird, da der Anti-Androgen-Faktor geistige Instabilität verursacht. Fünf bis zehn Prozent der Cis-Frauen leiden unter dem polyzystischen Ovarialsyndrom (PCOS), einer Erkrankung, bei der die Eierstöcke Testosteron anstelle von Östrogen produzieren. Fragen Sie eine von ihnen wie es Ihnen damit geht; Sie wird Ihnen Ihr Leid klagen.
 

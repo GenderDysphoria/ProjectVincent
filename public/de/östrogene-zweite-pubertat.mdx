@@ -1,18 +1,13 @@
----
-date: "2020-01-26T20:41:55.827Z"
-title: "Östrogene zweite Pubertät 101"
-linkTitle: Östrogene Pubertät
-description: "Was Sie von einer feminisierenden Hormonersatztherapie erwarten können"
-preBody: '_disclaimer'
-lang: de
-siblings:
-  prev: /de/androgene-zweite-pubertät
-  prevCaption: Androgene zweite Pubertät
-  next: /de/zusammenfassung
-  nextCaption: Zusammenfassung
-classes:
-  - gdb
----
+import { PageMeta, Note, Gutter, Card } from '#src/common';
+import Disclaimer from './_disclaimer.mdx';
+
+<PageMeta
+  title="Östrogene zweite Pubertät 101"
+  linkTitle="Östrogene Pubertät"
+  description="Was Sie von einer feminisierenden Hormonersatztherapie erwarten können"
+/>
+
+<Disclaimer />
 
 # Östrogene zweite Pubertät 101
 
@@ -42,11 +37,18 @@ Testosteron verursacht Wassereinlagerungen in Bändern und Sehnen, wodurch diese
 
 ### Schmalere Hände und Armgelenke
 
-{!{
-<div class="gutter flex">
-{{import '~/img' images.hands className="card" caption="Die Hände des Autors. Veränderung innerhalb von dreieinhalb Jahren."}}
-</div>
-}!}
+<Gutter>
+  <Card>
+    <Card.Media
+      component={Image}
+      src="/en/images/hands.jpg"
+      alt="Zwei rechte Hände nebeneinander. Die linke Hand ist vor dem Übergang und viel dicker als die rechte Hand."
+    />
+    <Card.Content>
+      Die Hände des Autors. Veränderung innerhalb von dreieinhalb Jahren.
+    </Card.Content>
+  </Card>
+</Gutter>
 
 Wenn die Haut weicher und schlanker wird, beginnen die Hände langsam kleiner zu werden. Ohne Testosteron fließt weniger Blut zu den Händen, was zu einer weiteren Verringerung der Gewebegröße führt. Die Ringgröße nimmt ab, wenn sich Fett und Flüssigkeit von den Fingern verlagern. Die Fingerlänge verkürzt sich, da die Bänder dünner und dehnbarer werden. 
 
@@ -122,11 +124,14 @@ Wenn Sie ADHS haben, können sich Ihre Symptome ändern. Androgene verstärken d
 
 Die gute Nachricht ist, dass Östradiol das Gehirn dazu veranlasst, mehr Dopamin zu produzieren.
 
-{!{ <div class="gutter flex" style="justify-content: flex-end"><div class="card"><div class="card-body"><h4 class="card-title">Anmerkung des Autors:</h4> }!}
-
-Es ist bekannt das sich Spironolacton negativ auf das Kurzzeitgedächtnis auswirkt, weil die Mineralokortikoide beeinträchtigt wird. Dies kann ADHS-Probleme erheblich verschlimmern und es viel schwieriger machen, sich zu konzentrieren und sich Ihrer Umgebung bewusst zu sein. Ich war 2017 in einen Autounfall verwickelt, für den ich Spironebel verantwortlich mache.
-
-{!{ </div></div></div> }!}
+<Gutter>
+  <Card>
+    <Card.Header>Anmerkung des Autors:</Card.Header>
+    <Card.Content>
+      Es ist bekannt das sich Spironolacton negativ auf das Kurzzeitgedächtnis auswirkt, weil die Mineralokortikoide beeinträchtigt wird. Dies kann ADHS-Probleme erheblich verschlimmern und es viel schwieriger machen, sich zu konzentrieren und sich Ihrer Umgebung bewusst zu sein. Ich war 2017 in einen Autounfall verwickelt, für den ich Spironebel verantwortlich mache.
+    </Card.Content>
+  </Card>
+</Gutter>
 
 ##### Emotionale Bandbreite
 
@@ -173,11 +178,15 @@ Die Leute haben auch von einer Tendenz berichtet, weniger anfällig für Streiti
 
 ### Genitalienveränderungen
 
-{!{
-<div class="gutter flex">
-{{import '~/img' images.homology link='https://www.vielma.at/' }}
-</div>
-}!}
+<Gutter>
+  <Card>
+    <Card.Media
+      component={Image}
+      src="/en/images/homology.jpg"
+      href="https://www.vielma.at/"
+    />
+  </Card>
+</Gutter>
 
 Alle Genitalien sind aus dem gleichen Gewebe aufgebaut – sie wurden lediglich während der Schwangerschaft unterschiedlich organisiert. Das Verhalten des Gewebes wird zum großen Teil durch die Hormone gesteuert. Hautsekrete, Texturen, Empfindlichkeit und erektiles Verhalten sind alles hormonelle Ausdrücke. Beim Hinzufügen von Östrogenen und entfernen von Androgenen beginnt sich das Gewebe so zu verhalten als hätten sie die Form einer Vulva, auch wenn dies nicht der Fall ist.
 
@@ -219,17 +228,20 @@ Beim Beginn einer HRT kann es zu einem vollständigen Verlust des Sexualtriebs f
 
 ##### Vergrößerte Erogene Zone
 
-{!{
-<div class="gutter flex">
-  <div class="card"><div class="card-body"><h4 class="card-title">Menschliche Erogene Zonen:</h4>
-{{import '~/img'
-  images.erogenous
-  link='https://www.researchgate.net/publication/301509880_Topography_of_Human_Erogenous_Zones#pf19'
-  caption='Quelle: <a href=\"https://link.springer.com/article/10.1007/s10508-016-0745-z\">Topography of Human Erogenous Zones</a>'
-}}
-  </div></div>
-</div>
-}!}
+<Gutter>
+  <Card>
+    <Card.Header>Human Erogenous Zones:</Card.Header>
+    <Card.Media
+      component={Image}
+      src="/en/images/homology.jpg"
+      alt="Chart of steroid metabolism flow"
+      href="https://www.researchgate.net/publication/301509880_Topography_of_Human_Erogenous_Zones#pf19"
+    />
+    <Card.Content>
+      Source: <a href="https://link.springer.com/article/10.1007/s10508-016-0745-z">Topography of Human Erogenous Zones</a>
+    </Card.Content>
+  </Card>
+</Gutter>
 
 Der gesamte Körper reagiert sensibler auf Berührungen und schaltet damit größere erogene Zonen frei. Vor allem Brüste, Bauch, Oberschenkelinnenseiten und Nacken werden erregungsfördernder.
 

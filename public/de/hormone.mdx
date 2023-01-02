@@ -1,18 +1,13 @@
----
-date: "2020-01-26T20:41:55.827Z"
-title: "Hormone: Wie sie funktionieren"
-linkTitle: "Wie Hormone funktionieren"
-description: "Schlüssel, Schlösser und Autozündungen"
-preBody: '_disclaimer'
-lang: de
-siblings:
-  prev: /de/chromosomen
-  prevCaption: Chromosomen
-  next: /de/androgene-zweite-pubertät
-  nextCaption: Androgene zweite Pubertät
-classes:
-  - gdb
----
+import { PageMeta, Note, Gutter, Card } from '#src/common';
+import Disclaimer from './_disclaimer.mdx';
+
+<PageMeta
+  title="Hormone: Wie sie funktionieren"
+  linkTitle="Wie Hormone funktionieren"
+  description="Schlüssel, Schlösser und Autozündungen"
+/>
+
+<Disclaimer />
 
 # Wie Hormone funktionieren
 
@@ -43,12 +38,19 @@ Es gibt vier Hauptkategorien von Hormonen:
 - [Eicosanoide](https://de.wikipedia.org/wiki/Eicosanoide) die aus Lipiden und Fettsäuren gebildet werden und überwiegend das Immunsystem beeinflussen
 - [Steroide](https://de.wikipedia.org/wiki/Steroide) sind Signalmoleküle, welche für die Kommunikation von Organen untereinander beeinflussen
 
-{!{ <div class="gutter print-span3">{{import '~/img' images.steroidogenesis
-  className="card"
-  link="https://en.wikipedia.org/wiki/File:Steroidogenesis.svg"
-  external=1
-  caption="Alle Steroide werden aus Cholesterinen gebildet (oben links) und leiten sich von anderen Steroiden ab. Gestagene wandeln sich zu Androgenen, welche sich wiederum zu Östrogenen formen. Dies ist eine Einbahnstraße. Es ist also falsch, wenn jemand sagt „zu viel Östrogen verwandelt sich in Testosteron“. Richtig ist: „zu viel Testosteron wandelt sich in Östrogen“."
-}}</div> }!}
+<Gutter>
+  <Card>
+    <Card.Media
+      component={Image}
+      src="/en/images/steroidogenesis.svg"
+      alt="Chart of steroid metabolism flow"
+    />
+    <Card.Content>
+      Alle Steroide werden aus Cholesterinen gebildet (oben links) und leiten sich von anderen Steroiden ab. Gestagene wandeln sich zu Androgenen, welche sich wiederum zu Östrogenen formen. Dies ist eine Einbahnstraße. Es ist also falsch, wenn jemand sagt „zu viel Östrogen verwandelt sich in Testosteron“. Richtig ist: „zu viel Testosteron wandelt sich in Östrogen“.
+      https://en.wikipedia.org/wiki/File:Steroidogenesis.svg
+    </Card.Content>
+  </Card>
+</Gutter>
 
 Für die Transition ist uns diese letzte Kategorie am wichtigsten, da alle Sexualhormone Steroide sind. Diese fallen in sieben Hauptkategorien:
 
@@ -80,19 +82,22 @@ Die Rolle von **Östron** im Körper war in der medizinischen Forschung ein Rät
 
 Neue Forschungen deuten darauf hin, dass der Körper den Gesamt-Östradiolspiegel regulieren kann, indem er HSD17B1 freisetzt, um Östradiol in Östron umzuwandeln, und HSD17B2 freisetzt, um es wieder zurückzuwandeln. Die Studie ist jedoch sehr jung und weitere Forschung dazu ist nötig. Beide Enzyme werden im Brustgewebe produziert und können bei Personen die keine Eierstöcke haben, wie zum Beispiel Transfrauen, Zyklus-ähnliche Symptome auslösen.
 
-{!{ <div class="gutter"><div class="card"><div class="card-body"><h4 class="card-title">Zu Ihrer Information</h4> }!}
+<Gutter>
+  <Card>
+    <Card.Header>Zu Ihrer Information</Card.Header>
+    <Card.Content>
+      **Warum bekommen AFAB-Trans-Personen keinen Östrogenblocker neben dem Testosteron verschrieben?**
 
-**Warum bekommen AFAB-Trans-Personen keinen Östrogenblocker neben dem Testosteron verschrieben?**
+      Es gibt zwei verschiedene Quellen für Östrogene im weiblichen Fortpflanzungssystem. Eierstöcke enthalten Tausende von Follikeln, Zellstrukturen, die Eier produzieren. Die Hirnanhangdrüse produziert das luteinisierende Hormon (LH) und das follikelstimulierende Hormon (FSH), dass die Follikel dazu anregen, sich zu Lutealzellen zu wandeln. Thekazellen innerhalb des Follikels produzieren Testosteron und Granulosazellen produzieren das Enzym [Aromatase](https://de.wikipedia.org/wiki/Aromatase), das dieses Testosteron in Östradiol umwandelt. Dies ist die erste Östrogenquelle, aber nicht die größte.
 
-Es gibt zwei verschiedene Quellen für Östrogene im weiblichen Fortpflanzungssystem. Eierstöcke enthalten Tausende von Follikeln, Zellstrukturen, die Eier produzieren. Die Hirnanhangdrüse produziert das luteinisierende Hormon (LH) und das follikelstimulierende Hormon (FSH), dass die Follikel dazu anregen, sich zu Lutealzellen zu wandeln. Thekazellen innerhalb des Follikels produzieren Testosteron und Granulosazellen produzieren das Enzym [Aromatase](https://de.wikipedia.org/wiki/Aromatase), das dieses Testosteron in Östradiol umwandelt. Dies ist die erste Östrogenquelle, aber nicht die größte.
+      Hinweis: Das ist übrigens der Grund warum in den Eierstöcken beim Polyzystischen Ovar Syndrom (PCOS) Testosteron produziert wird; die Eierstockzysten stören die Aromataseproduktion, sodass das Testosteron nicht umgewandelt wird.
 
-Hinweis: Das ist übrigens der Grund warum in den Eierstöcken beim Polyzystischen Ovar Syndrom (PCOS) Testosteron produziert wird; die Eierstockzysten stören die Aromataseproduktion, sodass das Testosteron nicht umgewandelt wird.
+      Zwei Wochen nach Beginn des Periodenzyklus weist der Hypothalamus die Hypophyse an, einen drei- bis viermal stärkeren Anstieg von LH und FSH zu produzieren als zu Beginn des Zyklus. Dieser Anstieg führt dazu, dass die Follikel anschwellen, bis einer platzt und ein Ei freisetzt. An diesem Punkt werden die Reste des Follikels zu einer Struktur, die als Corpus luteum bekannt ist. Dieser Gelbkörper beginnt dann, Progesteron und deutlich mehr Östrogene zu produzieren, um die Gebärmutter auf eine befruchtete Eizelle vorzubereiten. Dies ist die zweite Quelle.
 
-Zwei Wochen nach Beginn des Periodenzyklus weist der Hypothalamus die Hypophyse an, einen drei- bis viermal stärkeren Anstieg von LH und FSH zu produzieren als zu Beginn des Zyklus. Dieser Anstieg führt dazu, dass die Follikel anschwellen, bis einer platzt und ein Ei freisetzt. An diesem Punkt werden die Reste des Follikels zu einer Struktur, die als Corpus luteum bekannt ist. Dieser Gelbkörper beginnt dann, Progesteron und deutlich mehr Östrogene zu produzieren, um die Gebärmutter auf eine befruchtete Eizelle vorzubereiten. Dies ist die zweite Quelle.
-
-Die Einnahme von Testosteron bewirkt, dass der Hypothalamus die Gene deaktiviert, die die LH- und FSH-Spitze auslösen, sodass die Follikel nie reif werden. Damit findet kein Eisprung statt und der Gelbkörper wird nie gebildet. Das bewirkt das Versiegen der bedeutendsten Östrogenquelle.
-
-{!{ </div></div></div> }!}
+      Die Einnahme von Testosteron bewirkt, dass der Hypothalamus die Gene deaktiviert, die die LH- und FSH-Spitze auslösen, sodass die Follikel nie reif werden. Damit findet kein Eisprung statt und der Gelbkörper wird nie gebildet. Das bewirkt das Versiegen der bedeutendsten Östrogenquelle.
+    </Card.Content>
+  </Card>
+</Gutter>
 
 ### Progesteron
 

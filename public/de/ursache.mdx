@@ -1,26 +1,14 @@
----
-date: "2020-01-26T20:41:55.827Z"
-title: "Was ist die Ursache des Geschlechtskonflikts?"
-linkTitle: "Die Ursache des Geschlechtskonflikts"
-description: "Chromosomen sind nur ein Ablenkungsmanöver, es sind die Hormone, die Sie im Auge behalten müssen"
-preBody: '_disclaimer'
-lang: de
-siblings:
-  prev: /de/behandlung
-  prevCaption: Die Behandlung von Gender Dysphorie
-  next: /de/chromosomen
-  nextCaption: Aber… aber die Chromosomen!!!
-classes:
-  - gdb
-tweets:
-  - https://twitter.com/LisaTMullin/status/1224039568971710464
-  - https://twitter.com/LisaTMullin/status/1224040716365524993
-  - https://twitter.com/LisaTMullin/status/1224041800513380352
-  - https://twitter.com/LisaTMullin/status/1224041800513380352
-  - https://twitter.com/LisaTMullin/status/1224042620164296705
-  - https://twitter.com/LisaTMullin/status/1224043995413639168
-  - https://twitter.com/LisaTMullin/status/1224044949160611840
----
+import { PageMeta, Gutter, Image, Card, Tweet, Text } from '#src/common';
+import Disclaimer from './_disclaimer.mdx';
+
+<PageMeta
+  title="Was ist die Ursache des Geschlechtskonflikts?"
+  linkTitle="Die Ursache des Geschlechtskonflikts"
+  description="Chromosomen sind nur ein Ablenkungsmanöver, es sind die Hormone, die Sie im Auge behalten müssen"
+/>
+
+<Disclaimer />
+
 
 # Was ist die Ursache des Geschlechtskonflikts?
 
@@ -30,22 +18,30 @@ Im Folgenden wird die Wissenschaft beschrieben, von der angenommen wird, dass si
 
 Folgendes wissen wir heute. Wenn Sie den Film „Jurassic Park“ gesehen haben, können Sie sich bestimmt an folgende Szene erinnern:
 
-{!{
-  {{import '~/img' images.jurassicpark
-    className="card borderless center span34"
+<Card>
+  <Card.Media
+    component={Image}
+    src="/en/images/jurassicpark.jpg"
     alt="Alle Embryos reifen weiblich heran. Alles was sie benötigen ist ein extra Hormon zur rechten Zeit, um die Entwicklung Richtung männlich zu lenken."
-    caption="Dies ist keine Science-Fiction, auch wenn es abgedroschen klingt."
-  }}
-}!}
+  />
+  <Card.Content>
+    Dies ist keine Science-Fiction, auch wenn es abgedroschen klingt
+  </Card.Content>
+</Card>
 
-{!{
-<div class="gutter flex flex-center print-span3">
-  {{import '~/img' images.fetalgenitals
-    className="card"
-    caption="<a href=\"https://schoolbag.info/biology/concepts/188.html\">Quelle</a>"
-  }}
-</div>
-}!}
+
+<Gutter>
+  <Card>
+    <Card.Media
+      component={Image}
+      src="/en/images/fetalgenitals.jpg"
+      alt="Fetal development of internal sexual anatomy"
+    />
+    <Card.Content>
+      <a href="https://schoolbag.info/biology/concepts/188.html">Quelle</a>
+    </Card.Content>
+  </Card>
+</Gutter>
 
 Bei menschlichen Föten entwickeln sich die Gonaden zunächst in einem bi-potenziellen Zustand. Sie können sich entweder zu Eierstöcken oder Hoden entwickeln. Das SRY-Gen, das auf dem Y-Chromosom sitzt, setzt ein Protein namens [„Testis Determining Factor“](https://de.wikipedia.org/wiki/Sex_determining_region_of_Y) (TDF) frei. Dieses Protein startet dann eine Kettenreaktion mit Hilfe der SOX9-Produktion (ein anderes Protein), welches bewirkt, dass sich die Gonadenzellen zu den Sertoli und Leydig-Zellen bilden, aus denen die Hoden bestehen. Wenn TDF nicht produziert wird - oder die Produktion gestört wird - bilden sich die Gonadenzellen zu Theca-Zellen und Follikeln, aus denen die Eierstöcke bestehen.
 
@@ -57,19 +53,17 @@ Dies ist als Swyer-Syndrom bekannt, und eine unbekannte Zahl von Frauen leidet d
 
 Tatsache ist, dass die meisten Menschen noch nie auf den genetischen Karyotyp getestet wurden. Daher wissen wir nicht, wie häufig diese Fälle tatsächlich sind. An welcher Stelle wirkt sich dies auf die Geschlechtsidentität aus? Nun, genau derselbe Prozess, der auf die Differenzierung der äußeren Genitalien einwirkt, tritt auch im Gehirn auf.
 
-{!{
-<div class="gutter">
-  <strong style="display: block;text-align: center;">Und es wird noch verrückter!</strong>
-  {{import '~/tweet' ids=[
-    '1224039568971710464'
-    '1224040716365524993'
-    '1224041800513380352'
-    '1224042620164296705'
-    '1224043995413639168'
-    '1224044949160611840'
-  ] tweets=meta.tweets className="oneblock hide-reply" }}
-</div>
-}!}
+<Gutter>
+  <Text center>Und es wird noch verrückter!</Text>
+  <Tweet unified no-reply>
+    <Tweet id="1224039568971710464" />
+    <Tweet id="1224040716365524993" />
+    <Tweet id="1224041800513380352" />
+    <Tweet id="1224042620164296705" />
+    <Tweet id="1224043995413639168" />
+    <Tweet id="1224044949160611840" />
+  </Tweet>
+</Gutter>
 
 ### Zweigeteiltes Gehirn
 

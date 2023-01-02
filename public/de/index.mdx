@@ -1,89 +1,30 @@
----
-date: "2021-11-04T12:06:06.311Z"
-title: "Die Gender Dysphorie Bibel"
-linkTitle: Einleitung
-description: "Ein Eintauchen in die Vielfalt der Arten, wie sich Gender-Dysphorie manifestiert und was es bedeutet, Transgender zu sein."
-preBody: '_disclaimer'
-lang: de
-siblings:
-  next: /de/was-ist-gender
-  nextCaption: Was ist Gender?
-classes:
-  - gdb
----
+import { Quote, PageMeta, Image, Gutter, Card, Grid } from '#src/common';
+import Disclaimer from './_disclaimer.mdx';
 
+<PageMeta
+  title="Die Gender Dysphorie Bibel"
+  linkTitle="Einleitung"
+  description="Ein Eintauchen in die Vielfalt der Arten, wie sich Gender-Dysphorie manifestiert und was es bedeutet, Transgender zu sein."
+  url="/de/"
+/>
 
-{!{
-{{import
-  '~/img'
-  images.titlecard
+<Disclaimer />
+
+<Image
+  src="/de/titlecard.png"
   srcSizes="(max-width: 800px) 100vw, (max-width: 1000px) 70vw, 767px"
   alt="Die Gender Dysphorie Bibel"
-  style="margin-bottom: 1em;"
-  imgStyle="width: 100%"
-}}
-}!}
-
-### Table of Contents:
-
-{!{ <div class="two-column-list"> }!}
-
-1. [Einleitung](#Einleitung)
-
-2. [Was ist Gender?](/de/was-ist-gender)
-
-3. [Eine Geschichtstunde zu Gender Dysphorie](/de/geschichte)
-
-4. [Gender Euphorie](/de/euphorie)
-
-5. [Körperliche Dysphorie](/de/körperliche-dysphorie)
-
-6. [Biochemische Dysphorie](/de/biochemische-dysphorie)
-
-7. [Soziale Dysphorie](/de/soziale-dysphorie)
-
-8. [Gesellschaftliche Dysphorie](/de/gesellschaftliche-dysphorie)
-
-9. [Sexuelle Dysphorie](/de/sexuelle-dysphorie)
-
-10. [Präsentationsdysphorie](/de/präsentationsdysphorie)
-
-11. [Existentielle Dysphorie](/de/existentielle-dysphorie)
-
-12. [Gemanagte Dysphorie](/de/gemanagte-dysphorie)
-
-13. [Impostor Syndrom](/de/impostor-syndrom)
-
-14. [Bin ich Trans?](/de/bin-ich-trans)
-
-15. [Klinische Diagnosen](/de/diagnose)
-
-16. [Behandlung von Gender Dysphorie](/de/behandlung)
-
-17. [Ursache des Geschlechtskonflikts](/de/ursache)
-
-18. [Chromosomen](/de/chromosomen)
-
-19. [Wie Hormone funktionieren](/de/hormone)
-
-20. [Androgene zweite Pubertät 101](/de/androgene-zweite-pubertät)
-
-21. [Östrogene zweite Pubertät 101](/de/östrogene-zweite-pubertat)
-
-22. [Zusammenfassung](/de/zusammenfassung)
-
-{!{ </div> }!}
-
-<hr class="print-break-after print-hidden">
+  titlecard
+/>
 
 ## Einleitung
 
-{!{
-<div class="gutter"><blockquote>
-  <strong>Trans·gen·der</strong> - <em>Adjektiv</em><br>
-  Bezeichnet Personen deren persönliche Identität und Geschlecht nicht dem bei der Geburt zugewiesenem Geschlecht entspricht.
-</blockquote></div>
-}!}
+<Gutter>
+  <Quote>
+    <dt>Trans·gen·der</dt> - <em>Adjektiv</em>
+    <dd>Bezeichnet Personen deren persönliche Identität und Geschlecht nicht dem bei der Geburt zugewiesenem Geschlecht entspricht.</dd>
+  </Quote>
+</Gutter>
 
 Seit es die menschliche Zivilisation gibt, gibt es Menschen, deren körperliche Erfahrungen nicht mit denen ihres inneren Geschlechts und den physischen Merkmalen ihres Körpers übereinstimmten. Die [Gala](https://de.abcdef.wiki/wiki/Gala_(priests)), eine Priesterklasse mittleren Geschlechts des sumerischen Reiches, traten vor über 4500 Jahren auf. Die indigenen Kulturen Nordamerikas haben weit vor dem europäischen Kolonialismus [ein drittes Geschlecht anerkannt](https://de.wikipedia.org/wiki/Drittes_Geschlecht) und tun dies bis heute. Der römische Kaiser Elagabalus (218 n. Chr.) Bestand darauf, als Lady statt als Lord bezeichnet zu werden, und stellte sogar eine Belohnung bereit für jeden, der eine Genitalrekonstruktion durchführen konnte. 
 
@@ -104,12 +45,12 @@ Der Zweck dieser Website ist es, die vielen Arten aufzuzeigen, wie sich Gender D
 - die schon auf dem Weg ihrer Transition sind,
 - sowie diejenigen die einfach bessere Verbündete sein wollen.
 
-{!{
-<div class="gutter flex flex-end print-inline print-span2 print-center">
-<span>Titelgrafik nach Werken von <a href="https://www.instagram.com/jp_means_jumpei/">Jumpei JP Ueoka</a></span>
-<div class="grid-row" style="grid-template-columns: 1fr 1fr">
-{{import '~/img' images.jpjumpei_1 className="" link="https://www.instagram.com/p/Bq2uRCtFttU/"}}
-{{import '~/img' images.jpjumpei_2 className="" link="https://www.instagram.com/p/BlA3IUrAnTi/"}}
-</div>
-</div>
-}!}
+<Card>
+  <Card.Content>
+    <Text muted>Titelgrafik nach Werken von [Jumpei JP Ueoka](https://www.instagram.com/jp_means_jumpei/)</Text>
+  </Card.Content>
+  <Grid columns={2}>
+    <Image src="/en/images/jpjumpei_1.jpg" href="https://www.instagram.com/p/Bq2uRCtFttU/" />
+    <Image src="/en/images/jpjumpei_2.jpg" href="https://www.instagram.com/p/BlA3IUrAnTi/" />
+  </Grid>
+</Card>

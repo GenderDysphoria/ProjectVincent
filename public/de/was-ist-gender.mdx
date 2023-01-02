@@ -1,31 +1,22 @@
----
-date: "2021-11-04T22:05:11.183"
-title: "Was ist Gender?"
-description: "Wie definieren wir das Konzept von Gender und wie unterscheidet es sich von Sex?"
-preBody: '_disclaimer'
-lang: de
-siblings:
-  prev: /de/index
-  prevCaption: Einleitung
-  next: /de/geschichte
-  nextCaption: Eine Geschichtstunde zu Gender Dysphorie
-classes:
-  - gdb
-tweets:
-  - '1228717614630940672'
-  - '1439225913623781377'
----
+import { PageMeta, Note, Gutter, Card } from '#src/common';
+import Disclaimer from './_disclaimer.mdx';
+
+<PageMeta
+  title="Was ist Gender?"
+  linkTitle="Was ist Gender?"
+  description="Wie definieren wir das Konzept von Gender und wie unterscheidet es sich von Sex?"
+/>
+
+<Disclaimer />
 
 # Was ist Gender?
 
-{!{
-<div class="gutter">
-  <blockquote>
-    <strong>Gen·der</strong> - <em>Substantiv, n</em><br>
-    Die Bandbreite der Merkmale, welche sich auf Weiblichkeit und Männlichkeit beziehen und zwischen ihnen unterscheiden. Dazu kann je nach Kontext das biologische Geschlecht, geschlechtsbasierte soziale Strukturen (d.h. Geschlechterrollen) oder die Geschlechtsidentität (das persönliche Empfinden des eigenen Geschlechts) gehören.
-  </blockquote>
-</div>
-}!}
+<Gutter>
+  <Quote>
+    <dt>Gen·der</dt> - <em>Substantiv, n</em><br />
+    <dd>Die Bandbreite der Merkmale, welche sich auf Weiblichkeit und Männlichkeit beziehen und zwischen ihnen unterscheiden. Dazu kann je nach Kontext das biologische Geschlecht, geschlechtsbasierte soziale Strukturen (d.h. Geschlechterrollen) oder die Geschlechtsidentität (das persönliche Empfinden des eigenen Geschlechts) gehören.</dd>
+  </Quote>
+</Gutter>
 
 Wenn Sie das Wort Gender auf die lateinischen Wurzeln zurückführen, bedeutet Gender einfach nur „Typ“. Der normannisch-französische Begriff „Gendre“ wurde im 12. Jahrhundert verwendet um „die Männlichkeit oder Weiblichkeit“ zu beschreiben. 
 
@@ -35,14 +26,12 @@ Viele Leute schreiben den Begriff dem Psychologen John Money zu, der 1955 vorsch
 >
 > Margaret Mead geht von der spezifischen Abgrenzung zum allgemeineren Vergleich von Männern und Frauen in mehreren Gesellschaften über und kommt schließlich zu einer Analyse der Geschlechtsmuster in unserer eigenen Mitte und für unsere eigene Zeit.
 
-{!{
-<div class="gutter">
-  {{import '~/tweet' ids=[
-    '1228717614630940672'
-    '1439225913623781377'
-  ] tweets=meta.tweets className="hide-reply" }}
-</div>
-}!}
+<Gutter>
+  <Tweet unified no-reply>
+    <Tweet id="1228717614630940672" />
+    <Tweet id="1439225913623781377" />
+  </Tweet>
+</Gutter>
 
 Das menschliche Geschlecht wird in drei Kategorien unterteilt:
 
@@ -52,29 +41,33 @@ Das menschliche Geschlecht wird in drei Kategorien unterteilt:
 
 Jeder dieser drei Aspekte kann in einen weitläufigen Wertebereich fallen. Im Biologieunterricht der Sekundarstufe wurde Ihnen wahrscheinlich beigebracht, dass der Genotyp binär ist, entweder weiblich (XX) oder männlich (XY) auch wenn es in der Realität dutzende anderer Permutationen gibt, die beim Menschen auftreten können.
 
-{!{ {{import '~/img' images.bimodal className="card borderless center span34 print-right print-span3"}} }!}
+<Image
+  src="/en/images/bimodal.png"
+/>
 
 Ebenso glauben viele Menschen, dass der Phänotyp auch binär ist, aber die Evolution zeigt seit Jahrhunderten das die sexuellen Merkmale einer Population sich nach einem bimodalen Modell (siehe Grafik) verteilt, bei der die Mehrheit der Bevölkerung innerhalb eines Perzentils von zwei Gruppen liegt. Die meisten Personen haben eindeutig männliche bzw. weibliche Merkmale; dies bedeutet aber auch, dass manche Menschen einfach von Natur aus außerhalb der typischen zwei Hauptgruppen liegen. Bei manchen Menschen fallen die Merkmale in die Mitte: mit Merkmalen beider Geschlechter.
 
 Gender ist jedoch viel… abstrakter. Es gibt viele verschiedene Arten wie Menschen versucht haben das Geschlechtsspektrum zu veranschaulichen, aber bisher ist es noch auf keine Art ganzheitlich gelungen, da das Spektrum selbst ein sehr abstraktes Konzept ist.
 
-{!{
-<div class="">
-  <div class="card">
-    <div class="card-header"><strong>Einige Methoden die Versuchen Gender zu beschreiben:</strong></div>
-    <div class="card-body flex flex-row">
-      {{import '~/img' images.spectrum }}
-      {{import '~/img' images.graph }}
-      {{import '~/img' images.gender_unicorn className="" }}
-    </div>
-    <div class="card-body">
-      <em>Quellen:</em>
-      [<a href="https://bahamutzero.tumblr.com/post/56838411871/gender-a-visual-guide-when-most-people-think-of">Tumblr</a>]
-      [<a href="http://www.transstudent.org/gender">TransStudent.org</a>]
-    </div>
-  </div>
-</div>
-}!}
+<Card>
+  <Card.Header>Einige Methoden die Versuchen Gender zu beschreiben</Card.Header>
+  <FlexRow justify="space-around">
+    <Image
+      src="/en/images/spectrum.jpg"
+    />
+    <Image
+      src="/en/images/graph.jpg"
+    />
+    <Image
+      src="/en/images/gender_unicorn.jpg"
+    />
+  </FlexRow>
+  <Card.Content>
+    <em>Sources:</em>
+    \[<a href="https://bahamutzero.tumblr.com/post/56838411871/gender-a-visual-guide-when-most-people-think-of">Tumblr</a>\]
+    \[<a href="http://www.transstudent.org/gender">TransStudent.org</a>\]
+  </Card.Content>
+</Card>
 
 In kurz: Einige Personen sind sehr männlich, einige Personen sind sehr weiblich, einige Personen fühlen überhaupt kein Geschlecht zugehörig, einige Personen fühlen sich beiden Geschlechtern zugehörig, einige Personen befinden sich zwischen den Geschlechtern und einige Personen fühlen sich an den Rändern. Manche Menschen schwingen auf unvorhersehbare Weise über das gesamte Spektrum und verändern sich wie der Wind. Nur eine Person selbst kann ihr eigenes Gender identifizieren, niemand anderes kann es ihr vorschreiben.
 
@@ -84,12 +77,12 @@ Die vorliegenden Erkenntnisse scheinen darauf hinzudeuten, dass das Geschlecht (
 
 Gender beeinflusst auch die Erwartungen, die das Gehirn an die Umgebung hat, in der Sie sich befinden. Wenn diese Umgebung die Erwartungen nicht erfüllt, sendet das Gehirn Warnsignale in Form von Depressionen, Depersonalisierung, Derealisierung und Dissoziation. Dies sind die unbewussten Methoden des Gehirns, um uns darüber zu informieren, dass etwas nicht stimmt.
 
-{!{
-<div class="gutter"><blockquote>
-  <strong>Ha·bi·tus</strong> - <em>Substantiv, m</em><br>
-  Sozial verwurzelte Gewohnheiten, Fähigkeiten und Dispositionen. Die Art und Weise, wie ein Mensch die Welt wahrnimmt und darauf reagiert.
-</blockquote></div>
-}!}
+<Gutter>
+  <Quote>
+    <dt>Hab·i·tus</dt> - <em>Substantiv, m</em><br />
+    <dd>Sozial verwurzelte Gewohnheiten, Fähigkeiten und Dispositionen. Die Art und Weise, wie ein Mensch die Welt wahrnimmt und darauf reagiert.</dd>
+  </Quote>
+</Gutter>
 
 Auf der sozialen Seite beinhaltet Gender unseren [Habitus](https://de.wikipedia.org/wiki/Habitus_(Soziologie%29):
 

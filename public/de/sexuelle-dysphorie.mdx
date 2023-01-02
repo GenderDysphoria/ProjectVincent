@@ -1,22 +1,13 @@
----
-date: "2020-01-26T20:41:55.827Z"
-title: "Wie sich Gender Dysphorie äußert: Sexuelle Dysphorie"
-linkTitle: "Sexuelle Dysphorie"
-description: "Manchmal möchte eine Zigarre nicht geraucht werden."
-preBody: '_disclaimer'
-lang: de
-siblings:
-  prev: /de/gesellschaftliche-dysphorie
-  prevCaption: Gesellschaftliche Dysphorie
-  next: /de/präsentationsdysphorie
-  nextCaption: Präsentationsdysphorie
-classes:
-  - gdb
-tweets:
-  - '1137399651458519040'
+import { PageMeta, Note, Gutter, Card } from '#src/common';
+import Disclaimer from './_disclaimer.mdx';
 
----
+<PageMeta
+  title="Wie sich Gender Dysphorie äußert: Sexuelle Dysphorie"
+  linkTitle="Sexuelle Dysphorie"
+  description="Manchmal möchte eine Zigarre nicht geraucht werden"
+/>
 
+<Disclaimer />
 # Sexuelle Dysphorie
 
 Mit der gesellschaftlichen Dysphorie ist die Sexuelle Dysphorie eng verwandt. Diese konzentriert sich auf die Sexualität, sexuelle Beziehungen und den Akt des Geschlechtsverkehres selbst. [Heteronormative](https://de.wikipedia.org/wiki/Heteronormativit%C3%A4t) Geschlechterrollen sind mit der Erwartung verbunden, dass AMABs oben und AFABs unten liegen. Diese Dynamik wird durch unsere populären Medien, durch das sich wiederholende Mantra der „toxischen Männlichkeit“ und insbesondere durch Pornografie verstärkt. Selbst in der Transgender-Pornografie darf oft die Transfeminine Person oben liegen. Abweichungen von diesen Rollen führen häufig zu Scham sowohl von Partnern als auch von der Peer Gruppe.
@@ -27,9 +18,9 @@ Homosexuelle Cis-Gender-Beziehungen entziehen sich dieser Notwendigkeit und öff
 
 Was bedeutet das alles? Trans-Personen, die vor ihrer Transition wahrnehmungsmäßig heterosexuelle Beziehungen eingehen, verlieren manchmal das Interesse am Geschlechtsverkehr, da die Penetration bzw. das Penetriert werden nicht die Erfüllung bringt, die sie erwarten. In extremen Fällen kann es sich völlig falsch anfühlen und Panik auslösen. Die Empfindungen mögen sich angenehm anfühlen, aber die Erfahrung ist fehl am Platz und die Handlung selbst fühlt sich gezwungen.
 
-{!{ <div class="gutter">{{import '~/tweet' ids=[
-    '1137399651458519040'
-] tweets=meta.tweets className="" }}</div> }!}
+<Gutter>
+  <Tweet id="1137399651458519040" />
+</Gutter>
 
 Dies kann dazu führen, dass man weniger begeistert oder sogar desinteressiert am Sex wird, da die Hälfte des Sexualtriebs der mentale Kontext der Situation ist. Viele Transgender erleben erst im Erwachsenenalter Sex. Sie wirken sexuell abgeneigt, da ihre Dysphorie den gesamten Sexualtrieb stark beeinträchtigt. Sie können immer noch für ihre Partner performen, haben aber nicht so viel Freude daran. In schwerwiegenden Fällen kann Depersonalisierung auftreten, um die „Aufgabe“ zu erfüllen.
 
@@ -39,11 +30,23 @@ Einige Transfrauen beispielsweise wurden vor der Transition für schwule Männer
 
 ### Die zwanghafte männliche Sichtweise aus Sicht des Autors
 
-{!{
-<div class="gutter flex">
-{{import '~/img' images.howbaby_swole className="card" link="http://howbabycomic.com/comic/hb279/" external=1 style="margin-bottom: 5px" caption="&quot;Swole Mom&quot; - How Baby, by Lindsay Ishihiro"}}
-</div>
-}!}
+<Note>
+  **Anmerkung des Autors**: Diese spezifische Art der sexuellen Dysphorie ist schwer verallgemeinerbar zu erklären, deshalb werde ich hier einen Abgang machen und aus meiner eigenen persönlichen Erfahrung darüber schreiben. Das Folgende wird aus meiner Sicht als binäre Transfrau dargestellt. Als solches ist dies möglicherweise nicht vollständig auf alle Trans-Personen zurückzuführen. Ich bitte um Entschuldigung.
+</Note>
+
+<Gutter>
+  <Card>
+    <Card.Media
+      component={Image}
+      src="/en/images/howbaby_swole.png"
+      alt=""
+      href="http://howbabycomic.com/comic/hb279/"
+    />
+    <Card.Content>
+      &quot;Swole Mom&quot; - How Baby, by Lindsay Ishihiro
+    </Card.Content>
+  </Card>
+</Gutter>
 
 Es gibt ein Sprichwort, das in sapphischen Kreisen sehr bekannt ist: "Will ich Sie sein oder will ich mit Ihr zusammen sein?"
 

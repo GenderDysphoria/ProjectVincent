@@ -1,33 +1,19 @@
----
-date: "2020-01-26T20:41:55.827Z"
-title: "Impostor Syndrom, aber mach es trans"
-linkTitle: "Impostor Syndrom"
-description: "Bin ich wirklich trans?"
-preBody: '_disclaimer'
-lang: de
-siblings:
-  prev: /de/gemanagte-dysphorie
-  prevCaption: Gemanagte Dysphorie
-  next: /de/bin-ich-trans
-  nextCaption: Bin ich Trans?
-classes:
-  - gdb
-tweets:
-  - '1219963582063968258'
-  - '1221970265862811650'
-  - '1153300365355307008'
-  - '1153300366902960128'
-  - '1153300368974991361'
-  - '1153300370631741440'
-  - '1153300372468801536'
-  - '1153300374133981186'
----
+import { PageMeta, Note, Gutter, Card } from '#src/common';
+import Disclaimer from './_disclaimer.mdx';
+
+<PageMeta
+  title="Impostor Syndrom, aber mach es trans"
+  linkTitle="Impostor Syndrom"
+  description="Bin ich wirklich trans?"
+/>
+
+<Disclaimer />
 
 # Impostor Syndrom
 
-{!{ <div class="gutter">{{import '~/tweet' ids=[
-  '1219963582063968258'
-] tweets=meta.tweets className="hide-reply" }}</div> }!}
+<Gutter>
+  <Tweet id="1219963582063968258" no-reply />
+</Gutter>
 
 > [Das Impostor-Syndrom](https://de.wikipedia.org/wiki/Hochstapler-Syndrom) (auch bekannt als Impostor-Phänomen, Impostorismus, Betrugssyndrom oder Hochstapler-Syndrom) ist ein psychologisches Muster, bei dem ein Individuum an seinen Leistungen zweifelt und eine anhaltende verinnerlichte Angst hat, als Betrüger entlarvt zu werden.
 
@@ -37,9 +23,9 @@ Dazu haben die Botschaften, dass Trans-Personen ihren Körper oder ihre Genitali
 
 ***[Ja, du bist Trans genug!](https://www.amazon.com/Yes-You-Are-Trans-Enough/dp/1785923153/)***
 
-{!{ <div class="gutter">{{import '~/tweet' ids=[
-  '1221970265862811650'
-] tweets=meta.tweets className="" }}</div> }!}
+<Gutter>
+  <Tweet id="1221970265862811650" />
+</Gutter>
 
 Darüber hinaus wurde die Nachricht von transphoben Medien verinnerlicht, dass Trans-Frauen eben keine echten Frauen und Trans-Männer eben keine echten Männer sind; und das Trans-Personen nur versuchen die Allgemeinheit dahingehend zu manipulieren, das man sie für echte Frauen bzw. echte Männer hält. Dies führt zu vielen Selbstzweifeln an der Authentizität des eigenen Geschlechts, insbesondere angesichts der vielen Geschlechterstereotypen. Wenn Sie feststellen, dass Sie diese Stereotypen nicht erfüllen können, lassen Sie sich leicht davon überzeugen, dass Sie Ihrem wahren (bzw. inneren) Geschlecht nicht gerecht werden können (Hinweis: Cis-Männer und Cis-Frauen bezweifeln dies auch viel zu oft).
 
@@ -51,14 +37,16 @@ Die Welt ist voller Einflüsse, die uns mit Zweifeln erfüllen und uns davon abh
 
 ### Autogynephelia
 
-{!{ <div class="gutter">{{import '~/tweet' ids=[
-  '1153300365355307008'
-  '1153300366902960128'
-  '1153300368974991361'
-  '1153300370631741440'
-  '1153300372468801536'
-  '1153300374133981186'
-] tweets=meta.tweets className="oneblock" }}</div> }!}
+<Gutter>
+  <Tweet unified>
+    <Tweet id="1153300365355307008" />
+    <Tweet id="1153300366902960128" />
+    <Tweet id="1153300368974991361" />
+    <Tweet id="1153300370631741440" />
+    <Tweet id="1153300372468801536" />
+    <Tweet id="1153300374133981186" />
+  </Tweet>
+</Gutter>
 
 Diese Theorie wurde in den späten 1980er Jahren entwickelt als die Autogynephelia (AGP)-Theorie von Ray Blanchard viel Anklang fand, da das Trans-Bewusstsein sich gerade anfing zu entwickeln. AGP ist eine pseudowissenschaftliche Erklärung, die die Quelle der Identität von Transfemininen Personen mithilfe von [sexuellen Perversionen](https://de.wikipedia.org/wiki/Paraphilie) „erklären“ soll. Blanchard trennte transfeminine Personen in zwei Gruppen: ob sie sich zu Männern oder Frauen hingezogen fühlten. Gleichzeitig sprach die Theorie ihnen ihre Weiblichkeit ab. Seine Arbeit ignorierte transmaskuline Personen und nicht-binäre Identitäten völlig.
 

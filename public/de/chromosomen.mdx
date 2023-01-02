@@ -1,41 +1,19 @@
----
-date: "2020-01-26T20:41:55.827Z"
-title: "Störungen der Geschlechtsentwicklung: Gender ist nicht chromosomal"
-linkTitle: "Chromosomen"
-description: "DNA ist eher das, was man richtlinien nennt, als tatsächliche regeln."
-preBody: '_disclaimer'
-lang: de
-siblings:
-  prev: /de/ursache
-  prevCaption: Die Ursache des Geschlechtskonflikts
-  next: /de/hormone
-  nextCaption: Wie Hormone funktionieren
-classes:
-  - gdb
-tweets:
-  - https://twitter.com/RebeccaRHelm/status/1207834357639139328
-  - https://twitter.com/RebeccaRHelm/status/1207835110617309191
-  - https://twitter.com/RebeccaRHelm/status/1207835384358604802
-  - https://twitter.com/RebeccaRHelm/status/1207835597206937600
-  - https://twitter.com/RebeccaRHelm/status/1207835815071473664
-  - https://twitter.com/RebeccaRHelm/status/1207835999130259456
-  - https://twitter.com/RebeccaRHelm/status/1207837155667718145
-  - https://twitter.com/RebeccaRHelm/status/1207838570276372480
-  - https://twitter.com/RebeccaRHelm/status/1207838924263084033
-  - https://twitter.com/RebeccaRHelm/status/1207839452619522048
-  - https://twitter.com/RebeccaRHelm/status/1207839986801922048
-  - https://twitter.com/alicemiriel/status/1208181235593490433
-  - https://twitter.com/TransEthics/status/1223942625708761088
+import { PageMeta, Note, Gutter, Card, Tweet, FlexRow } from '#src/common';
+import Disclaimer from './_disclaimer.mdx';
 
----
+<PageMeta
+  title="Störungen der Geschlechtsentwicklung: Gender ist nicht chromosomal"
+  linkTitle="Chromosomen"
+  description="DNA ist eher das, was man richtlinien nennt, als tatsächliche regeln."
+/>
+
+<Disclaimer />
 
 # Aber… aber die Chromosomen!!!
 
-{!{ <div class="gutter">
-  {{import '~/tweet' ids=[
-    '1223942625708761088'
-  ] tweets=meta.tweets className="" }}
-</div>}!}
+<Gutter>
+  <Tweet id="1223942625708761088" />
+</Gutter>
 
 Es gibt mehr Möglichkeiten, wie sich die Chromosomen kombinieren können, als die zwei Hauptkategorien XX und XY vermuten lassen. Wenn die Chromosomen sich außerhalb der Norm XX und XY kombinieren, werden diese medizinisch als DSDs (Disorders of Sex Development) bezeichnet. Nicht alle führen zu einer intersexuellen Erkrankung, und viele manifestieren sich erst zu Beginn der Pubertät.
 
@@ -73,21 +51,19 @@ Es gibt mehr Möglichkeiten, wie sich die Chromosomen kombinieren können, als d
 
 - [Aromatase-Überschuss](https://de.wikipedia.org/wiki/Aromatase-Exzess-Syndrom) führt bei einem ansonsten männlichen Kind zu einer Feminisierung, da das gesamte Testosteron in Östrogen umgewandelt wird.
 
-{!{ <div class="span34 center print-span2">
-  {{import '~/tweet' ids=[
-    '1207834357639139328'
-    '1207835110617309191'
-    '1207835384358604802'
-    '1207835597206937600'
-    '1207835815071473664'
-    '1207835999130259456'
-    '1207837155667718145'
-    '1207838570276372480'
-    '1207839986801922048'
-    '1207838924263084033'
-    '1207839452619522048'
-  ] tweets=meta.tweets className="oneblock" }}
-  {{import '~/tweet' ids=[
-    '1208181235593490433'
-  ] tweets=meta.tweets className="" }}
-</div>}!}
+<FlexRow center>
+  <Tweet unified>
+    <Tweet id="1207834357639139328" />
+    <Tweet id="1207835110617309191" />
+    <Tweet id="1207835384358604802" />
+    <Tweet id="1207835597206937600" />
+    <Tweet id="1207835815071473664" />
+    <Tweet id="1207835999130259456" />
+    <Tweet id="1207837155667718145" />
+    <Tweet id="1207838570276372480" />
+    <Tweet id="1207839986801922048" />
+    <Tweet id="1207838924263084033" />
+    <Tweet id="1207839452619522048" />
+  </Tweet>
+  <Tweet id="1208181235593490433" />
+</FlexRow>
