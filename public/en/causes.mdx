@@ -1,7 +1,7 @@
-import { PageMeta, Gutter, Image, Card, Tweet, Text } from '#src/common';
-import Disclaimer from './_disclaimer.mdx';
+import { Meta, Gutter, Image, Card, Tweet, FlexRow } from '#src/common';
+import Disclaimer from './_disclaimer';
 
-<PageMeta
+<Meta
   title="What is the Cause of Gender Incongruence"
   linkTitle="Causes of Gender Dysphoria"
   description="It's all about the hormones, baby."
@@ -20,7 +20,7 @@ If you've seen Jurassic Park then you may remember this scene:
 
 <Card>
   <Card.Media
-    component={Image}
+    as={Image}
     src="/en/images/jurassicpark.jpg"
     alt="All vertebrate embryos are inherently female anyway. They just require an extra hormone given at the right developmental stage to make them male."
   />
@@ -32,7 +32,7 @@ If you've seen Jurassic Park then you may remember this scene:
 <Gutter>
   <Card>
     <Card.Media
-      component={Image}
+      as={Image}
       src="/en/images/fetalgenitals.jpg"
       alt="Fetal development of internal sexual anatomy"
     />
@@ -54,7 +54,7 @@ This is known as Swyer Syndrome, and an unknown number of women may have this co
 The fact is, the vast majority of the population has never been tested for genetic karyotype, so we don’t know how common these cases actually are. Where does this come into affect for gender identity? Well, the exact same process that causes the external genitals to differentiate also occurs for the brain.
 
 <Gutter>
-  <Text center>And it gets even weirder!</Text>
+  <FlexRow center>And it gets even weirder!</FlexRow>
   <Tweet unified no-reply>
     <Tweet id="1224039568971710464" />
     <Tweet id="1224040716365524993" />

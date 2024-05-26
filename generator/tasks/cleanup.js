@@ -1,8 +1,7 @@
-import { promisify } from 'node:util';
-import rimraf from 'rimraf';
+// import { promisify } from 'node:util';
+import { rimraf } from 'rimraf';
 import glob from 'fast-glob';
 
-const clean = promisify(rimraf);
 
 export default async function cleanup (source, options = {}) {
   const {
@@ -23,6 +22,6 @@ export default async function cleanup (source, options = {}) {
   });
 
   await Promise.all(
-    inputs.map((f) => clean(f, { glob: false }))
+    inputs.map((f) => rimraf(f, { glob: false }))
   );
 }

@@ -1,7 +1,7 @@
-import { PageMeta, Note, Gutter, Quote, Card } from '#src/common';
-import Disclaimer from './_disclaimer.mdx';
+import { Meta, Note, Gutter, Quote, Card, Image } from '#src/common';
+import Disclaimer from './_disclaimer';
 
-<PageMeta
+<Meta
   title="Eine kurze Geschichtsstunde zu Gender Dysphorie"
   linkTitle="Eine Geschichtstunde zu Gender Dysphorie"
   description="Die Ursprünge der Geschlechtsdysphorie und die heutige Bedeutung."
@@ -18,7 +18,7 @@ Anschließend verfeinerte Benjamin sein Protokoll und behandelte im Laufe seiner
 <Gutter>
   <Card>
     <Card.Media
-      component={Image}
+      as={Image}
       src="/en/images/hbscale.gif"
       alt=""
     />
@@ -54,7 +54,7 @@ Transgender-Personen kommen aus den Verstecken; wir sind überall.
   </Quote>
   <Card>
     <Card.Media
-      component={Image}
+      as={Image}
       src="/de/images/glue.jpg"
       alt=""
     />

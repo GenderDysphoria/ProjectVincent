@@ -1,7 +1,7 @@
-import { PageMeta, Note, Gutter, Card } from '#src/common';
-import Disclaimer from './_disclaimer.mdx';
+import { Meta, Note, Gutter, Card, Tweet, Image } from '#src/common';
+import Disclaimer from './_disclaimer';
 
-<PageMeta
+<Meta
   title="Wie sich Gender Dysphorie äußert: Sexuelle Dysphorie"
   linkTitle="Sexuelle Dysphorie"
   description="Manchmal möchte eine Zigarre nicht geraucht werden"
@@ -37,7 +37,7 @@ Einige Transfrauen beispielsweise wurden vor der Transition für schwule Männer
 <Gutter>
   <Card>
     <Card.Media
-      component={Image}
+      as={Image}
       src="/en/images/howbaby_swole.png"
       alt=""
       href="http://howbabycomic.com/comic/hb279/"

@@ -17,7 +17,6 @@ export default class BuildConfig {
    *
    * @param   {...string} pathToFile Path to the desired file.
    *
-   * @memberof ZenConfig
    * @returns {string}
    */
   resolve (...pathToFile) {
@@ -42,7 +41,6 @@ export default class BuildConfig {
    *
    * @param   {...string} pathToFile Path to the desired file.
    *
-   * @memberof ZenConfig
    * @returns {boolean}
    */
   async exists (...pathToFile) {
@@ -61,7 +59,6 @@ export default class BuildConfig {
    *
    * @param   {...string} dependency Name/path of the desired dependency
    *
-   * @memberof ZenConfig
    * @returns {string}
    */
   resolveDep (...dependency) {

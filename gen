@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-node ./generator/bin.js $@
+node --enable-source-maps ./generator/bin.js $@

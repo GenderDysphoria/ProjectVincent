@@ -1,7 +1,7 @@
-import { PageMeta, Gutter, Image, Card, Tweet, Text } from '#src/common';
-import Disclaimer from './_disclaimer.mdx';
+import { Meta, Gutter, Image, Card, Tweet, FlexRow } from '#src/common';
+import Disclaimer from './_disclaimer';
 
-<PageMeta
+<Meta
   title="Was ist die Ursache des Geschlechtskonflikts?"
   linkTitle="Die Ursache des Geschlechtskonflikts"
   description="Chromosomen sind nur ein Ablenkungsmanöver, es sind die Hormone, die Sie im Auge behalten müssen"
@@ -20,7 +20,7 @@ Folgendes wissen wir heute. Wenn Sie den Film „Jurassic Park“ gesehen haben,
 
 <Card>
   <Card.Media
-    component={Image}
+    as={Image}
     src="/en/images/jurassicpark.jpg"
     alt="Alle Embryos reifen weiblich heran. Alles was sie benötigen ist ein extra Hormon zur rechten Zeit, um die Entwicklung Richtung männlich zu lenken."
   />
@@ -33,7 +33,7 @@ Folgendes wissen wir heute. Wenn Sie den Film „Jurassic Park“ gesehen haben,
 <Gutter>
   <Card>
     <Card.Media
-      component={Image}
+      as={Image}
       src="/en/images/fetalgenitals.jpg"
       alt="Fetal development of internal sexual anatomy"
     />
@@ -54,7 +54,7 @@ Dies ist als Swyer-Syndrom bekannt, und eine unbekannte Zahl von Frauen leidet d
 Tatsache ist, dass die meisten Menschen noch nie auf den genetischen Karyotyp getestet wurden. Daher wissen wir nicht, wie häufig diese Fälle tatsächlich sind. An welcher Stelle wirkt sich dies auf die Geschlechtsidentität aus? Nun, genau derselbe Prozess, der auf die Differenzierung der äußeren Genitalien einwirkt, tritt auch im Gehirn auf.
 
 <Gutter>
-  <Text center>Und es wird noch verrückter!</Text>
+  <FlexRow center>Und es wird noch verrückter!</FlexRow>
   <Tweet unified no-reply>
     <Tweet id="1224039568971710464" />
     <Tweet id="1224040716365524993" />

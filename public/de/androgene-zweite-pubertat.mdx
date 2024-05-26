@@ -1,7 +1,7 @@
-import { PageMeta, Note, Gutter, Card } from '#src/common';
-import Disclaimer from './_disclaimer.mdx';
+import { Meta, Note, Gutter, Card, Tweet, Image } from '#src/common';
+import Disclaimer from './_disclaimer';
 
-<PageMeta
+<Meta
   title="Androgene zweite Pubertät 101"
   linkTitle="Androgene Pubertät"
   description="Was ist von einer maskulinisierenden Hormonersatztherapie zu erwarten?"
@@ -139,7 +139,7 @@ Sehr häufig kommt es vor, dass Trans-Personen jeglichen Genders nach der Transi
 <Gutter>
   <Card>
     <Card.Media
-      component={Image}
+      as={Image}
       src="/en/images/homology.jpg"
       alt="Chart of steroid metabolism flow"
       href="https://www.vielma.at/"

@@ -32,6 +32,7 @@ export const CONFIG = new BuildConfig({
 
 export const PATH_SRC = CONFIG.resolve('src');
 export const PATH_ENTRY = CONFIG.resolve('src/index.js');
+export const PATH_HTML = CONFIG.resolve('src/index.html');
 export const PATH_PUBLIC = CONFIG.resolve('public');
 export const PATH_OUTPUT = CONFIG.resolve('dist');
 

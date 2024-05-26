@@ -1,21 +1,17 @@
-import { css } from '@emotion/react';
+import { styled } from 'essex-emotion';
 
-import _styled from '@emotion/styled';
-const styled = _styled.default;
+const Disclaimer = styled('div')(({ theme }) => ({
+  backgroundColor: theme.palette.action.disabledBackground,
+  color: theme.palette.text.secondary,
 
-const Disclaimer = styled('div')(({ theme }) => css`
-  background-color: ${theme.palette.action.disabledBackground}
-  color: ${theme.pallete.text.secondary}
+  borderBottom: `1px solid ${theme.palette.action.disabled}`,
 
-  border-bottom: 1px solid ${theme.palette.action.disabled};
+  fontSize: '0.8rem',
+  fontWeight: 300,
 
-  font-size: 0.8rem;
-  font-weight: 300;
-
-  & strong {
-    font-weight: 400;
-  }
-`);
-Disclaimer.displayName = 'Disclaimer';
+  '& strong': {
+    fontWeight: 400,
+  },
+}));
 
 export default Disclaimer;

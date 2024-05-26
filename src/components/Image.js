@@ -1,14 +1,26 @@
-import _styled from '@emotion/styled';
-const styled = _styled.default;
+import { styled } from 'essex-emotion';
 
-const ImageBase = styled.img`
-  max-width: 100%;
-`;
+const ImageBase = styled('img', {
+
+})(() => ({
+  maxWidth: '100%',
+}));
 
 export default function Image ({
+  href,
+  titlecard,
+  srcSizes,
   ...props
 }) {
-  return (
-    <ImageBase {...props} />
-  );
+  if (titlecard) {
+    this.metadata.apply({ titlecard: props.src });
+  }
+
+  const img = <ImageBase sizes={srcSizes} {...props} />;
+
+  if (href) {
+    return <a href={href}>{img}</a>;
+  }
+
+  return img;
 }

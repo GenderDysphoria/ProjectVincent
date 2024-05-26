@@ -1,7 +1,7 @@
-import { PageMeta, Note, Gutter, Quote, Card } from '#src/common';
-import Disclaimer from './_disclaimer.mdx';
+import { Meta, Note, Gutter, Quote, Card, Image } from '#src/common';
+import Disclaimer from './_disclaimer';
 
-<PageMeta
+<Meta
   title="A Brief History of Gender Dysphoria"
   linkTitle="The History of Gender Dysphoria"
   description="The origins of Gender Dysphoria and the current meaning today."
@@ -18,7 +18,7 @@ Benjamin then went on to refine his protocol and treated thousands of patients w
 <Gutter>
   <Card>
     <Card.Media
-      component={Image}
+      as={Image}
       src="/en/images/hbscale.gif"
       alt=""
     />
@@ -47,7 +47,7 @@ Transgender people are coming out of the woodwork; we are everywhere.
   </Quote>
   <Card>
     <Card.Media
-      component={Image}
+      as={Image}
       src="/en/images/glue.jpg"
       alt=""
     />

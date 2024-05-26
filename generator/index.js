@@ -1,17 +1,24 @@
 import log from 'fancy-log';
 
-import metaTask from './tasks/meta.js';
+import renderTask, { watch as renderTaskWatch } from './tasks/render.js';
+import metaTask, { watch as metaTaskWatch } from './tasks/meta.js';
 import cleanupTask from './tasks/cleanup.js';
-import webpackTask from './tasks/webpack.js';
 
 const tasks = {
+  render: () => renderTask(),
   scanPages: () => metaTask(),
   clean: () => cleanupTask([ 'compiled', 'dist' ]),
-  webpack: () => webpackTask(),
   build: [
     'clean',
     'scanPages',
-    'webpack',
+    'render',
+  ],
+  watch: [
+    'clean',
+    'scanPages',
+    { parallel: [
+      function watchPages () { return metaTaskWatch(); },
+    ] },
   ],
 };
 
@@ -32,11 +39,11 @@ async function exec (command, args, flags, depth = 0) {
   calls.push(command);
 
   if (calls.length > OVERCALL_LIMIT) {
-    throw new Error('gen invoked too many recursive tasks: ' + calls.join(' -> '));
+    throw new Error(`gen invoked too many recursive tasks: ${calls.join(' -> ')}`);
   }
 
   if (Array.isArray(action)) {
-    log(`${indent(depth)}Executing serial task "${command}" {`);
+    log(`${indent(depth)}Executing serial task "${command.name || command}" {`);
 
     for (const a of action) {
       await exec(a, null, flags, depth + 1);
@@ -47,13 +54,13 @@ async function exec (command, args, flags, depth = 0) {
   }
 
   if (typeof action === 'function') {
-    log(`${indent(depth)}Executing action "${command}"`);
+    log(`${indent(depth)}Executing action "${command.name || command}"`);
     await action(args, flags, depth);
   }
 
   if (action?.parallel && Array.isArray(action.parallel)) {
     if (typeof command === 'string') {
-      log(`${indent(depth)}Executing parallel ("${command}") {`);
+      log(`${indent(depth)}Executing parallel ("${command.name || command}") {`);
     } else {
       log(`${indent(depth)}Executing parallel {`);
     }
@@ -65,6 +72,7 @@ async function exec (command, args, flags, depth = 0) {
 }
 
 export default async function gen (command, args, flags) {
+  // eslint-disable-next-line no-param-reassign
   if (!command) command = 'build';
-  return exec(command, args, flags);
+  return exec(command, args, flags).catch(console.error);
 }

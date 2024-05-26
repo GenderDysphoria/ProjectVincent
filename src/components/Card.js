@@ -1,9 +1,22 @@
-import {
-  Card as CardRoot,
-  CardContent,
-  CardMedia,
-  CardHeader,
-} from '@mui/material';
+
+import { styled } from 'essex-emotion';
+import Image from './Image.js';
+
+const CardRoot = styled('div')(({ theme }) => ({
+
+}));
+
+const CardContent = styled('div')(({ theme }) => ({
+
+}));
+
+const CardMedia = styled(Image)(({ theme }) => ({
+
+}));
+
+const CardHeader = styled('div')(({ theme }) => ({
+
+}));
 
 export default function Card (props) {
   return <CardRoot {...props} />;

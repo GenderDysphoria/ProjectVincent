@@ -1,50 +1,47 @@
-import { css } from '@emotion/react';
-import { rgba } from 'emotion-rgba';
-import _styled from '@emotion/styled';
-const styled = _styled.default;
+import { styled } from 'essex-emotion';
 
-const Quotation = styled('blockquote')(({ theme }) => css`
-  background-color: ${theme.palette.transBlue.lightest};
-  color: ${theme.pallete.text.primary}
+const Quotation = styled('blockquote')(({ theme }) => ({
+  backgroundColor: theme.palette.transBlue.lightest,
+  color: theme.palette.text.primary,
 
-  border: 1px solid ${theme.palette.transBlue.main};
-  box-shadow: 0 1px 3px ${rgba(theme.palette.transBlue.main, 0.5)};
+  border: `1px solid ${theme.palette.transBlue.main}`,
+  boxShadow: `0 1px 3px rgba(${theme.palette.transBlue.main} / 0.5)`,
 
-  font-family: ${theme.typography.fontFamilySecondary};
-  font-size: 0.94rem;
-  font-weight: 300;
+  fontFamily: theme.typography.fontFamilySecondary,
+  fontSize: '0.94rem',
+  fontWeight: 300,
 
-  line-height: 1.4;
-  border-radius: 5px;
+  lineHeight: 1.4,
+  borderRadius: 5,
 
-  padding: 1.1rem;
+  padding: '1.1rem',
 
-  position: relative;
-  overflow: hidden;
+  position: 'relative',
+  overflow: 'hidden',
 
-  strong {
-    font-weight: 400;
-  }
+  strong: {
+    fontWeight: 400,
+  },
 
-  &::before {
-    font-family: cursive;
-    font-weight: 700;
-    display: block;
-    padding-left: 10px;
-    content: "\201C";
-    font-size: 50px;
-    position: absolute;
-    left: -10px;
-    top: -16px;
-    color: ${theme.palette.transBlue.main};
-    text-shadow: 0 1px 3px ${rgba(theme.palette.transBlue.main, 0.5)};;
-    opacity: 0.8;
-  }
+  '&::before': {
+    fontFamily: 'cursive',
+    fontWeight: 700,
+    display: 'block',
+    paddingLeft: 10,
+    content: '\\201C',
+    fontSize: 50,
+    position: 'absolute',
+    left: -10,
+    top: -16,
+    color: theme.palette.transBlue.main,
+    textShadow: `0 1px 3px rgba(${theme.palette.transBlue.main} / 0.5)`,
+    opacity: 0.8,
+  },
 
-  p:last-child {
-    margin-bottom: 0;
-  }
-`);
+  'p:last-child': {
+    marginBottom: 0,
+  },
+}));
 Quotation.displayName = 'Quotation';
 
 export default Quotation;

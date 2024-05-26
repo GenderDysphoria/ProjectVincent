@@ -1,19 +1,61 @@
-
+import log from 'fancy-log';
 import path from 'node:path';
 import fs from 'fs-extra';
 import glob from 'fast-glob';
+import globWatch from 'glob-watcher';
+import { render } from 'essex';
+import { EmotionProvider } from 'essex-emotion';
+import { threepiece } from '@twipped/utils';
+import { MetaProvider } from '#src/providers/MetaProvider.js';
+import { ROOT_DIR } from '../pkg.js';
 
-import templateLangIndex from './template_lang_index.js';
-import templateLangRoot from './template_lang_root.js';
+const PAGE_GLOB = 'public/**/*.mdx';
+const IGNORE_GLOB = 'public/**/_*.mdx';
+const INDEX_GLOB = 'public/*/_index.json';
+
+async function loadPage (relPath, options = {}) {
+  const {
+    cwd = ROOT_DIR,
+  } = options;
+
+  const { default: Page } = await import(path.resolve(cwd, relPath));
+  const meta = {
+    file: relPath,
+  };
+
+  try {
+    await render(
+      <EmotionProvider noop>
+        <MetaProvider metadata={meta}>
+          <Page />
+        </MetaProvider>
+      </EmotionProvider>
+    );
+  } catch (e) {
+    e.message = `Error while rendering ${relPath}: ${e.message}`;
+    e.stack = `Error while rendering ${relPath}:\n${e.stack}`;
+    throw e;
+  }
+
+  if (!meta.lang) {
+    [ , meta.lang ] = relPath.match(/\/(..)\//) || [];
+  }
+
+  if (!meta.url) {
+    [ , meta.url ] = relPath.match(/public(\/.+?)(?:index)?\.(?:mdx|jsx?)/) || [];
+  }
+
+  return meta;
+}
 
 async function loadPages (options = {}) {
   const {
     cwd = process.cwd(),
     deep,
     followSymbolicLinks = true,
-    ignore,
+    ignore = IGNORE_GLOB,
     dot = true,
-    pageGlob = 'public/**/*.mdx',
+    pageGlob = PAGE_GLOB,
   } = options;
 
   const inputs = await glob(pageGlob, {
@@ -30,28 +72,8 @@ async function loadPages (options = {}) {
 
   await Promise.all(
     inputs.map(async (relPath) => {
-      const contents = await fs.readFile(relPath, 'utf8');
-
-      const [ , metaTag ] = contents.match(/<Meta\s([\w\W]+?)\s\/>/) || [];
-      if (!metaTag) return;
-
-      const meta = {
-        file: relPath,
-      };
-
-      for (const [ , key, value ] of metaTag.matchAll(/(\w+)="([^"]+?)"/g)) {
-        meta[key] = value;
-      }
-
-      if (!meta.lang) {
-        [ , meta.lang ] = relPath.match(/\/(..)\//) || [];
-      }
-
-      if (!meta.url) {
-        [ , meta.url ] = relPath.match(/public(\/.+?)(?:index)?\.(?:mdx|jsx?)/);
-      }
-
-      pages[relPath] = meta;
+      const meta = await loadPage(relPath);
+      pages[meta.url] = meta;
       routes[meta.url] = meta.file;
     })
   );
@@ -66,7 +88,7 @@ async function loadIndexes (options = {}) {
     followSymbolicLinks = true,
     ignore,
     dot = true,
-    indexGlob = 'public/*/_index.json',
+    indexGlob = INDEX_GLOB,
   } = options;
 
   const inputs = await glob(indexGlob, {
@@ -91,25 +113,6 @@ async function loadIndexes (options = {}) {
   return languages;
 }
 
-async function writeLangRouters (languages, options = {}) {
-  const {
-    cwd = process.cwd(),
-    languageDest = 'compiled/lang',
-  } = options;
-
-  await Promise.all(
-    Object.values(languages).map(async (lang) => {
-      const destPath = path.resolve(cwd, languageDest, lang.lang, 'index.js');
-      await fs.ensureFile(destPath);
-      await fs.writeFile(destPath, templateLangIndex(lang));
-    })
-  );
-
-  const destPath = path.resolve(cwd, languageDest, 'index.js');
-  await fs.ensureFile(destPath);
-  await fs.writeFile(destPath, templateLangRoot(languages));
-}
-
 export default async function buildLanguages (options = {}) {
   const {
     cwd = process.cwd(),
@@ -121,9 +124,40 @@ export default async function buildLanguages (options = {}) {
     loadIndexes(options),
   ]);
 
+  for (const lang of Object.values(languages)) {
+    lang.pages = threepiece(lang.pages, ([ , prev ] = [], [ , curr ] = [], [ , next ] = []) => {
+      const page = pages[curr];
+      if (!page) {
+        throw new Error(`Could not find a file matching the indexed url ${curr}. Did you put unicode in your urls again?`);
+      }
+      page.previous = prev;
+      page.next = next;
+      return page;
+    });
+  }
+
   const destPath = path.resolve(cwd, manifestDest);
   await fs.ensureFile(destPath);
   await fs.writeFile(destPath, JSON.stringify({ pages, routes, languages }, null, 2));
+  log(`    Manifest written to ${destPath}`);
 
-  await writeLangRouters(languages);
+}
+
+export function watch (options) {
+  const watcher = globWatch([ PAGE_GLOB, INDEX_GLOB ]);
+  watcher.on('change', async (fpath) => {
+    log('  - File changed: ', fpath);
+    await buildLanguages(options);
+
+  });
+
+  watcher.on('add', (fpath) => {
+    log('Added file', fpath);
+    buildLanguages(options);
+  });
+
+  return new Promise((resolve) => {
+    const kill = () => resolve(watcher.close());
+    process.on('exit', kill);
+  });
 }

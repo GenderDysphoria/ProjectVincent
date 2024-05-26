@@ -1,7 +1,7 @@
-import { PageMeta, Note, Gutter, Card } from '#src/common';
-import Disclaimer from './_disclaimer.mdx';
+import { Meta, Note, Gutter, Card, Image } from '#src/common';
+import Disclaimer from './_disclaimer';
 
-<PageMeta
+<Meta
   title="Estrogenic Second Puberty 101"
   linkTitle="Estrogenic Puberty"
   description="What to expect from feminizing HRT"
@@ -40,7 +40,7 @@ Testosterone causes water retention in ligaments and tendons, rendering them les
 <Gutter>
   <Card>
     <Card.Media
-      component={Image}
+      as={Image}
       src="/en/images/hands.jpg"
       alt="Two right hands, side by side. The hand on the left is pre-transition and much thicker than the hand on the right."
     />
@@ -182,7 +182,7 @@ People have also reported a tendency to be less prone to start arguments, an a d
 <Gutter>
   <Card>
     <Card.Media
-      component={Image}
+      as={Image}
       src="/en/images/homology.jpg"
       alt="Chart of steroid metabolism flow"
       href="https://www.vielma.at/"
@@ -234,7 +234,7 @@ Initial start of HRT may result in a total loss of sex drive as testosterone lev
   <Card>
     <Card.Header>Human Erogenous Zones:</Card.Header>
     <Card.Media
-      component={Image}
+      as={Image}
       src="/en/images/homology.jpg"
       alt="Chart of steroid metabolism flow"
       href="https://www.researchgate.net/publication/301509880_Topography_of_Human_Erogenous_Zones#pf19"

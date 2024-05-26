@@ -1,7 +1,7 @@
-import { PageMeta, Note, Gutter, Card } from '#src/common';
-import Disclaimer from './_disclaimer.mdx';
+import { Meta, Note, Gutter, Card, Image } from '#src/common';
+import Disclaimer from './_disclaimer';
 
-<PageMeta
+<Meta
   title="Hormones: How do they work"
   linkTitle="How Hormones Work"
   description="Keys, Locks, and Car Ignitions"
@@ -40,7 +40,7 @@ There are four main kinds of hormones:
 <Gutter>
   <Card>
     <Card.Media
-      component={Image}
+      as={Image}
       src="/en/images/steroidogenesis.svg"
       alt="Chart of steroid metabolism flow"
     />
