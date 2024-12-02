@@ -1,11 +1,11 @@
-import { Meta, Note, Gutter, Card, Tweet, FlexRow, Image, Quote } from '#src/common';
-import Disclaimer from './_disclaimer';
+import { Note, Gutter, Card, Tweet, Stack, Image, Quote } from '#src/common';
+import Disclaimer from './_disclaimer.mdx';
 
-<Meta
-  title="What is Gender?"
-  linkTitle="What is Gender?"
-  description="How do we define the concept of Gender, and how does it differ from Sex?"
-/>
+export const meta = {
+  title: "What is Gender?",
+  linkTitle: "What is Gender?",
+  description: "How do we define the concept of Gender, and how does it differ from Sex?",
+};
 
 <Disclaimer />
 
@@ -56,7 +56,7 @@ Gender, however, is a lot more... esoteric. There are a lot of different ways th
 
 <Card>
   <Card.Header>Examples of some illustrations used to describe gender</Card.Header>
-  <FlexRow justify="space-around">
+  <Stack justify="space-around">
     <Image
       src="/en/images/spectrum.jpg"
     />
@@ -66,7 +66,7 @@ Gender, however, is a lot more... esoteric. There are a lot of different ways th
     <Image
       src="/en/images/gender_unicorn.jpg"
     />
-  </FlexRow>
+  </Stack>
   <Card.Content>
     <em>Sources:</em>
     \[<a href="https://bahamutzero.tumblr.com/post/56838411871/gender-a-visual-guide-when-most-people-think-of">Tumblr</a>\]

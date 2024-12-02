@@ -1,0 +1,8 @@
+:root {
+  --shape-rounded-sm: calc(var(--spacing) * 0.5);
+  --shape-rounded-md: calc(var(--spacing) * 1);
+  --shape-rounded-lg: calc(var(--spacing) * 2);
+  --shape-rounded-xl: calc(var(--spacing) * 3);
+  --shape-circle: 50%;
+  --shape-border-radius: var(--shape-rounded-md);
+}

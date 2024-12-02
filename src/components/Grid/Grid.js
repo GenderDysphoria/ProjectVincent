@@ -1,54 +1,44 @@
-/* eslint-disable no-param-reassign */
-import { isString, isArray, isNumber } from '@twipped/utils';
-import { styled } from 'essex-emotion';
-import GridCell from './GridCell.js';
+import { isArray, isNumber } from '@twipped/utils';
+import clsx from 'clsx';
 
-const Grid = styled('div', {
-  label: 'Grid',
-  doNotForward: [
-    'columns',
-    'rows',
-    'colSpacing',
-    'rowSpacing',
-    'spacing',
-  ],
-})(
-  ({
-    theme, columns, rows, spacing, colSpacing, rowSpacing,
-  }) => ({
-    display: 'grid',
-    ...(() => {
-      if (isNumber(columns)) columns = [ ...Array(columns) ].map(() => '1fr').join(' ');
-      else if (isArray(columns)) columns = columns.map((v) => (isNumber(v) ? `${v}fr` : v)).join(' ');
-      if (columns) return { gridTemplateColumns: columns };
-      return undefined;
-    })(),
-    ...(() => {
-      if (isNumber(rows)) rows = [ ...Array(rows) ].map(() => '1fr').join(' ');
-      else if (isArray(rows)) rows = rows.map((v) => (isNumber(v) ? `${v}fr` : v)).join(' ');
-      if (rows) return { gridTemplateRows: rows };
-      return undefined;
-    })(),
-    ...(() => {
-      const style = {};
-      if (isNumber(spacing) || isString(spacing)) {
-        style.gridGap = (isNumber(spacing) ? theme.spacing(spacing) : spacing);
-      }
+const CssPrefix = 'ui-grid';
+export default function Grid ({
+  component: Component = 'div',
+  columns = 12,
+  rows,
+  spacing,
+  rowSpacing,
+  colSpacing,
+  wrapCells,
+  className,
+  style,
+  children,
+  width,
+  height,
+  ...props
+}) {
+  if (isNumber(columns)) columns = [ ...Array(columns) ].map(() => '1fr').join(' ');
+  else if (isArray(columns)) columns = columns.map((v) => (isNumber(v) ? v + 'fr' : v)).join(' ');
+  else if (!columns) columns = undefined;
 
-      if (isNumber(colSpacing) || isString(colSpacing)) {
-        style.columnGap = (isNumber(colSpacing) ? theme.spacing(colSpacing) : colSpacing);
-      }
+  if (isNumber(rows)) rows = [ ...Array(rows) ].map(() => '1fr').join(' ');
+  else if (isArray(rows)) rows = rows.map((v) => (isNumber(v) ? v + 'fr' : v)).join(' ');
+  else if (!rows) rows = undefined;
 
-      if (isNumber(rowSpacing) || isString(rowSpacing)) {
-        style.rowGap = (isNumber(rowSpacing) ? theme.spacing(rowSpacing) : rowSpacing);
-      }
+  const classes = clsx(
+    className,
+    CssPrefix
+  );
 
-      return style;
-    })(),
-  })
-);
+  style = {
+    gridTemplateColumns: columns,
+    gridTemplateRows: rows,
+    gridColumnGap: colSpacing ?? spacing,
+    gridRowGap: rowSpacing ?? spacing,
+    width,
+    height,
+    ...style,
+  };
 
-Grid.displayName = 'Grid';
-Grid.Cell = GridCell;
-
-export default Grid;
+  return <Component {...props} style={style} className={classes} />;
+}

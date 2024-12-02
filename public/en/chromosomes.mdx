@@ -1,11 +1,11 @@
-import { Meta, Note, Gutter, Card, Tweet, FlexRow } from '#src/common';
-import Disclaimer from './_disclaimer';
+import { Note, Gutter, Card, Tweet, Stack } from '#src/common';
+import Disclaimer from './_disclaimer.mdx';
 
-<Meta
-  title="Differences of Sex Development: Gender is not Chromosomal"
-  linkTitle="Chromosomes"
-  description="DNA is more what you'd call guidelines, than actual rules."
-/>
+export const meta = {
+  title: "Differences of Sex Development: Gender is not Chromosomal",
+  linkTitle: "Chromosomes",
+  description: "DNA is more what you'd call guidelines, than actual rules.",
+}
 
 <Disclaimer />
 
@@ -52,7 +52,7 @@ There are dozens of ways that chromosomes can be much more complex than XX and X
 
 - [Aromatase Excess](https://en.wikipedia.org/wiki/Aromatase_excess_syndrome) causes feminisation in an otherwise male child, as all testosterone is converted into estrogen.
 
-<FlexRow center>
+<Stack center>
   <Tweet unified>
     <Tweet id="1207834357639139328" />
     <Tweet id="1207835110617309191" />
@@ -67,4 +67,4 @@ There are dozens of ways that chromosomes can be much more complex than XX and X
     <Tweet id="1207839452619522048" />
   </Tweet>
   <Tweet id="1208181235593490433" />
-</FlexRow>
+</Stack>

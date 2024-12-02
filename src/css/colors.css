@@ -1,0 +1,396 @@
+:root {
+  color-scheme: light dark;
+  /* color-scheme: dark; */
+
+  --amber-50: #fff8e1;
+  --amber-100: #ffecb3;
+  --amber-200: #ffe082;
+  --amber-300: #ffd54f;
+  --amber-400: #ffca28;
+  --amber-500: #ffc107;
+  --amber-600: #ffb300;
+  --amber-700: #ffa000;
+  --amber-800: #ff8f00;
+  --amber-900: #ff6f00;
+  --amber-A100: #ffe57f;
+  --amber-A200: #ffd740;
+  --amber-A400: #ffc400;
+  --amber-A700: #ffab00;
+
+  --blue-50: #e3f2fd;
+  --blue-100: #bbdefb;
+  --blue-200: #90caf9;
+  --blue-300: #64b5f6;
+  --blue-400: #42a5f5;
+  --blue-500: #2196f3;
+  --blue-600: #1e88e5;
+  --blue-700: #1976d2;
+  --blue-800: #1565c0;
+  --blue-900: #0d47a1;
+  --blue-A100: #82b1ff;
+  --blue-A200: #448aff;
+  --blue-A400: #2979ff;
+  --blue-A700: #2962ff;
+
+  --blue-grey-50: #eceff1;
+  --blue-grey-100: #cfd8dc;
+  --blue-grey-200: #b0bec5;
+  --blue-grey-300: #90a4ae;
+  --blue-grey-400: #78909c;
+  --blue-grey-500: #607d8b;
+  --blue-grey-600: #546e7a;
+  --blue-grey-700: #455a64;
+  --blue-grey-800: #37474f;
+  --blue-grey-900: #263238;
+  --blue-grey-A100: #cfd8dc;
+  --blue-grey-A200: #b0bec5;
+  --blue-grey-A400: #78909c;
+  --blue-grey-A700: #455a64;
+
+  --brand-050: #ebecef;
+  --brand-100: #ced0d7;
+  --brand-200: #adb1bd;
+  --brand-300: #8c92a2;
+  --brand-400: #747a8e;
+  --brand-500: #5b637a;
+  --brand-600: #535b72;
+  --brand-700: #495167;
+  --brand-800: #40475d;
+  --brand-900: #2f354a;
+
+  --brown-50: #efebe9;
+  --brown-100: #d7ccc8;
+  --brown-200: #bcaaa4;
+  --brown-300: #a1887f;
+  --brown-400: #8d6e63;
+  --brown-500: #795548;
+  --brown-600: #6d4c41;
+  --brown-700: #5d4037;
+  --brown-800: #4e342e;
+  --brown-900: #3e2723;
+  --brown-A100: #d7ccc8;
+  --brown-A200: #bcaaa4;
+  --brown-A400: #8d6e63;
+  --brown-A700: #5d4037;
+
+  --cyan-50: #e0f7fa;
+  --cyan-100: #b2ebf2;
+  --cyan-200: #80deea;
+  --cyan-300: #4dd0e1;
+  --cyan-400: #26c6da;
+  --cyan-500: #00bcd4;
+  --cyan-600: #00acc1;
+  --cyan-700: #0097a7;
+  --cyan-800: #00838f;
+  --cyan-900: #006064;
+  --cyan-A100: #84ffff;
+  --cyan-A200: #18ffff;
+  --cyan-A400: #00e5ff;
+  --cyan-A700: #00b8d4;
+
+  --deep-orange-50: #fbe9e7;
+  --deep-orange-100: #ffccbc;
+  --deep-orange-200: #ffab91;
+  --deep-orange-300: #ff8a65;
+  --deep-orange-400: #ff7043;
+  --deep-orange-500: #ff5722;
+  --deep-orange-600: #f4511e;
+  --deep-orange-700: #e64a19;
+  --deep-orange-800: #d84315;
+  --deep-orange-900: #bf360c;
+  --deep-orange-A100: #ff9e80;
+  --deep-orange-A200: #ff6e40;
+  --deep-orange-A400: #ff3d00;
+  --deep-orange-A700: #dd2c00;
+
+  --deep-purple-50: #ede7f6;
+  --deep-purple-100: #d1c4e9;
+  --deep-purple-200: #b39ddb;
+  --deep-purple-300: #9575cd;
+  --deep-purple-400: #7e57c2;
+  --deep-purple-500: #673ab7;
+  --deep-purple-600: #5e35b1;
+  --deep-purple-700: #512da8;
+  --deep-purple-800: #4527a0;
+  --deep-purple-900: #311b92;
+  --deep-purple-A100: #b388ff;
+  --deep-purple-A200: #7c4dff;
+  --deep-purple-A400: #651fff;
+  --deep-purple-A700: #6200ea;
+
+  --green-50: #e8f5e9;
+  --green-100: #c8e6c9;
+  --green-200: #a5d6a7;
+  --green-300: #81c784;
+  --green-400: #66bb6a;
+  --green-500: #4caf50;
+  --green-600: #43a047;
+  --green-700: #388e3c;
+  --green-800: #2e7d32;
+  --green-900: #1b5e20;
+  --green-A100: #b9f6ca;
+  --green-A200: #69f0ae;
+  --green-A400: #00e676;
+  --green-A700: #00c853;
+
+  --grey-000: #f8f9fa;
+  --grey-050: #eff0f2;
+  --grey-100: #e5e8ea;
+  --grey-150: #d3d7db;
+  --grey-200: #c9ced4;
+  --grey-250: #b6bdc5;
+  --grey-300: #adb5bd;
+  --grey-350: #a4adb5;
+  --grey-400: #919ca6;
+  --grey-450: #7e8b97;
+  --grey-500: #758290;
+  --grey-550: #65717d;
+  --grey-600: #5d6974;
+  --grey-650: #4e5861;
+  --grey-700: #474f58;
+  --grey-750: #373e45;
+  --grey-800: #30363b;
+  --grey-850: #212529;
+  --grey-900: #191c1f;
+  --grey-950: #0a0b0c;
+  --grey-999: #020303;
+  --grey-A100: #f5f5f5;
+  --grey-A200: #eeeeee;
+  --grey-A400: #bdbdbd;
+  --grey-A700: #616161;
+
+  --indigo-50: #e8eaf6;
+  --indigo-100: #c5cae9;
+  --indigo-200: #9fa8da;
+  --indigo-300: #7986cb;
+  --indigo-400: #5c6bc0;
+  --indigo-500: #3f51b5;
+  --indigo-600: #3949ab;
+  --indigo-700: #303f9f;
+  --indigo-800: #283593;
+  --indigo-900: #1a237e;
+  --indigo-A100: #8c9eff;
+  --indigo-A200: #536dfe;
+  --indigo-A400: #3d5afe;
+  --indigo-A700: #304ffe;
+
+  --light-blue-50:  hsl(199, 98%, 97%);
+  --light-blue-100: hsl(199, 98%, 92%);
+  --light-blue-200: hsl(199, 98%, 89%);
+  --light-blue-300: hsl(199, 98%, 82%);
+  --light-blue-400: hsl(199, 98%, 75%);
+  --light-blue-500: hsl(199, 98%, 65%);
+  --light-blue-600: hsl(199, 98%, 50%);
+  --light-blue-700: hsl(199, 98%, 40%);
+  --light-blue-800: hsl(199, 98%, 22%);
+  --light-blue-900: hsl(199, 98%, 12%);
+  --light-blue-A100: #80d8ff;
+  --light-blue-A200: #40c4ff;
+  --light-blue-A400: #00b0ff;
+  --light-blue-A700: #0091ea;
+
+  --light-green-50: #f1f8e9;
+  --light-green-100: #dcedc8;
+  --light-green-200: #c5e1a5;
+  --light-green-300: #aed581;
+  --light-green-400: #9ccc65;
+  --light-green-500: #8bc34a;
+  --light-green-600: #7cb342;
+  --light-green-700: #689f38;
+  --light-green-800: #558b2f;
+  --light-green-900: #33691e;
+  --light-green-A100: #ccff90;
+  --light-green-A200: #b2ff59;
+  --light-green-A400: #76ff03;
+  --light-green-A700: #64dd17;
+
+  --lime-50: #f9fbe7;
+  --lime-100: #f0f4c3;
+  --lime-200: #e6ee9c;
+  --lime-300: #dce775;
+  --lime-400: #d4e157;
+  --lime-500: #cddc39;
+  --lime-600: #c0ca33;
+  --lime-700: #afb42b;
+  --lime-800: #9e9d24;
+  --lime-900: #827717;
+  --lime-A100: #f4ff81;
+  --lime-A200: #eeff41;
+  --lime-A400: #c6ff00;
+  --lime-A700: #aeea00;
+
+  --orange-50: #fff3e0;
+  --orange-100: #ffe0b2;
+  --orange-200: #ffcc80;
+  --orange-300: #ffb74d;
+  --orange-400: #ffa726;
+  --orange-500: #ff9800;
+  --orange-600: #fb8c00;
+  --orange-700: #f57c00;
+  --orange-800: #ef6c00;
+  --orange-900: #e65100;
+  --orange-A100: #ffd180;
+  --orange-A200: #ffab40;
+  --orange-A400: #ff9100;
+  --orange-A700: #ff6d00;
+
+  --pink-50:  hsl(331, 98%, 96%);
+  --pink-100: hsl(331, 98%, 90%);
+  --pink-200: hsl(331, 98%, 80%);
+  --pink-300: hsl(331, 98%, 68%);
+  --pink-400: hsl(331, 98%, 60%);
+  --pink-500: hsl(331, 98%, 51%);
+  --pink-600: hsl(331, 98%, 42%);
+  --pink-700: hsl(331, 98%, 38%);
+  --pink-800: hsl(331, 98%, 30%);
+  --pink-900: hsl(331, 98%, 23%);
+  --pink-A100: #ff80ab;
+  --pink-A200: #ff4081;
+  --pink-A400: #f50057;
+  --pink-A700: #c51162;
+
+  --purple-50: #f3e5f5;
+  --purple-100: #e1bee7;
+  --purple-200: #ce93d8;
+  --purple-300: #ba68c8;
+  --purple-400: #ab47bc;
+  --purple-500: #9c27b0;
+  --purple-600: #8e24aa;
+  --purple-700: #7b1fa2;
+  --purple-800: #6a1b9a;
+  --purple-900: #4a148c;
+  --purple-A100: #ea80fc;
+  --purple-A200: #e040fb;
+  --purple-A400: #d500f9;
+  --purple-A700: #aa00ff;
+
+  --red-50: #ffebee;
+  --red-100: #ffcdd2;
+  --red-200: #ef9a9a;
+  --red-300: #e57373;
+  --red-400: #ef5350;
+  --red-500: #f44336;
+  --red-600: #e53935;
+  --red-700: #d32f2f;
+  --red-800: #c62828;
+  --red-900: #b71c1c;
+  --red-A100: #ff8a80;
+  --red-A200: #ff5252;
+  --red-A400: #ff1744;
+  --red-A700: #d50000;
+
+  --teal-50: #e0f2f1;
+  --teal-100: #b2dfdb;
+  --teal-200: #80cbc4;
+  --teal-300: #4db6ac;
+  --teal-400: #26a69a;
+  --teal-500: #009688;
+  --teal-600: #00897b;
+  --teal-700: #00796b;
+  --teal-800: #00695c;
+  --teal-900: #004d40;
+  --teal-A100: #a7ffeb;
+  --teal-A200: #64ffda;
+  --teal-A400: #1de9b6;
+  --teal-A700: #00bfa5;
+
+  --yellow-50: #fffde7;
+  --yellow-100: #fff9c4;
+  --yellow-200: #fff59d;
+  --yellow-300: #fff176;
+  --yellow-400: #ffee58;
+  --yellow-500: #ffeb3b;
+  --yellow-600: #fdd835;
+  --yellow-700: #fbc02d;
+  --yellow-800: #f9a825;
+  --yellow-900: #f57f17;
+  --yellow-A100: #ffff8d;
+  --yellow-A200: #ffff00;
+  --yellow-A400: #ffea00;
+  --yellow-A700: #ffd600;
+
+  --variant-shade-opacity: 20%;
+
+  --trans-blue-lightest: #f0f8ff;
+  --trans-blue-light: #b9eafe;
+  --trans-blue-main: #55CDFC;
+  --trans-blue-dark: #0377a4;
+  --trans-blue-darkest: #025372;
+
+  --trans-pink-lightest: #fef6f7;
+  --trans-pink-light: #fde6eb;
+  --trans-pink-main: #F7A8B8;
+  --trans-pink-dark: #ee4b6c;
+  --trans-pink-darkest: #ea1c46;
+
+  --primary-main: #fc0a7e;
+  --primary-light: color-mix(in oklab, var(--primary-main), light-dark(white, black) var(--variant-shade-opacity));
+  --primary-dark: color-mix(in oklab, var(--primary-main), light-dark(black, white) var(--variant-shade-opacity));
+  --primary-contrast: light-dark(rgba(255, 255, 255, 1), rgba(0, 0, 0, 0.87));
+
+  --secondary-main: #03a9f4;
+  --secondary-light: color-mix(in oklab, var(--secondary-main), light-dark(white, black) var(--variant-shade-opacity));
+  --secondary-dark: color-mix(in oklab, var(--secondary-main), light-dark(black, white) var(--variant-shade-opacity));
+  --secondary-contrast: light-dark(rgba(255, 255, 255, 1), rgba(0, 0, 0, 0.87));
+
+  --success-main: hsl(144, 72%, 37%);
+  --success-light: color-mix(in oklab, var(--success-main), light-dark(white, black) var(--variant-shade-opacity));
+  --success-dark: color-mix(in oklab, var(--success-main), light-dark(black, white) var(--variant-shade-opacity));
+  --success-contrast: light-dark(rgba(255, 255, 255, 1), rgba(0, 0, 0, 0.87));
+
+  --info-main: hsl(201, 98%, 40%);
+  --info-light: color-mix(in oklab, var(--info-main), light-dark(white, black) var(--variant-shade-opacity));
+  --info-dark: color-mix(in oklab, var(--info-main), light-dark(black, white) var(--variant-shade-opacity));
+  --info-contrast: light-dark(rgba(255, 255, 255, 1), rgba(0, 0, 0, 0.87));
+
+  --warning-main: hsl(48, 100%, 44%);
+  --warning-light: color-mix(in oklab, var(--warning-main), light-dark(white, black) var(--variant-shade-opacity));
+  --warning-dark: color-mix(in oklab, var(--warning-main), light-dark(black, white) var(--variant-shade-opacity));
+  --warning-contrast: light-dark(rgba(255, 255, 255, 1), rgba(0, 0, 0, 0.87));
+
+  --danger-main: hsl(355, 98%, 66%);
+  --danger-light: color-mix(in oklab, var(--danger-main), light-dark(white, black) var(--variant-shade-opacity));
+  --danger-dark: color-mix(in oklab, var(--danger-main), light-dark(black, white) var(--variant-shade-opacity));
+  --danger-extra-dark: color-mix(in oklab, var(--danger-main), light-dark(black, white) 40%);
+  --danger-contrast: light-dark(rgba(255, 255, 255, 1), rgba(0, 0, 0, 0.87));
+
+  --divider-color: light-dark(rgba(0, 0, 0, 0.12), rgba(255, 255, 255, 0.12));
+
+  --background-default: light-dark(#fff, #121212);
+  --background-paper: light-dark(#fff, #121212);
+
+  --surface-base: light-dark(#b4c7dc, #39587b);
+  --surface-1: color-mix(in oklab, var(--surface-base), light-dark(white, black) 84%);
+  --surface-2: color-mix(in oklab, var(--surface-base), light-dark(white, black) 70%);
+  --surface-3: color-mix(in oklab, var(--surface-base), light-dark(white, black) 56%);
+  --surface-4: color-mix(in oklab, var(--surface-base), light-dark(white, black) 42%);
+  --surface-5: color-mix(in oklab, var(--surface-base), light-dark(white, black) 28%);
+  --surface-6: color-mix(in oklab, var(--surface-base), light-dark(white, black) 14%);
+  --surface-7: var(--surface-base);
+
+  --focus-color: var(--blue-600);
+
+  --alpha-black-050: rgb(from black r g b / 02%);
+  --alpha-black-100: rgb(from black r g b / 10%);
+  --alpha-black-200: rgb(from black r g b / 18%);
+  --alpha-black-300: rgb(from black r g b / 24%);
+  --alpha-black-400: rgb(from black r g b / 42%);
+  --alpha-black-500: rgb(from black r g b / 56%);
+  --alpha-black-600: rgb(from black r g b / 67%);
+  --alpha-black-700: rgb(from black r g b / 74%);
+  --alpha-black-800: rgb(from black r g b / 82%);
+  --alpha-black-900: rgb(from black r g b / 88%);
+  --alpha-black-950: rgb(from black r g b / 93%);
+
+  --alpha-white-050: rgb(from white r g b / 02%);
+  --alpha-white-100: rgb(from white r g b / 10%);
+  --alpha-white-200: rgb(from white r g b / 18%);
+  --alpha-white-300: rgb(from white r g b / 24%);
+  --alpha-white-400: rgb(from white r g b / 42%);
+  --alpha-white-500: rgb(from white r g b / 56%);
+  --alpha-white-600: rgb(from white r g b / 67%);
+  --alpha-white-700: rgb(from white r g b / 74%);
+  --alpha-white-800: rgb(from white r g b / 82%);
+  --alpha-white-900: rgb(from white r g b / 88%);
+  --alpha-white-950: rgb(from white r g b / 93%);
+}

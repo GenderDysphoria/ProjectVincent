@@ -1,0 +1,12 @@
+:root {
+  --zindex-loading: 1000;
+  --zindex-mobile-stepper: 1000;
+  --zindex-fab: 1050;
+  --zindex-speedDial: 1050;
+  --zindex-appBar: 1100;
+  --zindex-drawer: 1200;
+  --zindex-banner: 1250;
+  --zindex-modal: 1300;
+  --zindex-snackbar: 1400;
+  --zindex-tooltip: 1500;
+}

@@ -1,0 +1,75 @@
+:root {
+  --html-font-size: 16px;
+
+  --font-family-primary: Lato,
+    Arial,
+    ui-sans-serif,
+    system-ui,
+    sans-serif,
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol",
+    "Noto Color Emoji";
+
+  --font-family-secondary: "Gothic A1",
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    ui-sans-serif,
+    system-ui,
+    sans-serif,
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol",
+    "Noto Color Emoji";
+  
+  --font-family-brand: "Roboto",
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    ui-sans-serif,
+    system-ui,
+    sans-serif,
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol",
+    "Noto Color Emoji";
+
+  --font-family-mono: 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
+
+  --font-weight-thin: 100;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  --font-weight-heavy: 900;
+
+  --font-size-xs: 0.55rem;
+  --font-size-sm: 0.75rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+  --font-size-5xl: 3rem;
+  @media only screen and (min-width: --breakpoint-lg) {
+    --font-size-2xl: 2rem;
+    --font-size-3xl: 2.5rem;
+    --font-size-4xl: 3rem;
+    --font-size-5xl: 4rem;
+  }
+
+  --text-color-primary: light-dark(rgba(0, 0, 0, 0.87), rgba(245, 245, 245, 1));
+  --text-color-secondary: light-dark(rgba(0, 0, 0, 0.6), rgba(245, 245, 245, 0.5));
+  --text-color-disabled: light-dark(rgba(0, 0, 0, 0.38), rgba(245, 245, 245, 0.5));
+  --text-color-icon: light-dark(rgba(0, 0, 0, 0.5), rgba(245, 245, 245, 0.5));
+  --text-color-success: var(--success-main);
+  --text-color-info: var(--info-main);
+  --text-color-warning: var(--warning-main);
+  --text-color-danger: var(--danger-main);
+}
+
+body {
+  font-family: var(--font-family-primary);
+}

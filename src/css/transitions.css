@@ -1,0 +1,16 @@
+:root {
+  --transition-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-ease-out: cubic-bezier(0.0, 0, 0.2, 1);
+  --transition-ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --transition-ease-sharp: cubic-bezier(0.4, 0, 0.6, 1);
+
+  --transition-duration-none: 0ms;
+  --transition-duration-shortest: 150ms;
+  --transition-duration-shorter: 200ms;
+  --transition-duration-short: 250ms;
+  --transition-duration-standard: 300ms;
+  --transition-duration-complex: 375ms;
+  --transition-duration-enteringScreen: 225ms;
+  --transition-duration-leavingScreen: 195ms;
+  --transition-duration-ripple: 800ms;
+}

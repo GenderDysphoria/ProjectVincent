@@ -1,0 +1,11 @@
+
+.ui-grid {
+  display: grid;
+}
+
+.ui-grid-cell {
+  position: relative;
+  display: flex;
+  justify-content: stretch;
+  align-items: stretch;
+}

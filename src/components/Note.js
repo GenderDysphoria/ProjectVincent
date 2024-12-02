@@ -1,18 +1,20 @@
-import { styled } from 'essex-emotion';
+import clsx from 'clsx';
 
-const Note = styled('div')(({ theme }) => ({
-  backgroundColor: theme.palette.action.selected,
-  color: theme.pallete.text.secondary,
+import Paper from '#src/components/Paper';
 
-  borderBottom: `1px solid ${theme.palette.action.disabled}`,
+const CssPrefix = 'ui-note';
+export default function Note ({
+  component,
+  className,
+  children,
+  ...props
+}) {
+  const classes = clsx(
+    className,
+    CssPrefix
+  );
 
-  fontSize: '0.8rem',
-  fontWeight: 300,
-
-  '& strong': {
-    fontWeight: 400,
-  },
-}));
-Note.displayName = 'Note';
-
-export default Note;
+  return (
+    <Paper component={component} {...props} className={classes}>{children}</Paper>
+  );
+}

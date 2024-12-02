@@ -1,6 +1,6 @@
 import path from 'path';
-import { fileURLToPath } from 'url';
 import { readPackageUpSync } from 'read-package-up';
+import { fileURLToPath } from 'url';
 
 const FILENAME = fileURLToPath(import.meta.url);
 const DIRNAME = path.dirname(FILENAME);

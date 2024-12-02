@@ -1,0 +1,39 @@
+
+.ui-quote {
+  background-color: var(--trans-blue-lightest);
+  color: var(--text-color-primary);
+  font-family: var(--font-family-secondary);
+  font-size: var(--font-size-sm);
+  line-height: 1.4;
+
+  border: 1px solid var(--trans-blue-main);
+  box-shadow: 0 1px 3px rgb(from var(--trans-blue-main) r g b / 50%);
+
+  padding: var(--spacing-2);
+
+  position: relative;
+  overflow: hidden;
+
+  strong {
+    font-weight: 600;
+  }
+
+  &::before {
+    font-family: cursive;
+    font-weight: 700;
+    display: block;
+    padding-left: 10px;
+    content: "\201C";
+    font-size: 50px;
+    position: absolute;
+    left: -10px;
+    top: -16px;
+    color: var(--trans-blue-main);
+    text-shadow: 0 1px 3px rgb(from var(--trans-blue-main) r g b / 50%);
+    opacity: 0.8;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}

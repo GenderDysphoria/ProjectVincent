@@ -1,11 +1,11 @@
-import { Meta, Gutter, Image, Card, Tweet, FlexRow } from '#src/common';
-import Disclaimer from './_disclaimer';
+import { Gutter, Image, Card, Tweet, Stack } from '#src/common';
+import Disclaimer from './_disclaimer.mdx';
 
-<Meta
-  title="What is the Cause of Gender Incongruence"
-  linkTitle="Causes of Gender Dysphoria"
-  description="It's all about the hormones, baby."
-/>
+export const meta = {
+  title: "What is the Cause of Gender Incongruence",
+  linkTitle: "Causes of Gender Dysphoria",
+  description: "It's all about the hormones, baby.",
+}
 
 <Disclaimer />
 
@@ -54,7 +54,7 @@ This is known as Swyer Syndrome, and an unknown number of women may have this co
 The fact is, the vast majority of the population has never been tested for genetic karyotype, so we don’t know how common these cases actually are. Where does this come into affect for gender identity? Well, the exact same process that causes the external genitals to differentiate also occurs for the brain.
 
 <Gutter>
-  <FlexRow center>And it gets even weirder!</FlexRow>
+  <Stack center>And it gets even weirder!</Stack>
   <Tweet unified no-reply>
     <Tweet id="1224039568971710464" />
     <Tweet id="1224040716365524993" />

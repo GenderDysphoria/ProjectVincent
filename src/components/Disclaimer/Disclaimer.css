@@ -1,0 +1,11 @@
+
+.ui-disclaimer {
+  background-color: var(--action-disabled-background);
+  border-bottom: 1px solid var(--action-disabled);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-light);
+
+  & strong {
+    fontWeight: var(--font-weight-regular);
+  }
+}

@@ -1,11 +1,10 @@
 #!/usr/bin/env node
 
-// eslint-disable-next-line n/no-unsupported-features/node-builtins
-import { register } from 'node:module';
 import minimist from 'minimist';
+import { register } from 'node:module';
 
 register(import.meta.resolve('./loader-mdx.js'));
-register(import.meta.resolve('./loader.js'));
+register(import.meta.resolve('import-essex'));
 
 const {
   _: [ command, ...args ],

@@ -1,24 +1,32 @@
 import log from 'fancy-log';
 
-import renderTask, { watch as renderTaskWatch } from './tasks/render.js';
-import metaTask, { watch as metaTaskWatch } from './tasks/meta.js';
+import BUILD_HASH from './build-hash.js';
 import cleanupTask from './tasks/cleanup.js';
+import cssTask, { watchCssTask } from './tasks/css.js';
+import metaTask, { watch as metaTaskWatch } from './tasks/meta.js';
+import renderTask, { watchRenderTask } from './tasks/render.js';
 
 const tasks = {
   render: () => renderTask(),
-  scanPages: () => metaTask(),
+  manifest: () => metaTask(),
   clean: () => cleanupTask([ 'compiled', 'dist' ]),
+  css: () => cssTask({
+    distPath: `dist/static/${BUILD_HASH}/bundle.css`,
+  }),
   build: [
     'clean',
-    'scanPages',
-    'render',
+    'manifest',
+    // 'render',
   ],
   watch: [
     'clean',
-    'scanPages',
-    { parallel: [
-      function watchPages () { return metaTaskWatch(); },
-    ] },
+    // 'scanPages',
+    {
+      parallel: [
+        function buildCss () { return watchCssTask(); },
+        // function watchPages () { return metaTaskWatch(); },
+      ],
+    },
   ],
 };
 
@@ -72,7 +80,6 @@ async function exec (command, args, flags, depth = 0) {
 }
 
 export default async function gen (command, args, flags) {
-  // eslint-disable-next-line no-param-reassign
   if (!command) command = 'build';
   return exec(command, args, flags).catch(console.error);
 }

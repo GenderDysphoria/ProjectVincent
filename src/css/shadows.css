@@ -1,0 +1,51 @@
+:root {
+  @define-mixin elevation-shadow $n, $px0, $px1, $px2, $px3, $px4, $px5, $px6, $px7, $px8, $px9, $px10, $px11 {
+  --bezel-$(n):
+    $(px0)px $(px1)px $(px2)px $(px3)px light-dark(rgba(255,255,255,0.2), rgba(255,180,255,0.2)), 
+    $(px4)px $(px5)px $(px6)px $(px7)px light-dark(rgba(255,255,255,0.14), rgba(255,180,255,0.14)),
+    $(px8)px $(px9)px $(px10)px $(px11)px light-dark(rgba(255,255,255,0.12), rgba(255,180,255,0.12));
+  --bezel-inset-$(n):
+    $(px0)px $(px1)px $(px2)px $(px3)px rgba(255,255,255,0.2) inset, 
+    $(px4)px $(px5)px $(px6)px $(px7)px rgba(255,255,255,0.14) inset,
+    $(px8)px $(px9)px $(px10)px $(px11)px rgba(255,255,255,0.12) inset,
+    $(px0)px -$(px1)px $(px2)px $(px3)px rgba(0,0,0,0.2) inset,
+    $(px4)px -$(px5)px $(px6)px $(px7)px rgba(0,0,0,0.14) inset,
+    $(px8)px -$(px9)px $(px10)px $(px11)px rgba(0,0,0,0.12) inset;
+  --shadow-$(n):
+    $(px0)px $(px1)px $(px2)px $(px3)px rgba(0,0,0,0.2), 
+    $(px4)px $(px5)px $(px6)px $(px7)px rgba(0,0,0,0.14),
+    $(px8)px $(px9)px $(px10)px $(px11)px rgba(0,0,0,0.12);
+  --shadow-inset-$(n):
+    $(px0)px $(px1)px $(px2)px $(px3)px rgba(0,0,0,0.2) inset, 
+    $(px4)px $(px5)px $(px6)px $(px7)px rgba(0,0,0,0.14) inset,
+    $(px8)px $(px9)px $(px10)px $(px11)px rgba(0,0,0,0.12) inset;
+  --overlay-alpha-$(n): round((4.5 * log(1 + 1) + 2) * 10) / 1000;
+  --overlay-$(n): linear-gradient(rgba(255 255 255 / var(--overlay-alpha-$n)), rgba(255 255 255 / var(--overlay-alpha-$n)));
+  }
+
+  --shadow-0: none;
+  @mixin elevation-shadow 1, 0, 2, 1, -1, 0, 1, 1, 0, 0, 1, 3, 0;
+  @mixin elevation-shadow 2, 0, 3, 1, -2, 0, 2, 2, 0, 0, 1, 5, 0;
+  @mixin elevation-shadow 3, 0, 3, 3, -2, 0, 3, 4, 0, 0, 1, 8, 0;
+  @mixin elevation-shadow 4, 0, 2, 4, -1, 0, 4, 5, 0, 0, 1, 10, 0;
+  @mixin elevation-shadow 5, 0, 3, 5, -1, 0, 5, 8, 0, 0, 1, 14, 0;
+  @mixin elevation-shadow 6, 0, 3, 5, -1, 0, 6, 10, 0, 0, 1, 18, 0;
+  @mixin elevation-shadow 7, 0, 4, 5, -2, 0, 7, 10, 1, 0, 2, 16, 1;
+  @mixin elevation-shadow 8, 0, 5, 5, -3, 0, 8, 10, 1, 0, 3, 14, 2;
+  @mixin elevation-shadow 9, 0, 5, 6, -3, 0, 9, 12, 1, 0, 3, 16, 2;
+  @mixin elevation-shadow 10, 0, 6, 6, -3, 0, 10, 14, 1, 0, 4, 18, 3;
+  @mixin elevation-shadow 11, 0, 6, 7, -4, 0, 11, 15, 1, 0, 4, 20, 3;
+  @mixin elevation-shadow 12, 0, 7, 8, -4, 0, 12, 17, 2, 0, 5, 22, 4;
+  @mixin elevation-shadow 13, 0, 7, 8, -4, 0, 13, 19, 2, 0, 5, 24, 4;
+  @mixin elevation-shadow 14, 0, 7, 9, -4, 0, 14, 21, 2, 0, 5, 26, 4;
+  @mixin elevation-shadow 15, 0, 8, 9, -5, 0, 15, 22, 2, 0, 6, 28, 5;
+  @mixin elevation-shadow 16, 0, 8, 10, -5, 0, 16, 24, 2, 0, 6, 30, 5;
+  @mixin elevation-shadow 17, 0, 8, 11, -5, 0, 17, 26, 2, 0, 6, 32, 5;
+  @mixin elevation-shadow 18, 0, 9, 11, -5, 0, 18, 28, 2, 0, 7, 34, 6;
+  @mixin elevation-shadow 19, 0, 9, 12, -6, 0, 19, 29, 2, 0, 7, 36, 6;
+  @mixin elevation-shadow 20, 0, 10, 13, -6, 0, 20, 31, 3, 0, 8, 38, 7;
+  @mixin elevation-shadow 21, 0, 10, 13, -6, 0, 21, 33, 3, 0, 8, 40, 7;
+  @mixin elevation-shadow 22, 0, 10, 14, -6, 0, 22, 35, 3, 0, 8, 42, 7;
+  @mixin elevation-shadow 23, 0, 11, 14, -7, 0, 23, 36, 3, 0, 9, 44, 8;
+  @mixin elevation-shadow 24, 0, 11, 15, -7, 0, 24, 38, 3, 0, 9, 46, 8;
+}

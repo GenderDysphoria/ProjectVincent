@@ -1,0 +1,7 @@
+:root {
+  --spacing: 8px;
+  --spacing-half: calc(var(--spacing) * 0.5);
+  --spacing-2: calc(var(--spacing) * 2);
+  --spacing-3: calc(var(--spacing) * 3);
+  --spacing-4: calc(var(--spacing) * 4);
+}

@@ -1,0 +1,226 @@
+
+.ui-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: var(--button-bg);
+  outline: 0;
+  border: 1px solid transparent;
+  margin: 0;
+  border-radius: 2em;
+  padding: 0;
+  padding-block: var(--button-padding-vert);
+  padding-block-start: calc(var(--button-padding-vert) + 2px);
+  padding-inline: var(--button-padding-horz);
+  cursor: pointer;
+  user-select: none;
+  vertical-align: middle;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  text-decoration: none;
+  color: inherit;
+  text-transform: uppercase;
+  font-family: var(--font-family-primary);
+  transition: 
+    background-color var(--transition-duration-short) var(--transition-ease-in-out),
+    background-size var(--transition-duration-none) var(--transition-ease-in-out),
+    box-shadow var(--transition-duration-short) var(--transition-ease-in-out),
+    border-color var(--transition-duration-short) var(--transition-ease-in-out),
+    color var(--transition-duration-short) var(--transition-ease-in-out);
+
+  &::-moz-focus-inner {
+    border-style: none;
+  }
+
+  &:disabled, .ui-button-disabled {
+    pointer-events: none;
+    cursor: default;
+  }
+
+  --button-base-highlight: color-mix(in oklab, var(--button-base-color), light-dark(white, black) 20%);
+  --button-base-dimmed: color-mix(in oklab, var(--button-base-color), light-dark(black, white) 20%);
+
+  --button-hollow-color: var(--button-base-color);
+  --button-hollow-bg: var(--button-contrast-color);
+  --button-hollow-border: rgb(from var(--button-base-color) r g b / 50%);
+  --button-hollow-hover-border: var(--button-base-color);
+  --button-hollow-hover-color: color-mix(in oklab, var(--button-base-color), light-dark(black, white) 20%);
+  --button-hollow-hover-bg: light-dark(
+    rgb(from var(--button-base-color) r g b / var(--action-hover-opacity-light)),
+    rgb(from var(--button-base-color) r g b / var(--action-hover-opacity-dark))
+  );
+  --button-hollow-pressed-bg: light-dark(
+    rgb(from var(--button-base-color) r g b / var(--action-selected-opacity-light)),
+    rgb(from var(--button-base-color) r g b / var(--action-selected-opacity-dark))
+  );
+
+  --button-filled-color: var(--button-contrast-color);
+  --button-filled-bg: var(--button-base-color);
+  --button-filled-hover-bg: color-mix(in oklab, var(--button-base-color), light-dark(black, white) 20%);
+  --button-filled-pressed-bg: color-mix(in oklab, var(--button-base-color), light-dark(white, black) 20%);
+
+  @media (hover:hover) {
+    &:hover {
+      background-color: var(--button-hover-bg);
+    }
+  }
+
+  &:active {
+    background-color: var(--button-pressed-bg);
+  }
+
+  @media print {
+    print-color-adjust: exact;
+  }
+
+  &.ui-button--full-width {
+    display: flex;
+    flex: 1;
+  }
+
+  &.ui-button--text {
+    color: var(--button-hollow-color);
+    --button-rounding: var(--shape-square);
+    --button-bg: transparent;
+    --button-hover-bg: var(--button-hollow-hover-bg);
+    --button-pressed-bg: var(--button-hollow-pressed-bg);
+  }
+
+  &.ui-button--contained {
+    color: var(--button-filled-color);
+    box-shadow: var(--bezel-inset-1), var(--shadow-2);
+    --button-bg: var(--button-filled-bg);
+    --button-hover-bg: var(--button-filled-hover-bg);
+    --button-pressed-bg: var(--button-filled-pressed-bg);
+    border-bottom-width: 0;
+
+    @media (hover:hover) {
+      &:hover {
+        box-shadow: var(--bezel-inset-1), var(--shadow-4);
+      }
+    }
+
+    &:active {
+      box-shadow: var(--bezel-inset-1), var(--shadow-1);
+    }
+
+    &:disabled, &[disabled], &.ui-button-disabled {
+      box-shadow: none;
+    }
+  }
+
+  &.ui-button--outlined {
+    padding-block: calc(var(--button-padding-vert) - 1px);
+    color: var(--button-hollow-color);
+    border-color: var(--button-hollow-border);
+    --button-bg: var(--button-hollow-bg);
+    --button-hover-bg: var(--button-hollow-hover-bg);
+    --button-pressed-bg: var(--button-hollow-pressed-bg);
+  }
+
+  &.ripple {
+    background-image: radial-gradient(circle, var(--button-pressed-bg) 1%, var(--button-base-bg) 1%);
+    background-size: 0%;
+
+    transition: 
+      background-color var(--transition-duration-none) var(--transition-ease-in-out),
+      background-size var(--transition-duration-none) var(--transition-ease-in-out),
+      box-shadow var(--transition-duration-short) var(--transition-ease-in-out),
+      border-color var(--transition-duration-short) var(--transition-ease-in-out),
+      color var(--transition-duration-short) var(--transition-ease-in-out);
+    
+    &:active {
+      transition: 
+        background-color var(--transition-duration-complex) var(--transition-ease-in-out),
+        background-size var(--transition-duration-standard) var(--transition-ease-in-out),
+        box-shadow var(--transition-duration-short) var(--transition-ease-in-out),
+        border-color var(--transition-duration-short) var(--transition-ease-in-out),
+        color var(--transition-duration-short) var(--transition-ease-in-out);
+    }
+
+    &:active {
+      background-size: 15000%;
+    }
+
+    @media (hover:hover) {
+      background-image: radial-gradient(circle, var(--button-pressed-bg) 1%, var(--button-hover-bg) 1%);
+      &:hover {
+        background-image: radial-gradient(circle, var(--button-pressed-bg) 1%, var(--button-hover-bg) 1%);
+        background-color: var(--button-hover-bg);
+        background-size: 100%;
+      }
+
+      &:active {
+        background-size: 15000%;
+        background-color: var(--button-pressed-bg);
+      }
+    }
+
+  }
+
+  &.ui-button--size-xs {
+    font-size: var(--font-size-xs);
+    --button-padding-vert: calc(var(--spacing) * 0.25);
+    --button-padding-horz: calc(var(--spacing) * 0.5);
+  }
+
+  &.ui-button--size-sm {
+    font-size: var(--font-size-sm);
+    --button-padding-vert: calc(var(--spacing) * 0.5);
+    --button-padding-horz: calc(var(--spacing) * 1);
+  }
+
+  &.ui-button--size-md {
+    font-size: var(--font-size-md);
+    --button-padding-vert: calc(var(--spacing) * 1);
+    --button-padding-horz: calc(var(--spacing) * 2);
+  }
+
+  &.ui-button--size-lg {
+    font-size: var(--font-size-lg);
+    --button-padding-vert: calc(var(--spacing) * 1.5);
+    --button-padding-horz: calc(var(--spacing) * 2.5);
+  }
+
+  &.ui-button--size-xl {
+    font-size: var(--font-size-2xl);
+    --button-padding-vert: calc(var(--spacing) * 2);
+    --button-padding-horz: calc(var(--spacing) * 3);
+  }
+
+  &.ui-button--color-primary {
+    --button-base-color: var(--primary-main);
+    --button-contrast-color: var(--primary-contrast);
+  }
+  &.ui-button--color-secondary {
+    --button-base-color: var(--secondary-main);
+    --button-contrast-color: var(--secondary-contrast);
+  }
+  &.ui-button--color-success {
+    --button-base-color: var(--success-main);
+    --button-contrast-color: var(--success-contrast);
+  }
+  &.ui-button--color-info {
+    --button-base-color: var(--info-main);
+    --button-contrast-color: var(--info-contrast);
+  }
+  &.ui-button--color-warning {
+    --button-base-color: var(--warning-main);
+    --button-contrast-color: var(--warning-contrast);
+  }
+  &.ui-button--color-danger {
+    --button-base-color: var(--danger-main);
+    --button-contrast-color: var(--danger-contrast);
+  }
+
+  &.ui-button--circle {
+    --button-rounding: var(--shape-circle);
+  }
+}

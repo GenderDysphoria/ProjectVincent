@@ -1,0 +1,64 @@
+.ui-text {
+  font-weight: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+
+  &.ui-text--italic {
+    font-style: italic;
+  }
+
+  &.ui-text--weight-light   { font-weight: var(--font-weight-light); }
+  &.ui-text--weight-regular { font-weight: var(--font-weight-regular); }
+  &.ui-text--weight-medium  { font-weight: var(--font-weight-medium); }
+  &.ui-text--weight-bold    { font-weight: var(--font-weight-bold); }
+
+  &.ui-text--case-title    { text-transform: capitalize; }
+  &.ui-text--case-upper    { text-transform: uppercase; }
+  &.ui-text--case-lower    { text-transform: lowercase; }
+
+  &.ui-text--family-primary   { font-family: var(--font-family-primary); }
+  &.ui-text--family-secondary { font-family: var(--font-family-secondary); }
+  &.ui-text--family-brand     { font-family: var(--font-family-brand); }
+  &.ui-text--family-mono      { font-family: var(--font-family-mono); }
+
+  &.ui-text--size-xs  { font-size: var(--font-size-xs); }
+  &.ui-text--size-sm  { font-size: var(--font-size-sm); }
+  &.ui-text--size-md  { font-size: var(--font-size-md); }
+  &.ui-text--size-lg  { font-size: var(--font-size-lg); }
+  &.ui-text--size-xl  { font-size: var(--font-size-xl); }
+  &.ui-text--size-2xl { font-size: var(--font-size-2xl); }
+  &.ui-text--size-3xl { font-size: var(--font-size-3xl); }
+  &.ui-text--size-4xl { font-size: var(--font-size-4xl); }
+  &.ui-text--size-5xl { font-size: var(--font-size-5xl); }
+
+  &.ui-text--color-primary   { color: var(--text-color-primary); }
+  &.ui-text--color-secondary { color: var(--text-color-secondary); }
+  &.ui-text--color-disabled  { color: var(--text-color-disabled); }
+  &.ui-text--color-icon      { color: var(--text-color-icon); }
+  &.ui-text--color-success   { color: var(--text-color-success); }
+  &.ui-text--color-info      { color: var(--text-color-info); }
+  &.ui-text--color-warning   { color: var(--text-color-warning); }
+  &.ui-text--color-danger    { color: var(--text-color-danger); }
+
+  &.ui-text--truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &.ui-text--truncate-lines {
+    overflow: 'hidden';
+    text-overflow: 'ellipsis';
+    white-space: 'pre-wrap';
+    display: '-webkit-box';
+    -webkit-box-orient: 'vertical';
+    line-clamp: var(--text-truncate-lines);
+    -webkit-line-clamp: var(--text-truncate-lines);
+  }
+
+  &.ui-text--wrap-balance  { white-space: 'normal'; text-wrap: 'balance' }
+  &.ui-text--wrap-nowrap   { white-space: 'nowrap'; }
+  &.ui-text--wrap-pretty   { white-space: 'normal'; text-wrap: 'pretty' }
+  &.ui-text--wrap-pre      { white-space: 'pre-wrap'; }
+}

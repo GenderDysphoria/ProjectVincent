@@ -1,0 +1,60 @@
+
+.ui-divider {
+  margin: 0;
+  flex-shrink: 0;
+  border-width: 0;
+  border-style: solid;
+  border-color: var(--divider-color);
+  border-bottom-width: thin;
+
+  .ui-divider-wrapper {
+    display: inline-block;
+    white-space: nowrap;
+  }
+
+  &.ui-divider--absolute {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  &.ui-divider--light {
+    border-color: rgb(from var(--divider-color) r g b / 8%);
+  }
+
+  &.ui-divider--vertical {
+    height: 100%;
+    border-bottom-width: 0;
+    border-right-width: thin;
+
+    &.ui-divider--v-middle {
+      margin-top: var(--spacing);
+      margin-bottom: var(--spacing);
+    }
+
+    & > .ui-divider-wrapper {
+      padding-top: calc(val(--spacing) * 1.2);
+      padding-bottom: calc(val(--spacing) * 1.2);
+    }
+  }
+
+  &:not(.ui-divider--vertical) {
+    &.ui-divider--v-middle {
+      margin-left: calc(var(--spacing) * 2);
+      margin-right: calc(var(--spacing) * 2);
+    }
+
+    & > .ui-divider-wrapper {
+      padding-left: calc(val(--spacing) * 1.2);
+      padding-right: calc(val(--spacing) * 1.2);
+    }
+  }
+
+  &.ui-divider--flex-item {
+    align-self: stretch;
+    height: auto;
+  }
+
+
+}

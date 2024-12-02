@@ -1,39 +1,54 @@
-import log from 'fancy-log';
-import path from 'node:path';
-import fs from 'fs-extra';
-import glob from 'fast-glob';
-import globWatch from 'glob-watcher';
 import { render } from 'essex';
-import { EmotionProvider } from 'essex-emotion';
-import { threepiece } from '@twipped/utils';
-import { MetaProvider } from '#src/providers/MetaProvider.js';
-import PageRoot from '#src/components/PageRoot.js';
+import log from 'fancy-log';
+import glob from 'fast-glob';
+import fs from 'fs-extra';
+import globWatch from 'glob-watcher';
+import path from 'node:path';
+
+import HtmlPage from '#src/components/HtmlPage';
+
+import BUILD_HASH from '../build-hash.js';
 import { ROOT_DIR } from '../pkg.js';
 
 const PAGE_GLOB = 'public/**/*.mdx';
 const IGNORE_GLOB = 'public/**/_*.mdx';
 const INDEX_GLOB = 'public/*/_index.json';
 
+const CANONICAL_ROOT = 'https://gdb.fyi/';
+
 async function renderPageBody (page, options = {}) {
   const {
     cwd = ROOT_DIR,
-    cache,
-    collection,
-    lang,
   } = options;
+  const relPath = page.file;
+  const { default: Page, meta: rawMeta } = await import(path.resolve(cwd, relPath));
 
-  const { default: Page } = await import(path.resolve(cwd, page.file));
+  const metadata = {
+    ...rawMeta,
+    file: relPath,
+  };
 
+  if (!metadata.lang) {
+    [ , metadata.lang ] = relPath.match(/\/(..)\//) || [];
+  }
+
+  if (!metadata.url) {
+    [ , metadata.url ] = relPath.match(/public(\/.+?)(?:index)?\.(?:mdx|jsx?)/) || [];
+  }
 
   try {
     page.body = await render(
-      <EmotionProvider cache={cache} collection={collection}>
-        <MetaProvider page={page} lang={lang}>
-          <PageRoot>
-            <Page />
-          </PageRoot>
-        </MetaProvider>
-      </EmotionProvider>
+      <HtmlPage
+        lang={metadata.lang}
+        title={metadata.title}
+        canonical={`${path.join(CANONICAL_ROOT, metadata.url)}`}
+      >
+        <Page />
+      </HtmlPage>,
+      {
+        metadata,
+        BUILD_HASH,
+      }
     );
   } catch (e) {
     e.message = `Error while rendering ${page.file}: ${e.message}`;
@@ -109,7 +124,11 @@ async function loadManifest (options = {}) {
   return languages;
 }
 
-export function watch (options) {
+export default function renderTask () {
+
+}
+
+export function watchRenderTask (options) {
   // const watcher = globWatch([ PAGE_GLOB, INDEX_GLOB ]);
   // watcher.on('change', async (fpath) => {
   //   log('  - File changed: ', fpath);

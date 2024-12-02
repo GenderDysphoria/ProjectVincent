@@ -1,12 +1,10 @@
-import log from 'fancy-log';
-import path from 'node:path';
-import fs from 'fs-extra';
-import glob from 'fast-glob';
-import globWatch from 'glob-watcher';
-import { render } from 'essex';
-import { EmotionProvider } from 'essex-emotion';
 import { threepiece } from '@twipped/utils';
-import { MetaProvider } from '#src/providers/MetaProvider.js';
+import log from 'fancy-log';
+import glob from 'fast-glob';
+import fs from 'fs-extra';
+import globWatch from 'glob-watcher';
+import path from 'node:path';
+
 import { ROOT_DIR } from '../pkg.js';
 
 const PAGE_GLOB = 'public/**/*.mdx';
@@ -18,24 +16,11 @@ async function loadPage (relPath, options = {}) {
     cwd = ROOT_DIR,
   } = options;
 
-  const { default: Page } = await import(path.resolve(cwd, relPath));
+  const { meta: sourceMeta } = await import(path.resolve(cwd, relPath));
   const meta = {
+    ...sourceMeta,
     file: relPath,
   };
-
-  try {
-    await render(
-      <EmotionProvider noop>
-        <MetaProvider metadata={meta}>
-          <Page />
-        </MetaProvider>
-      </EmotionProvider>
-    );
-  } catch (e) {
-    e.message = `Error while rendering ${relPath}: ${e.message}`;
-    e.stack = `Error while rendering ${relPath}:\n${e.stack}`;
-    throw e;
-  }
 
   if (!meta.lang) {
     [ , meta.lang ] = relPath.match(/\/(..)\//) || [];
@@ -140,7 +125,6 @@ export default async function buildLanguages (options = {}) {
   await fs.ensureFile(destPath);
   await fs.writeFile(destPath, JSON.stringify({ pages, routes, languages }, null, 2));
   log(`    Manifest written to ${destPath}`);
-
 }
 
 export function watch (options) {
@@ -148,7 +132,6 @@ export function watch (options) {
   watcher.on('change', async (fpath) => {
     log('  - File changed: ', fpath);
     await buildLanguages(options);
-
   });
 
   watcher.on('add', (fpath) => {

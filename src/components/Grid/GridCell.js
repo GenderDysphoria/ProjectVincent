@@ -1,38 +1,32 @@
-import { styled } from 'essex-emotion';
+import { isNotUndefinedOrNull } from '@twipped/utils';
+import clsx from 'clsx';
 
-const GridCell = styled('div', {
-  label: 'Grid-Cell',
-  doNotForward: [
-    'col',
-    'colSpan',
-    'row',
-    'rowSpan',
-  ],
-})(
-  ({
-    col, colSpan, colEnd, row, rowSpan, rowEnd,
-  }) => ({
-    ...(col && {
-      gridColumnStart: col,
-    }),
-    ...(colSpan && {
-      gridColumnEnd: `span ${colSpan}`,
-    }),
-    ...(colEnd && {
-      gridColumnEnd: colEnd,
-    }),
-    ...(row && {
-      gridRowStart: row,
-    }),
-    ...(rowSpan && {
-      gridRowEnd: `span ${rowSpan}`,
-    }),
-    ...(rowEnd && {
-      gridRowEnd: rowEnd,
-    }),
-  })
-);
+const CssPrefix = 'ui-grid-cell';
+export default function GridCell ({
+  component: Component = 'div',
+  col,
+  row,
+  colSpan,
+  rowSpan,
+  colEnd,
+  rowEnd,
+  className,
+  style,
+  children,
+  ...props
+}) {
+  const classes = clsx(
+    className,
+    CssPrefix
+  );
 
-GridCell.displayName = 'GridCell';
+  style = {
+    gridColumnStart: col,
+    gridColumnEnd: isNotUndefinedOrNull(colSpan) ? `span ${colSpan}` : colEnd,
+    gridRowStart: row,
+    gridRowEnd: isNotUndefinedOrNull(rowSpan) ? `span ${rowSpan}` : rowEnd,
+    ...style,
+  };
 
-export default GridCell;
+  return <Component {...props} style={style} className={classes} />;
+}
