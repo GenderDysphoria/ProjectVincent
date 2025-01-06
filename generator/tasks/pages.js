@@ -8,6 +8,7 @@ import minimatch from 'minimatch';
 import path from 'node:path';
 
 import HtmlPage from '#src/components/HtmlPage';
+import Template from '#src/components/Template/Template';
 
 import BUILD_HASH from '../build-hash.js';
 import { ROOT_DIR } from '../pkg.js';
@@ -32,7 +33,7 @@ async function loadPage (relPath, options = {}) {
   };
 
   if (!meta.lang) {
-    [ , meta.lang ] = relPath.match(/\/(..)\//) || [];
+    [ , meta.lang = 'en' ] = relPath.match(/\/(..)\//) || [];
   }
 
   if (!meta.url) {
@@ -165,7 +166,9 @@ async function renderPageBody (page, options = {}) {
         title={page.title}
         canonical={`${path.join(CANONICAL_ROOT, page.url)}`}
       >
-        <PageBody />
+        <Template>
+          <PageBody />
+        </Template>
       </HtmlPage>,
       {
         metadata: page,

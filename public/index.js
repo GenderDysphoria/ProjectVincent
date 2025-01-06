@@ -1,11 +1,14 @@
 import { RawHtml } from 'essex';
 
-export const meta = {
-  title: 'The Gender Dysphoria Bible',
-};
+import EnglishIntro, { meta } from './en/index.mdx';
+
+export { meta };
 
 export default function SiteLanding () {
   return (
-    <RawHtml>{'<meta http-equiv="refresh" content="0; URL=\'/en/\'" />'}</RawHtml>
+    <>
+      <RawHtml>{'<meta http-equiv="refresh" content="0; URL=\'/en/\'" />'}</RawHtml>
+      <EnglishIntro />
+    </>
   );
 }
