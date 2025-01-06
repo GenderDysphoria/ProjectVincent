@@ -8,7 +8,7 @@ import clsx from 'clsx';
  * @property {'primary'|'secondary'|'brand'|'mono'} [family]
  * @property {'xs'|'sm'|'md'|'lg'|'xl'|'2xl'|'3xl'|'4xl'|'5xl'} [size]
  * @property {'light'|'regular'|'medium'|'bold'} [weight]
- * @property {'primary'|'secondary'|'disabled'|'icon'|'success'|'info'|'warning'|'danger'} [color]
+ * @property {'primary'|'secondary'|'disabled'|'icon'|'success'|'info'|'warning'|'danger'|'muted'} [color]
  * @property {boolean} [truncate]
  */
 

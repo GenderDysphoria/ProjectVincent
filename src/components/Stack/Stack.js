@@ -7,6 +7,7 @@ export default function Stack ({
   spacing = 0,
   direction,
   justify,
+  center,
   align = 'start',
   className,
   style,
@@ -14,6 +15,10 @@ export default function Stack ({
   children,
   ...props
 }) {
+  if (center) {
+    justify = 'center';
+    align = 'center';
+  }
   const classes = clsx(
     className,
     CssPrefix,

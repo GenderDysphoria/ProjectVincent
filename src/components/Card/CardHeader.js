@@ -6,13 +6,14 @@ import Text from '#src/components/Text';
 
 const CssPrefix = 'ui-card-header';
 export default function CardHeader ({
-  component: Component = 'div',
+  as = 'div',
+  component: Component = as,
   action,
   avatar,
   title,
   subtitle,
-  slots,
-  slotProps,
+  slots = {},
+  slotProps = {},
   className,
   children,
   ...props

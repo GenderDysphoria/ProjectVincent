@@ -3,30 +3,33 @@ import log from 'fancy-log';
 import BUILD_HASH from './build-hash.js';
 import cleanupTask from './tasks/cleanup.js';
 import cssTask, { watchCssTask } from './tasks/css.js';
-import metaTask, { watch as metaTaskWatch } from './tasks/meta.js';
-import renderTask, { watchRenderTask } from './tasks/render.js';
+import pagesTask, { watchPagesTask } from './tasks/pages.js';
+import { serverWatchTask } from './tasks/server.js';
 
 const tasks = {
-  render: () => renderTask(),
-  manifest: () => metaTask(),
+  pages: () => pagesTask(),
   clean: () => cleanupTask([ 'compiled', 'dist' ]),
   css: () => cssTask({
     distPath: `dist/static/${BUILD_HASH}/bundle.css`,
   }),
   build: [
     'clean',
-    'manifest',
-    // 'render',
+    {
+      parallel: [
+        'css',
+        'pages',
+      ],
+    },
   ],
   watch: [
     'clean',
-    // 'scanPages',
     {
       parallel: [
-        function buildCss () { return watchCssTask(); },
-        // function watchPages () { return metaTaskWatch(); },
+        function watchCss () { return watchCssTask(); },
+        function watchPages () { return watchPagesTask(); },
       ],
     },
+    function server () { return serverWatchTask(); },
   ],
 };
 
@@ -63,7 +66,12 @@ async function exec (command, args, flags, depth = 0) {
 
   if (typeof action === 'function') {
     log(`${indent(depth)}Executing action "${command.name || command}"`);
-    await action(args, flags, depth);
+    const res = await action(args, flags, depth);
+
+    if (typeof res === 'function') {
+      // action is long running and returned a disposer
+      process.on('exit', res);
+    }
   }
 
   if (action?.parallel && Array.isArray(action.parallel)) {

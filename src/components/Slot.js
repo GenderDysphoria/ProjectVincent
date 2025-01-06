@@ -10,7 +10,7 @@ export default function Slot ({
 }) {
   const classes = clsx(
     className,
-    props.className
+    props?.className
   );
 
   if (Component instanceof Element) {

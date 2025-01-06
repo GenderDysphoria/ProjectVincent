@@ -6,6 +6,7 @@ export default function HtmlPage ({
   className,
   canonical = 'https://gdb.fyi/',
   children,
+  head,
 }) {
   const { BUILD_HASH, metadata } = this;
   return (
@@ -28,6 +29,7 @@ export default function HtmlPage ({
           <link rel="preconnect" href="//fonts.gstatic.com/" crossorigin />
           <link rel="preconnect" href="//fonts.googleapis.com" />
           <link rel="stylesheet" href={`/static/${BUILD_HASH}/bundle.css`} type="text/css" />
+          {head}
         </head>
         <body className={className}>
           {children}

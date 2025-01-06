@@ -5,7 +5,8 @@ const IMAGE_COMPONENTS = [ 'picture', 'img' ];
 
 const CssPrefix = 'ui-card-media';
 export default function CardMedia ({
-  component: Component = 'div',
+  as = 'div',
+  component: Component = as,
   className,
   image,
   src,

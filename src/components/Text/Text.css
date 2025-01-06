@@ -40,6 +40,7 @@
   &.ui-text--color-info      { color: var(--text-color-info); }
   &.ui-text--color-warning   { color: var(--text-color-warning); }
   &.ui-text--color-danger    { color: var(--text-color-danger); }
+  &.ui-text--color-muted     { color: var(--text-color-muted); }
 
   &.ui-text--truncate {
     overflow: hidden;

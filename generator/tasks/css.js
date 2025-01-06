@@ -14,14 +14,16 @@ import psNested from 'postcss-nested';
 import psEnv from 'postcss-preset-env';
 import psSimpleVars from 'postcss-simple-vars';
 
+import BUILD_HASH from '../build-hash.js';
 import renderError from '../error.js';
+import { ROOT_DIR } from '../pkg.js';
 
 const INCLUDE_GLOB = 'src/**/*.css';
 const EXCLUDE_GLOB = 'src/**/_*.css';
 
 async function loadFiles (options = {}) {
   const {
-    cwd = process.cwd(),
+    cwd = ROOT_DIR,
     deep,
     followSymbolicLinks = true,
     includeGlob,
@@ -50,7 +52,7 @@ async function loadFiles (options = {}) {
 
 export default async function cssTask (options) {
   const {
-    cwd = process.cwd(),
+    cwd = ROOT_DIR,
     minify = false,
     bundlePath,
     distPath,
@@ -58,7 +60,7 @@ export default async function cssTask (options) {
     includeGlob: INCLUDE_GLOB,
     excludeGlob: EXCLUDE_GLOB,
     bundlePath: 'server/bundle.css',
-    distPath: 'dist/bundle.css',
+    distPath: `dist/static/${BUILD_HASH}/bundle.css`,
     ...options,
   };
 
@@ -88,7 +90,9 @@ export default async function cssTask (options) {
   await fs.writeFile(destination, result.css);
 }
 
-export function watchCssTask (options) {
+export async function watchCssTask (options) {
+  await cssTask(options);
+
   const watcher = globWatch([ INCLUDE_GLOB ]);
   watcher.on('change', async (fpath) => {
     log('  - File changed: ', fpath);
@@ -100,8 +104,5 @@ export function watchCssTask (options) {
     cssTask(options).catch(renderError);
   });
 
-  return new Promise((resolve) => {
-    const kill = () => resolve(watcher.close());
-    process.on('exit', kill);
-  });
+  return () => watcher.close();
 }
