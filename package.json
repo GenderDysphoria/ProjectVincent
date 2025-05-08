@@ -8,6 +8,7 @@
     "gen": "./generator/bin.js"
   },
   "scripts": {
+    "start": "./gen watch",
     "lint": "eslint .",
     "lint-fix": "eslint --fix .",
     "hash": "git archive main | md5 > compiled/hash.txt"
@@ -48,8 +49,8 @@
     "babel-loader": "^9.1.3",
     "babel-plugin-add-import-extension": "^1.6.0",
     "case-sensitive-paths-webpack-plugin": "^2.4.0",
-    "concat-with-sourcemaps": "^1.1.0",
     "clsx": "^2.1.1",
+    "concat-with-sourcemaps": "github:twipped/concat-with-sourcemaps",
     "cssnano": "^7.0.6",
     "enhanced-resolve": "^5.16.1",
     "env-schema": "^5.2.1",

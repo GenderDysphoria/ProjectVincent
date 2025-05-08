@@ -79,15 +79,17 @@ export default async function cssTask (options) {
     from: bundlePath,
     to: distPath,
     map: {
-      inline: true,
+      annotation: true,
       prev: map,
     },
   });
-
   const destination = path.resolve(cwd, distPath);
 
   await fs.ensureFile(destination);
-  await fs.writeFile(destination, result.css);
+  await Promise.all([
+    fs.writeFile(destination, result.css),
+    result.map && fs.writeFile(destination + '.map', result.map.toString()),
+  ]);
 }
 
 export async function watchCssTask (options) {
