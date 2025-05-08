@@ -63,3 +63,10 @@
   &.ui-text--wrap-pretty   { white-space: 'normal'; text-wrap: 'pretty' }
   &.ui-text--wrap-pre      { white-space: 'pre-wrap'; }
 }
+
+  
+h1, h2, h3, h4 {
+  &.ui-text {
+    margin-block-start:0;
+  }
+}

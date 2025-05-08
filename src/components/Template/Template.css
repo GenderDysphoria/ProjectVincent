@@ -1,0 +1,97 @@
+:root {
+  --ui-sidebar-width: 200px;
+  --ui-topnav-height: 3em;
+}
+
+.ui-template {
+  display: grid;
+
+  
+  grid-template-rows: var(--ui-topnav-height) 1fr;
+
+  @media only screen and (max-width: $breakpoint-md) {
+    grid-template-columns: 100%;
+    grid-template-areas: 
+      "topnav"
+      "body"
+    ;
+
+  }
+  @media only screen and (min-width: $breakpoint-md) {
+    grid-template-columns: var(--ui-sidebar-width) 1fr;
+    grid-template-areas:
+      "topnav topnav"
+      "sidenav body"
+    ;
+  }
+}
+
+/* On mobile, if the show-nav isn't checked, hide the sidenav */
+@media only screen and (max-width: $breakpoint-md) {
+  .ui-template-sidenav {
+    display: none;
+  }
+
+  #ui-template-show-nav:not(:checked) ~ * {
+    &.ui-template-drawer {
+      display: none;
+    }
+  }
+
+  #ui-template-show-nav:is(:checked) ~ * {
+    &.ui-template {
+      display: none;
+    }
+  }
+}
+
+.ui-template-topnav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--ui-topnav-height);
+  background: red;
+
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 var(--spacing-2);
+
+  z-index: var(--zindex-appBar);
+
+  h1 {
+    flex: 0 0;
+    white-space: nowrap;
+  }
+}
+
+.ui-template-sidenav {
+  grid-area: body;
+
+  background: var(--surface-base);
+}
+
+.ui-template-drawer {
+  position: relative;
+  top: var(--ui-topnav-height);
+  left: 0;
+  right: 0;
+  z-index: var(--zindex-appBar - 1);
+
+  background: var(--surface-base);
+}
+
+.ui-template-body {
+  grid-area: body;
+}
+
+.ui-template-hamburger {
+  @media only screen and (min-width: $breakpoint-md) {
+    display: none;
+  }
+
+  flex: 0 0;
+}

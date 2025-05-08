@@ -1,0 +1,47 @@
+.ui-svg-icon {
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  flex-shrink: 0;
+  transition: fill var(--transition-duration-shorter) var(--transition-ease-in-out);
+
+  &.ui-svg-icon--size-small {
+    font-size: 1.25rem;
+  }
+
+  &.ui-svg-icon--size-medium {
+    font-size: 1.5rem;
+  }
+
+  &.ui-svg-icon--size-large {
+    font-size: 2.1875rem;
+  }
+
+  &.ui-svg-icon--disabled {
+    color: var(--action-disabled);  
+  }
+
+  &.ui-svg-icon--disabled {
+    color: var(--action-active);  
+  }
+
+  &.ui-svg-icon--color-primary {
+    color: var(--primary-main);
+  }
+  &.ui-svg-icon--color-secondary {
+    color: var(--secondary-main);
+  }
+  &.ui-svg-icon--color-success {
+    color: var(--success-main);
+  }
+  &.ui-svg-icon--color-info {
+    color: var(--info-main);
+  }
+  &.ui-svg-icon--color-warning {
+    color: var(--warning-main);
+  }
+  &.ui-svg-icon--color-danger {
+    color: var(--danger-main);
+  }
+}
