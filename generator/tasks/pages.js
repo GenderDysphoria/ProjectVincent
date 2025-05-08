@@ -13,7 +13,7 @@ import Template from '#src/components/Template/Template';
 import BUILD_HASH from '../build-hash.js';
 import { ROOT_DIR } from '../pkg.js';
 
-const PAGE_GLOB = 'public/**/*.{mdx,js}';
+const PAGE_GLOB = 'public/**/*.mdx';
 const IGNORE_GLOB = 'public/**/_*.mdx';
 const INDEX_GLOB = 'public/*/_index.json';
 const COMPONENT_GLOB = 'src/components/**/*.js';
@@ -70,13 +70,17 @@ async function loadPages (options = {}) {
     onlyFiles: true,
     dot,
   });
-
   const pages = {};
   const routes = {};
-
   await Promise.all(
     inputs.map(async (relPath) => {
       const meta = await loadPage(relPath);
+      if (pages[meta.url]) {
+        log.error(`Duplicate page for ${meta.url}`, pages[meta.url], meta);
+      }
+      if (routes[meta.url]) {
+        log.error(`Duplicate route for ${meta.url}`, routes[meta.url], meta.file);
+      }
       pages[meta.url] = meta;
       routes[meta.url] = meta.file;
     })
@@ -128,7 +132,7 @@ async function buildManifest (options = {}) {
     loadPages(options),
     loadIndexes(options),
   ]);
-
+  // console.log(pages);
   for (const lang of Object.values(languages)) {
     lang.pages = threepiece(lang.pages, ([ , prev ] = [], [ , curr ] = [], [ , next ] = []) => {
       const page = pages[curr];
