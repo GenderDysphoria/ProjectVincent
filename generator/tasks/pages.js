@@ -13,7 +13,7 @@ import Template from '#src/components/Template/Template';
 import BUILD_HASH from '../build-hash.js';
 import { ROOT_DIR } from '../pkg.js';
 
-const PAGE_GLOB = 'public/**/*.mdx';
+const PAGE_GLOB = 'public/**/*.{mdx,js}';
 const IGNORE_GLOB = 'public/**/_*.mdx';
 const INDEX_GLOB = 'public/*/_index.json';
 const COMPONENT_GLOB = 'src/components/**/*.js';
