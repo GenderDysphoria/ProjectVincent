@@ -46,7 +46,7 @@
     "@mdx-js/node-loader": "^3.0.1",
     "@mdx-js/react": "^3.0.1",
     "@twipped/eslint-config": "file:eslint",
-    "@twipped/festival": "^0.1.0",
+    "@twipped/festival": "^0.2.0",
     "@twipped/utils": "^7.1.0",
     "@types/fs-extra": "^11.0.4",
     "ajv": "^8.14.0",
