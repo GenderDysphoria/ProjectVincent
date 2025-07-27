@@ -9,6 +9,7 @@
   },
   "scripts": {
     "start": "./gen watch",
+    "test": "./node_modules/.bin/fest --test-reporter=spec",
     "lint": "eslint .",
     "lint-fix": "eslint --fix .",
     "hash": "git archive main | md5 > compiled/hash.txt"
@@ -19,6 +20,9 @@
     "node": ">=20.12.0"
   },
   "imports": {
+    "#gen/*": {
+      "default": "./generator/*.js"
+    },
     "#src/*": {
       "default": "./src/*.js"
     },
@@ -42,6 +46,7 @@
     "@mdx-js/node-loader": "^3.0.1",
     "@mdx-js/react": "^3.0.1",
     "@twipped/eslint-config": "file:eslint",
+    "@twipped/festival": "^0.1.0",
     "@twipped/utils": "^7.1.0",
     "@types/fs-extra": "^11.0.4",
     "ajv": "^8.14.0",
@@ -63,7 +68,9 @@
     "fast-glob": "^3.3.2",
     "fs-extra": "^11.2.0",
     "glob-watcher": "^6.0.0",
+    "hasha": "^6.0.0",
     "hot-hook": "^0.4.0",
+    "image-size": "^2.0.2",
     "import-essex": "^0.1.0",
     "lodash": "^4.17.21",
     "minimist": "^1.2.8",
@@ -79,8 +86,10 @@
     "read-package-up": "^11.0.0",
     "remark-abbr": "^1.4.2",
     "remark-heading-id": "^1.0.1",
+    "rev-hash": "^4.1.0",
     "rimraf": "^6.0.1",
     "serve-index": "^1.9.1",
+    "sharp": "^0.34.2",
     "source-map": "^0.7.4"
   },
   "nodemonConfig": {

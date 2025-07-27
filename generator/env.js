@@ -1,7 +1,8 @@
-import path from 'node:path';
-import envSchema from 'env-schema';
 import AJV from 'ajv';
 import addFormats from 'ajv-formats';
+import envSchema from 'env-schema';
+import path from 'node:path';
+
 import { ROOT_DIR } from './pkg.js';
 
 const { separator } = envSchema.keywords;
@@ -16,7 +17,6 @@ const ajv = new AJV({
   keywords: [ separator ],
 });
 addFormats(ajv);
-
 
 const ENV = envSchema({
   ajv,

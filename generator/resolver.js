@@ -1,5 +1,5 @@
-import { promisify } from 'node:util';
 import enhancedResolve from 'enhanced-resolve';
+import { promisify } from 'node:util';
 
 const resolveCallback = enhancedResolve.create({
   extensions: [ '.js', '.jsx', '.mdx', '.cjs', '.mjs', '.ts', '.tsx', '.json', '.node' ],

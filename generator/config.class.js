@@ -1,8 +1,8 @@
-import fs from 'fs/promises';
-import { constants as FS_CONSTANTS } from 'fs';
-import path from 'path';
-import { createRequire } from 'module';
 import resolve from 'enhanced-resolve';
+import { constants as FS_CONSTANTS } from 'fs';
+import fs from 'fs/promises';
+import { createRequire } from 'module';
+import path from 'path';
 
 export default class BuildConfig {
   constructor (props) {

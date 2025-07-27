@@ -31,6 +31,7 @@ export const server = [
     rules: {
       'import/no-commonjs': 'error',
       'import/no-named-as-default': 'off',
+      'import/no-named-as-default-member': 'off',
     },
   },
   {

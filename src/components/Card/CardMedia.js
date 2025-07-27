@@ -1,6 +1,8 @@
 import clsx from 'clsx';
 
-const MEDIA_COMPONENTS = [ 'video', 'audio', 'picture', 'iframe', 'img' ];
+import Image from '#src/components/Image';
+
+const MEDIA_COMPONENTS = [ 'video', 'audio', 'picture', 'iframe', 'img', Image ];
 const IMAGE_COMPONENTS = [ 'picture', 'img' ];
 
 const CssPrefix = 'ui-card-media';
