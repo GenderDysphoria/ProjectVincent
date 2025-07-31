@@ -7,3 +7,20 @@ export default function Tweet ({
     <span>Tweet goes here: {children}</span>
   );
 }
+
+export function TweetBody ({
+  children,
+}) {
+  return (
+    <span>Tweet goes here: {children}</span>
+  );
+}
+
+export function TweetMedia ({
+  children,
+}) {
+  return null;
+}
+
+Tweet.Body = TweetBody;
+Tweet.Media = TweetMedia;
