@@ -1,4 +1,4 @@
-import { Tweet, Gutter, Card } from '#src/common';
+import { InstagramEmbed, TwitterEmbed, Tweet, Gutter, Card } from '#src/common';
 import Disclaimer from './_disclaimer.mdx';
 
 export const meta = {
@@ -16,34 +16,18 @@ The primary sexual features of the body begin development during the 8th week of
 
 If your brain is wired for one gonadal hormones (such as testosterone) and your body produces the other hormone (such as estradiol), this can result in a biochemical malfunction within your brain chemistry. This produces a sort of brain fog, a reduction in mental capacity, and a general state of anxiety and unease. This is the source of the first two symptoms that often alleviate with medical hormonal therapy, Depersonalization and Derealization (DPDR).
 
-{/*
-<div class="gutter">
-<a class="card ig-card" href="https://www.instagram.com/p/B4fwhWAH2F-/">
-  <div class="ig-header">
-    <div class="ig-avatar" style="background-image: url({{images.theredgrrl.sizes.0.url}});"></div>
-    <div class="ig-name">
-      <strong>Brea</strong>
-      <span>theredgrrl</span>
-    </div>
-  </div>
-  {{#with images.brea_eyes}}
-  <img
-    src="{{rev sizes.0.url}}"
-    alt="{{alt}}"
-    srcset="{{#join sizes}}{{rev url}} {{width}}w{{/join}}"
-    sizes="{{#if srcSizes}}{{srcSizes}}{{else}}(max-width: 576px) 100vw, 576px{{/if}}"
-    class="ig-image"
-  >
-  {{/with}}
-  <p class="ig-caption">
-    #TransformationTuesday - As I&rsquo;ve often said on posts like this, our eyes reflect our lives. The biggest difference I see in how trans people look after transition is always the eyes; often looking sad or distant in the past, and being bright and full of life in the present
-  </p>
-  <p class="ig-footer">
-    <time datetime="2019-11-05T19:54:45+00:00">Nov 5, 2019</time>
-  </p>
-</a>
-</div>
-*/}
+<InstagramEmbed
+  href="https://www.instagram.com/p/B4fwhWAH2F-/"
+  avatar="/en/images/theredgrrl.jpg"
+  username="theredgrrl"
+  displayName="Brea"
+  src="/en/images/brea_eyes.jpeg"
+  date="2019-11-05T19:54:45+00:00"
+>
+  <InstagramEmbed.Caption>
+    <p>#TransformationTuesday - As I’ve often said on posts like this, our eyes reflect our lives. The biggest difference I see in how trans people look after transition is always the eyes; often looking sad or distant in the past, and being bright and full of life in the present</p>
+  </InstagramEmbed.Caption>
+</InstagramEmbed>
 
 **Depersonalization** is a disconnect from your own body, an inability to believe that the person you see in the mirror is actually yourself. You feel like you are watching someone else in your body. You may find yourself not caring about what happens to your body, lack of concern with weight changes or improving your fitness because you have no ownership of this fleshy vehicle that transports you around your life.
 
@@ -67,12 +51,57 @@ You may put little care into your physical appearance, reaching for only the bas
 You may be unconcerned with the state of your body, perhaps not even fearing death, because you have so little attachment to your life.
 
 <Gutter>
-  <Tweet unified>
-    <Tweet id="1215716438972993536" />
-    <Tweet id="1215736608055537670" />
-    <Tweet id="1215738145473474560" />
-    <Tweet id="1215740224325783553" />
-  </Tweet>
+  <TwitterEmbed oneblock>
+    <Tweet
+      id="1215716438972993536"
+      href="https://twitter.com/NightlingBug/status/1215716438972993536"
+      username="NightlingBug"
+      displayName="Nightling Bug 🗝️"
+      avatar="/twitter/avatars/NightlingBug.jpg"
+      date="2020-01-10T19:26:00.000Z"
+    >
+      <Tweet.Body>
+        <p>You have an underlying sense that you are "not like" most people. Your friends might get you, but you draw an instinctive and unconscious line between you and "normal" people. When you interact with a "normal" person, you're not sure what to say or how to act.</p>
+      </Tweet.Body>
+    </Tweet>
+    <Tweet
+      id="1215736608055537670"
+      href="https://twitter.com/NightlingBug/status/1215736608055537670"
+      username="NightlingBug"
+      displayName="Nightling Bug 🗝️"
+      avatar="/twitter/avatars/NightlingBug.jpg"
+      date="2020-01-10T20:46:09.000Z"
+    >
+      <Tweet.Body>
+        <p>You find it hard to prioritize your own feelings. You're aware of emotions you *should* be feeling, but they're distant and fake-seeming. When someone else is upset, it's much more real and urgent. You believe this is just your stoic, protective nature.</p>
+      </Tweet.Body>
+    </Tweet>
+    <Tweet
+      id="1215738145473474560"
+      href="https://twitter.com/NightlingBug/status/1215738145473474560"
+      username="NightlingBug"
+      displayName="Nightling Bug 🗝️"
+      avatar="/twitter/avatars/NightlingBug.jpg"
+      date="2020-01-10T20:52:15.000Z"
+    >
+      <Tweet.Body>
+        <p>You often feel directionless in life. When asked about career goals in High School, you didn't really care about your answer. Even careers centered in your interests seemed kind of intolerable. You struggle to imagine a future for yourself where you are happy or fulfilled.</p>
+      </Tweet.Body>
+    </Tweet>
+
+    <Tweet
+      id="1215740224325783553"
+      href="https://twitter.com/NightlingBug/status/1215740224325783553"
+      username="NightlingBug"
+      displayName="Nightling Bug 🗝️"
+      avatar="/twitter/avatars/NightlingBug.jpg"
+      date="2020-01-10T21:00:31.000Z"
+    >
+      <Tweet.Body>
+        <p>You only take steps to better your life when external forces *make* you. You'd rather withdraw and self-minimize and focus on escapist hobbies. You're just not motivated to attain nice things for yourself. (You tell yourself that this is a zen acceptance, a freedom from desires.)</p>
+      </Tweet.Body>
+    </Tweet>
+  </TwitterEmbed>
 </Gutter>
 
 **Derealization** is a detachment from the world around you, a mental sense that everything you perceive is false.
@@ -110,14 +139,73 @@ All of this is valid, and just because you feel very dysphoric one day and not d
 ### This Happens Both Ways
 
 <Gutter>
-  <Tweet unified>
-    <Tweet id="1222738910821978113" />
-    <Tweet id="1222739427312750594" />
-    <Tweet id="1222740261178105856" />
-    <Tweet id="1222742135067303937" />
-    <Tweet id="1222743360034758656" />
-    <Tweet id="1222743749920464896" />
-  </Tweet>
+  <TwitterEmbed oneblock>
+    <Tweet
+      id="1222738910821978113"
+      href="https://twitter.com/SecretGamerGrrl/status/1222738910821978113"
+      username="SecretGamerGrrl"
+      displayName="Secret Gamer Girl"
+      avatar="/twitter/avatars/SecretGamerGrrl.jpg"
+      date="2020-01-30T04:30:48.000Z"
+    >
+      <Tweet.Body><p>Worth noting that in the event a confused cis person were to attempt medical transition without being stopped by any of the absurd number of gate keepers and actual medical professionals whose sign-off is typically needed, here's what would happen: They take some pills, or a shot</p></Tweet.Body>
+    </Tweet>
+    <Tweet
+      id="1222739427312750594"
+      href="https://twitter.com/SecretGamerGrrl/status/1222739427312750594"
+      username="SecretGamerGrrl"
+      displayName="Secret Gamer Girl"
+      avatar="/twitter/avatars/SecretGamerGrrl.jpg"
+      date="2020-01-30T04:32:51.000Z"
+    >
+      <Tweet.Body><p>which will then proceed to make them feel absolutely awful, like pouring sugar into the gas tank of their brain. At which point  one assumes they would immediately cease taking the hormone supplements they did not actually need and resume a normal life with no lasting consequence</p></Tweet.Body>
+    </Tweet>
+    <Tweet
+      id="1222740261178105856"
+      href="https://twitter.com/SecretGamerGrrl/status/1222740261178105856"
+      username="SecretGamerGrrl"
+      displayName="Secret Gamer Girl"
+      avatar="/twitter/avatars/SecretGamerGrrl.jpg"
+      date="2020-01-30T04:36:10.000Z"
+    >
+      <Tweet.Body><p>Should a REALLY stubborn and confused cis person ignore feeling like total garbage and keep on taking HRT they shouldn't be taking for several months, they might also experience some acne and/or their skin clearing up and looking great, and a woman might start growing facial hair</p></Tweet.Body>
+    </Tweet>
+    <Tweet
+      id="1222742135067303937"
+      href="https://twitter.com/SecretGamerGrrl/status/1222742135067303937"
+      username="SecretGamerGrrl"
+      displayName="Secret Gamer Girl"
+      avatar="/twitter/avatars/SecretGamerGrrl.jpg"
+      date="2020-01-30T04:43:37.000Z"
+    >
+      <Tweet.Body>
+        <p>a man in such a position might deal with gynecomastia after like, a year or so, give or take, of again, feeling like complete garbage from taking unneeded estradiol supplements. Anyone, in a similar timeframe, might be looking at their genitals acting like the wrong sort, which</p>
+      </Tweet.Body>
+    </Tweet>
+    <Tweet
+      id="1222743360034758656"
+      href="https://twitter.com/SecretGamerGrrl/status/1222743360034758656"
+      username="SecretGamerGrrl"
+      displayName="Secret Gamer Girl"
+      avatar="/twitter/avatars/SecretGamerGrrl.jpg"
+      date="2020-01-30T04:48:29.000Z"
+    >
+      <Tweet.Body>
+        <p>again, I kinda figure is something where one would go "hey this ain't right" and just stop taking the medication they are misusing. Where, again, things would just then go back to normal.</p>
+        <p>Oh and all of this is me talking about HRT. Usually what bigots are doing is talking about</p>
+      </Tweet.Body>
+    </Tweet>
+    <Tweet
+      id="1222743749920464896"
+      href="https://twitter.com/SecretGamerGrrl/status/1222743749920464896"
+      username="SecretGamerGrrl"
+      displayName="Secret Gamer Girl"
+      avatar="/twitter/avatars/SecretGamerGrrl.jpg"
+      date="2020-01-30T04:50:02.000Z"
+    >
+      <Tweet.Body><p>puberty blockers as if they were HRT. If some confused cis kid takes puberty blockers the grand total of what would actually happen is.. not starting puberty until they realized they were taking them for no particular reason and stopped. No side effects of any sort to worry about</p></Tweet.Body>
+    </Tweet>
+  </TwitterEmbed>
 </Gutter>
 
 Sometimes you will hear naysayers suggesting that taking hormone therapy always improves mental health. I heard this myself when I came out to my mother. "Estrogen makes everyone happier." This is flat out false. When cis people are put on cross hormone therapy it always results in dysphoria. This is one reason why Spironolactone is rarely ever prescribed to men, because the anti-androgen factor causes mental instability. Five to ten percent of cis women suffer from Polycystic Ovarian Syndrome (PCOS), a condition which causes the ovaries to produce testosterone instead of estrogen. Ask any one of them how their mental health has been, and they will give you an ear full.
