@@ -45,6 +45,12 @@
   }
 }
 
+@media only screen and (min-width: $breakpoint-md) {
+  .ui-template-drawer {
+    display: none;
+  }
+}
+
 .ui-template-topnav {
   position: fixed;
   top: 0;
@@ -69,9 +75,10 @@
 }
 
 .ui-template-sidenav {
-  grid-area: body;
+  grid-area: sidenav;
 
   background: var(--surface-base);
+  padding-right: var(--spacing-2);
 }
 
 .ui-template-drawer {
@@ -86,6 +93,8 @@
 
 .ui-template-body {
   grid-area: body;
+
+  padding: var(--spacing) var(--spacing-2);
 }
 
 .ui-template-hamburger {
