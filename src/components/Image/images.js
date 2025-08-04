@@ -79,7 +79,7 @@ export async function computeSrc (source, { hash } = {}) {
   }
 
   (() => {
-    const outName = `${name}_${hash}${ext}`;
+    const outName = `${name}_full_${hash}${ext}`;
     const outPath = path.join(
       distTargetDir,
       outName
@@ -111,7 +111,7 @@ export async function computeSrc (source, { hash } = {}) {
       height: Math.ceil((w / width) * height),
     });
 
-    tasks.push(fileOperation(relPath, outPath, 'original', async (writePath) => {
+    tasks.push(fileOperation(relPath, outPath, w, async (writePath) => {
       await sharp(absPath)
         .resize({
           width: w,
