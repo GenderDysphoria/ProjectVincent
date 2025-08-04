@@ -1,4 +1,5 @@
 import { memoize, MultiMap, isPromise, pDebounce } from '@twipped/utils';
+import log from 'fancy-log';
 import fs from 'fs-extra';
 import { hashFile } from 'hasha';
 import path from 'node:path';
@@ -31,13 +32,13 @@ export const hfile = memoize(
 );
 
 let manifest = null;
-async function readManifest () {
+const readManifest = memoize(async function readManifest () {
   if (manifest) return;
 
   await fs.ensureDir(CACHE_FOLDER_PATH);
 
-  manifest = fs.readJson(CACHE_MANIFEST_PATH).catch(() => ({}));
-}
+  manifest = await fs.readJson(CACHE_MANIFEST_PATH).catch(() => ({}));
+});
 
 const writeManifest = pDebounce(async function () {
   return fs.writeJson(CACHE_MANIFEST_PATH, manifest || {}, { spaces: 2 });
@@ -79,12 +80,14 @@ export async function file (source, target, ...args) {
       let origin = manifest[sourceKey];
 
       if (!origin || !cacheEntryExists) {
+        log.trace('CACHE', source, 'Newly seen file', !!origin, !!cacheEntryExists, cacheEntryPath);
         changed = SOURCE_CHANGED;
         origin = manifest[sourceKey] = {
           mtime: sourceMTime,
           hash: sourceHash,
         };
       } else if (origin.hash !== sourceHash) {
+        log.trace('CACHE', source, 'Previous hash differs', origin.hash, sourceHash);
         changed = SOURCE_CHANGED;
         origin.mtime = sourceMTime;
         origin.hash = sourceHash;
@@ -92,6 +95,7 @@ export async function file (source, target, ...args) {
 
       if (changed && cacheEntryExists) {
       // if the file has changed, purge all cache targets for that file
+        log.trace('CACHE', source, 'source has changed, purging old cached values');
         await cleanCache(cacheEntryPath, sourceHash);
         await fs.ensureDir(cacheEntryPath);
       }
@@ -101,20 +105,24 @@ export async function file (source, target, ...args) {
       if (!changed) {
         const cacheTargetExists = await fs.pathExists(cacheTargetPath);
         if (!cacheTargetExists) {
+          log.trace('CACHE', source, 'no cached value for target', target);
           changed = CACHE_MISSING;
         }
       }
 
       if (changed) {
+        log.trace('CACHE', source, 'Remaking target', target);
         // we need to rerun the task. pass the cache target path and why it is needed
         await fs.ensureFile(cacheTargetPath);
         await fn(cacheTargetPath, { why: changed, hash: sourceHash, mtime: sourceMTime });
-        return true;
       }
 
       // copy the cached result to the target destination
-      await fs.copy(cacheTargetPath, resolve(target));
-      return false;
+      if (changed || !await fs.pathExists(resolve(target))) {
+        log.trace('CACHE', source, 'Copying to target', target);
+        await fs.copy(cacheTargetPath, resolve(target));
+      }
+      return changed;
     } finally {
       writeManifest();
     }
