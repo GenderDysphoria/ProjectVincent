@@ -3,14 +3,11 @@ import assert from 'node:assert';
 import childProcess from 'node:child_process';
 import util from 'node:util';
 
-const exec = util.promisify(childProcess.exec);
+export const exec = util.promisify(childProcess.exec);
 
-const cmdOutputsOnStderr = [ 'gcloud' ];
-
-export default async function execute (cmd, options = {}) {
+export default async function execute (cmd, { canReturnOnStdErr = false, ...options } = {}) {
   try {
-    const { canReturnOnStdErr = false } = options;
-    const { stdout, stderr } = await exec(cmd);
+    const { stdout, stderr } = await exec(cmd, options);
 
     // Handle stderr output
     if (stderr) {

@@ -2,9 +2,9 @@ import log from 'fancy-log';
 
 import BUILD_HASH from './build-hash.js';
 import cleanupTask from './tasks/cleanup.js';
-import cssTask, { watchCssTask } from './tasks/css.js';
-import pagesTask, { watchPagesTask } from './tasks/pages.js';
-import { serverWatchTask } from './tasks/server.js';
+import cssTask from './tasks/css.js';
+import pagesTask from './tasks/pages.js';
+import watch from './watch.js';
 
 const tasks = {
   pages: () => pagesTask(),
@@ -22,14 +22,8 @@ const tasks = {
     },
   ],
   watch: [
-    'clean',
-    {
-      parallel: [
-        function watchCss () { return watchCssTask(); },
-        function watchPages () { return watchPagesTask(); },
-      ],
-    },
-    function server () { return serverWatchTask(); },
+    'build',
+    watch,
   ],
 };
 

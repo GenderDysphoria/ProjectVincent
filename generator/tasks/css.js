@@ -3,7 +3,6 @@ import psNano from 'cssnano';
 import log from 'fancy-log';
 import glob from 'fast-glob';
 import fs from 'fs-extra';
-import globWatch from 'glob-watcher';
 import path from 'node:path';
 import postcss from 'postcss';
 import psCombineSelect from 'postcss-combine-duplicated-selectors';
@@ -15,11 +14,11 @@ import psEnv from 'postcss-preset-env';
 import psSimpleVars from 'postcss-simple-vars';
 
 import BUILD_HASH from '../build-hash.js';
-import renderError from '../error.js';
 import { ROOT_DIR } from '../pkg.js';
 
-const INCLUDE_GLOB = 'src/**/*.css';
-const EXCLUDE_GLOB = 'src/**/_*.css';
+export const INCLUDE_GLOB = 'src/**/*.css';
+export const EXCLUDE_GLOB = 'src/**/_*.css';
+export const WATCH_GLOB = [ INCLUDE_GLOB, `!${EXCLUDE_GLOB}` ];
 
 async function loadFiles (options = {}) {
   const {
@@ -90,21 +89,6 @@ export default async function cssTask (options) {
     fs.writeFile(destination, result.css),
     result.map && fs.writeFile(destination + '.map', result.map.toString()),
   ]);
-}
 
-export async function watchCssTask (options) {
-  await cssTask(options);
-
-  const watcher = globWatch([ INCLUDE_GLOB ]);
-  watcher.on('change', async (fpath) => {
-    log('  - File changed: ', fpath);
-    await cssTask(options).catch(renderError);
-  });
-
-  watcher.on('add', (fpath) => {
-    log('Added file', fpath);
-    cssTask(options).catch(renderError);
-  });
-
-  return () => watcher.close();
+  log(`    CSS bundle written to ${path.relative(ROOT_DIR, destination)}`);
 }

@@ -3,8 +3,6 @@ import { render } from 'essex';
 import log from 'fancy-log';
 import glob from 'fast-glob';
 import fs from 'fs-extra';
-import globWatch from 'glob-watcher';
-import minimatch from 'minimatch';
 import path from 'node:path';
 
 import HtmlPage from '#src/components/HtmlPage';
@@ -17,6 +15,12 @@ const PAGE_GLOB = 'public/**/*.{mdx,js}';
 const IGNORE_GLOB = 'public/**/_*.mdx';
 const INDEX_GLOB = 'public/*/_index.json';
 const COMPONENT_GLOB = 'src/components/**/*.js';
+export const WATCH_GLOB = [
+  PAGE_GLOB,
+  INDEX_GLOB,
+  COMPONENT_GLOB,
+  `!${IGNORE_GLOB}`,
+];
 
 const CANONICAL_ROOT = 'https://gdb.fyi/';
 
@@ -150,7 +154,7 @@ async function buildManifest (options = {}) {
   const destPath = path.resolve(cwd, manifestDest);
   await fs.ensureFile(destPath);
   await fs.writeFile(destPath, JSON.stringify(manifest, null, 2));
-  log(`    Manifest written to ${destPath}`);
+  log(`    Manifest written to ${path.relative(ROOT_DIR, destPath)}`);
 }
 
 async function renderPageBody (page, options = {}) {
@@ -183,7 +187,7 @@ async function renderPageBody (page, options = {}) {
     );
 
     const destPath = path.resolve(cwd, distPath, page.output);
-    log(`  Wrote ${destPath}`);
+    log(`    Wrote ${path.relative(ROOT_DIR, destPath)}`);
     await fs.ensureFile(destPath);
     await fs.writeFile(destPath, page.body);
   } catch (e) {
@@ -201,56 +205,7 @@ async function renderAllPages (options = {}) {
   );
 }
 
-async function updatePage (relPath, options = {}) {
-  const newPage = await loadPage(relPath);
-  const page = manifest.pages[newPage.url];
-  Object.assign(page, newPage);
-  await renderPageBody(page);
-}
-
 export default async function pagesTask (options = {}) {
   await buildManifest(options);
   await renderAllPages(options);
-}
-
-export async function watchPagesTask (options) {
-  options = {
-    distPath: 'dist',
-    ...options,
-  };
-
-  await pagesTask(options);
-
-  const watcher = globWatch([ PAGE_GLOB, INDEX_GLOB, COMPONENT_GLOB ]);
-  watcher.on('change', async (fpath) => {
-    const [ isPage, isIndex, isComponent ] = [
-      minimatch(fpath, PAGE_GLOB),
-      minimatch(fpath, INDEX_GLOB),
-      minimatch(fpath, COMPONENT_GLOB),
-    ];
-
-    if (isPage) {
-      log('  - Page changed: ', fpath);
-      await updatePage(fpath, options);
-    }
-
-    if (isIndex) {
-      log('  - Index changed, reloading manifest: ', fpath);
-      await buildManifest(options);
-    }
-
-    if (isComponent) {
-      log('  - Component changed, re-rendering all pages: ', fpath);
-      await renderAllPages(options);
-    }
-  });
-
-  watcher.on('add', async (fpath) => {
-    log('- Added file', fpath);
-    await buildManifest(options);
-  });
-
-  return () => {
-    watcher.close();
-  };
 }
