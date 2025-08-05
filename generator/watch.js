@@ -11,34 +11,12 @@ import { serverWatchTask } from './tasks/server.js';
 
 export default async function watch () {
   const disposeServer = await serverWatchTask();
-
-  const cssWatcher = globWatch(cssGlob);
-  cssWatcher.on('change', async (fpath) => {
-    await rebuildCss();
-  });
-  cssWatcher.on('add', async (fpath) => {
-    await rebuildCss();
-  });
-  const disposeCssWatcher = () => cssWatcher.close();
-
-  const pageWatcher = globWatch(pagesGlob);
-  pageWatcher.on('change', async (fpath) => {
-    await rebuildPages();
-  });
-  pageWatcher.on('add', (fpath) => {
+  const disposeCssWatcher = makeWatcher(cssGlob, () => rebuildCss());
+  const disposePageWatcher = makeWatcher(pagesGlob, () => rebuildPages());
+  const disposeGitWatcher = makeWatcher([ '.git/HEAD', '.git/refs/heads/main' ], () => {
     rebuildPages();
+    rebuildCss();
   });
-  const disposePageWatcher = () => pageWatcher.close();
-
-  const gitWatcher = globWatch([ '.git/refs/heads/main' ]);
-  gitWatcher.on('change', async (fpath) => {
-    // if a commit is made, we need to refresh for the build hash
-    await Promise.all([
-      rebuildPages(),
-      rebuildCss(),
-    ]);
-  });
-  const disposeGitWatcher = () => gitWatcher.close();
 
   var halting = false;
   [ 'SIGINT', 'SIGTERM' ].forEach((signal) => {
@@ -53,6 +31,13 @@ export default async function watch () {
       disposeGitWatcher();
     });
   });
+}
+
+function makeWatcher (globs, cb) {
+  const watcher = globWatch(pagesGlob);
+  watcher.on('change', cb);
+  watcher.on('add', cb);
+  return () => watcher.close();
 }
 
 async function invokeTask (task) {
