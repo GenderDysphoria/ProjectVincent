@@ -14,11 +14,9 @@ export default async function watch () {
 
   const cssWatcher = globWatch(cssGlob);
   cssWatcher.on('change', async (fpath) => {
-    log(`CHANGED: ${fpath}`);
     await rebuildCss();
   });
   cssWatcher.on('add', async (fpath) => {
-    log(`ADDED: ${fpath}`);
     await rebuildCss();
   });
   const disposeCssWatcher = () => cssWatcher.close();
@@ -32,6 +30,16 @@ export default async function watch () {
   });
   const disposePageWatcher = () => pageWatcher.close();
 
+  const gitWatcher = globWatch([ '.git/refs/heads/main' ]);
+  gitWatcher.on('change', async (fpath) => {
+    // if a commit is made, we need to refresh for the build hash
+    await Promise.all([
+      rebuildPages(),
+      rebuildCss(),
+    ]);
+  });
+  const disposeGitWatcher = () => gitWatcher.close();
+
   var halting = false;
   [ 'SIGINT', 'SIGTERM' ].forEach((signal) => {
     process.once(signal, function handleSignal () {
@@ -42,6 +50,7 @@ export default async function watch () {
       disposeServer();
       disposeCssWatcher();
       disposePageWatcher();
+      disposeGitWatcher();
     });
   });
 }
