@@ -14,6 +14,11 @@ const FILE_ACTION = Symbol('FILE_ACTION');
 const CACHE_FOLDER_PATH = resolve('cache');
 const CACHE_MANIFEST_PATH = resolve('cache', 'manifest.json');
 
+function debug (...args) {
+  if (!process.env.DEBUG) return;
+  log.debug(...args);
+}
+
 const mtime = memoize(
   (f) =>
     fs.stat(resolve(f))
@@ -80,14 +85,14 @@ export async function file (source, target, ...args) {
       let origin = manifest[sourceKey];
 
       if (!origin || !cacheEntryExists) {
-        log.trace('CACHE', source, 'Newly seen file', !!origin, !!cacheEntryExists, cacheEntryPath);
+        log('CACHE', source, 'Newly seen file');
         changed = SOURCE_CHANGED;
         origin = manifest[sourceKey] = {
           mtime: sourceMTime,
           hash: sourceHash,
         };
       } else if (origin.hash !== sourceHash) {
-        log.trace('CACHE', source, 'Previous hash differs', origin.hash, sourceHash);
+        debug('CACHE', source, 'Source has changed', origin.hash, sourceHash);
         changed = SOURCE_CHANGED;
         origin.mtime = sourceMTime;
         origin.hash = sourceHash;
@@ -95,7 +100,6 @@ export async function file (source, target, ...args) {
 
       if (changed && cacheEntryExists) {
       // if the file has changed, purge all cache targets for that file
-        log.trace('CACHE', source, 'source has changed, purging old cached values');
         await cleanCache(cacheEntryPath, sourceHash);
         await fs.ensureDir(cacheEntryPath);
       }
@@ -105,13 +109,13 @@ export async function file (source, target, ...args) {
       if (!changed) {
         const cacheTargetExists = await fs.pathExists(cacheTargetPath);
         if (!cacheTargetExists) {
-          log.trace('CACHE', source, 'no cached value for target', target);
+          debug('CACHE', source, 'no cached value for target', target);
           changed = CACHE_MISSING;
         }
       }
 
       if (changed) {
-        log.trace('CACHE', source, 'Remaking target', target);
+        debug('CACHE', source, 'Remaking target', target);
         // we need to rerun the task. pass the cache target path and why it is needed
         await fs.ensureFile(cacheTargetPath);
         await fn(cacheTargetPath, { why: changed, hash: sourceHash, mtime: sourceMTime });
@@ -119,7 +123,7 @@ export async function file (source, target, ...args) {
 
       // copy the cached result to the target destination
       if (changed || !await fs.pathExists(resolve(target))) {
-        log.trace('CACHE', source, 'Copying to target', target);
+        debug('CACHE', source, 'Copying to target', target);
         await fs.copy(cacheTargetPath, resolve(target));
       }
       return changed;
