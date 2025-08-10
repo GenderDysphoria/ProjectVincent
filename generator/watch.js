@@ -1,5 +1,4 @@
 import { pDebounce } from '@twipped/utils';
-import log from 'fancy-log';
 import globWatch from 'glob-watcher';
 import { spawn } from 'node:child_process';
 import path from 'path';
