@@ -34,7 +34,7 @@ export default async function watch () {
 }
 
 function makeWatcher (globs, cb) {
-  const watcher = globWatch(pagesGlob);
+  const watcher = globWatch(globs);
   watcher.on('change', cb);
   watcher.on('add', cb);
   return () => watcher.close();
