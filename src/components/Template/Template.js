@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 
+import Article from '#src/components/Article';
 import Button from '#src/components/Button';
 import SvgIcon from '#src/components/SvgIcon';
 import Text from '#src/components/Text';
@@ -45,7 +46,9 @@ export default function Template ({
         <div className={`${CssPrefix}-sidenav`}>
           <Navigation />
         </div>
-        <div className={`${CssPrefix}-body`}>{children}</div>
+        <Article className={`${CssPrefix}-body`}>{children}</Article>
+        <div className="ui-template-gutter-left" />
+        <div className="ui-template-gutter-right" />
       </Component>
     </>
   );

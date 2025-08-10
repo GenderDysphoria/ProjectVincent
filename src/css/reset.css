@@ -72,12 +72,24 @@ h6 {
   text-wrap: balance;
 }
 
-h1 { font-size: var(--font-size-5xl); font-weight: var(--font-weight-bold); }
-h2 { font-size: var(--font-size-4xl); font-weight: var(--font-weight-bold); }
-h3 { font-size: var(--font-size-3xl); font-weight: var(--font-weight-bold); }
-h4 { font-size: var(--font-size-2xl); font-weight: var(--font-weight-bold); }
-h5 { font-size: var(--font-size-xl); font-weight: var(--font-weight-medium); }
-h6 { font-size: var(--font-size-lg); font-weight: var(--font-weight-medium); }
+h1 { font-size: var(--font-size-4xl); font-weight: var(--font-weight-light); }
+h2 { font-size: var(--font-size-3xl); font-weight: var(--font-weight-light); }
+h3 { font-size: var(--font-size-2xl); font-weight: var(--font-weight-regular); }
+h4 { font-size: var(--font-size-xl); font-weight: var(--font-weight-bold); }
+h5 { font-size: var(--font-size-lg); font-weight: var(--font-weight-bold); }
+h6 { font-size: var(--font-size-md); font-weight: var(--font-weight-medium); }
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-family-secondary);
+}
+
+h5,
+h6 {
+  font-family: var(--font-family-primary);
+}
 
 /* A elements that don't have a class get default styles */
 a:not([class]) {

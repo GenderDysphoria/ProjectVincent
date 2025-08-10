@@ -38,7 +38,7 @@ export async function getDimensions (source) {
   return dimensions;
 }
 
-export async function computeSrc (source, { hash } = {}) {
+export async function computeSrc (source, { hash, noShrink } = {}) {
   if (!source) {
     throw new Error('Recieved a null src attribute');
   }
@@ -69,12 +69,15 @@ export async function computeSrc (source, { hash } = {}) {
     );
 
     sizes.push({
+      size: 'full',
       url: path.join(dir, outName),
       width,
       height,
     });
 
-    tasks.push(fs.copy(absPath, outPath));
+    tasks.push(fileOperation(relPath, outPath, 'original', async (writePath) => {
+      await fs.copy(absPath, writePath);
+    }));
     return [ sizes.reverse(), tasks ];
   }
 
@@ -86,6 +89,7 @@ export async function computeSrc (source, { hash } = {}) {
     );
 
     sizes.push({
+      size: 'full',
       url: path.join(dir, outName),
       width,
       height,
@@ -97,28 +101,31 @@ export async function computeSrc (source, { hash } = {}) {
     }));
   })();
 
-  for (const w of WIDTHS) {
-    if (w > width) continue;
-    const outName = `${name}_${w}w_${hash}${ext}`;
-    const outPath = path.join(
-      distTargetDir,
-      outName
-    );
+  if (!noShrink) {
+    for (const w of WIDTHS) {
+      if (w > width) continue;
+      const outName = `${name}_${w}w_${hash}${ext}`;
+      const outPath = path.join(
+        distTargetDir,
+        outName
+      );
 
-    sizes.push({
-      url: path.join(dir, outName),
-      width: w,
-      height: Math.ceil((w / width) * height),
-    });
+      sizes.push({
+        size: w,
+        url: path.join(dir, outName),
+        width: w,
+        height: Math.ceil((w / width) * height),
+      });
 
-    tasks.push(fileOperation(relPath, outPath, w, async (writePath) => {
-      await sharp(absPath)
-        .resize({
-          width: w,
-          fit: 'contain',
-        })
-        .toFile(writePath);
-    }));
+      tasks.push(fileOperation(relPath, outPath, w, async (writePath) => {
+        await sharp(absPath)
+          .resize({
+            width: w,
+            fit: 'contain',
+          })
+          .toFile(writePath);
+      }));
+    }
   }
 
   return [ sizes.reverse(), tasks ];

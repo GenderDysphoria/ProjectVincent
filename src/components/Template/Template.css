@@ -5,7 +5,7 @@
 
 .ui-template {
   display: grid;
-
+  background-color: light-dark(#f0f0f0, #171717);
   
   grid-template-rows: var(--ui-topnav-height) 1fr;
 
@@ -17,12 +17,24 @@
     ;
 
   }
-  @media only screen and (min-width: $breakpoint-md) {
+  @media only screen and (min-width: $breakpoint-md) and (max-width: $breakpoint-xl) {
     grid-template-columns: var(--ui-sidebar-width) 1fr;
     grid-template-areas:
       "topnav topnav"
       "sidenav body"
     ;
+  }
+
+  @media only screen and (min-width: $breakpoint-xl) {
+    grid-template-columns: 1fr var(--ui-sidebar-width) calc($breakpoint-xl - var(--ui-sidebar-width)) 1fr;
+    grid-template-areas:
+      "gutterLeft topnav topnav gutterRight"
+      "gutterLeft sidenav body gutterRight"
+    ;
+
+    .ui-template-gutter-left, .ui-template-gutter-right {
+      display: block;
+    }
   }
 }
 
@@ -45,8 +57,9 @@
   }
 }
 
+/* On desktop, hide the drawer and the hamburger */
 @media only screen and (min-width: $breakpoint-md) {
-  .ui-template-drawer {
+  .ui-template-drawer, .ui-template-hamburger {
     display: none;
   }
 }
@@ -77,7 +90,7 @@
 .ui-template-sidenav {
   grid-area: sidenav;
 
-  background: var(--surface-base);
+  background: var(--surface-7);
   padding-right: var(--spacing-2);
 }
 
@@ -88,19 +101,57 @@
   right: 0;
   z-index: var(--zindex-appBar - 1);
 
-  background: var(--surface-base);
+  background: var(--surface-7);
 }
+
+.ui-template-hamburger {
+  flex: 0 0;
+}
+
+.ui-template-navigation {
+  font-size: var(--font-size-sm);
+}
+
 
 .ui-template-body {
   grid-area: body;
 
+  background-color: var(--background-paper);
   padding: var(--spacing) var(--spacing-2);
-}
 
-.ui-template-hamburger {
-  @media only screen and (min-width: $breakpoint-md) {
-    display: none;
+  .ui-disclaimer {
+    margin: calc(var(--spacing) * -1) calc(var(--spacing-2) * -1) var(--spacing);
+    padding: var(--spacing) var(--spacing-2);
   }
 
-  flex: 0 0;
+  @media screen and (min-width: $breakpoint-md) {
+    margin-right: 20vw;
+    .ui-disclaimer { margin-right: calc(-20vw - var(--spacing-2)); }
+  }
+
+  @media screen and (min-width: $breakpoint-lg) {
+    margin-right: 30vw;
+    .ui-disclaimer { margin-right: calc(-30vw - var(--spacing-2)); }
+  }
+
+  @media screen and (min-width: $breakpoint-xl) {
+    margin-right: 400px;
+    .ui-disclaimer { margin-right: calc(-400px - var(--spacing-2)); }
+  }
+}
+
+.ui-template-gutter-left {
+  display: none;
+  grid-area: gutterLeft;
+  background: var(--surface-5);
+  border-right: 1px solid var(--alpha-black-200);
+  box-shadow: inset -6px 6px 11px -9px var(--alpha-black-500);
+}
+
+.ui-template-gutter-right {
+  display: none;
+  grid-area: gutterRight;
+  background: var(--surface-4);
+  border-left: 1px solid var(--alpha-black-200);
+  box-shadow: inset 6px 6px 11px -9px var(--alpha-black-500);
 }

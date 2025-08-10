@@ -1,7 +1,1 @@
-export default function TwitterEmbed ({
-  children,
-}) {
-  return (
-    children
-  );
-}
+export { default } from './Twitter/TwitterEmbed.js';

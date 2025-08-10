@@ -28,7 +28,11 @@ export default function HtmlPage ({
 
           <link rel="preconnect" href="//fonts.gstatic.com/" crossorigin />
           <link rel="preconnect" href="//fonts.googleapis.com" />
-          <link href="//fonts.googleapis.com/css2?family=Gothic+A1&family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Sriracha&display=swap" rel="stylesheet" />
+          <link href="//fonts.googleapis.com/css?family=Sriracha:400" rel="stylesheet" />
+          <link href="//fonts.googleapis.com/css?family=Lato:100,200,300,400,700,800" rel="stylesheet" />
+          <link href="//fonts.googleapis.com/css?family=Roboto:300,400,600" rel="stylesheet" />
+          <link href="//fonts.googleapis.com/css?family=Inter:300,400,600" rel="stylesheet" />
+          <link href="//fonts.googleapis.com/css?family=Gothic+A1:300,400,600" rel="stylesheet" />
           <link rel="stylesheet" href={`/static/${BUILD_HASH}/bundle.css`} type="text/css" />
           {head}
         </head>

@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 
-const CssPrefix = 'ui-disclaimer';
-export default function Disclaimer ({
-  component: Component = 'aside',
+const CssPrefix = 'ui-article';
+export default function Note ({
+  component: Component = 'article',
   className,
   children,
   ...props

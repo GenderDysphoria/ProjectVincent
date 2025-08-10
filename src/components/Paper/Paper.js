@@ -24,7 +24,7 @@ export default function Paper ({
     ? {
         ...style,
         ...(gutter && {
-          padding: `calc(var(--spacing) * ${gutter})`,
+          padding: `calc(var(--spacing) * ${Number(gutter)})`,
         }),
       }
     : style;

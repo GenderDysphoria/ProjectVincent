@@ -1,0 +1,183 @@
+.ui-article {
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-regular);
+
+  /* > h1:first-child {
+    margin-top: 0.5em;
+  } */
+
+  @media only screen and (max-width: 500px) {
+    padding: 1em 1em;
+
+    /* > h1:first-of-type {
+      margin-top: 0.25em;
+    } */
+  }
+
+  h1, h2, h3, h4, h5 { a {
+    color: inherit;
+    overflow: hidden;
+  } }
+
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.5s;
+
+  p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+
+  p a {
+    transition-property: color, padding, margin;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+    text-decoration: underline;
+
+    color: var(--primary-main);
+    &:hover {
+      color: var(--primary-light);
+    }
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  hr {
+    overflow: hidden;
+  }
+
+  blockquote {
+    font-family: var(--font-family-secondary);
+    font-weight: 300;
+    font-size: 0.94em;
+    line-height: 1.4;
+    /* background: light-dark(var(--trans-blue-lightest), var(--trans-blue-darkest)); */
+    background: var(--surface-1);
+    border: 1px solid light-dark(var(--trans-blue-main), var(--trans-blue-dark));
+    box-shadow: 0 1px 3px rgb(from var(--trans-blue-main) r g b / 50%);
+    border-radius: 5px;
+    padding: 15px;
+    color: light-dark(black, var(--grey-100));
+    margin: 0 0 1rem;
+
+    @media (prefers-color-scheme: dark) {
+      box-shadow: 0 0 5px 2px rgb(from var(--trans-blue-main) r g b / 50%);
+    }
+
+    color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+
+    position: relative;
+    overflow: hidden;
+
+    dt {
+      font-weight: 600;
+      display: inline;
+    }
+
+    dd {
+      margin: 0;
+    }
+
+    &::before {
+      font-family: cursive;
+      font-weight: 700;
+      display: block;
+      padding-left: 10px;
+      content: "\201C";
+      font-size: 50px;
+      position: absolute;
+      left: -10px;
+      top: -16px;
+      color: var(--trans-blue-main);
+      text-shadow: 0 1px 3px rgb(from var(--trans-blue-main) r g b / 50%);
+      opacity: 0.8;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+  }
+
+  h1, h2, h3, h4, h5 {
+    clear: left;
+    display: flex;
+    margin-top: 0;
+    margin-bottom: .5rem;
+
+    a { text-decoration: inherit; }
+
+    .header-link {
+      flex: 1;
+      font-size: 0.75em;
+      text-decoration: none;
+      align-self: center;
+      text-align: right;
+      opacity: 0.15;
+
+      &:hover {
+        opacity: 1;
+      }
+
+      img {
+        height: 1em;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        /* Convert the black svg icon to the $primary color at runtime using CSS filters
+           https://stackoverflow.com/a/43960991 */
+        filter: invert(34%) sepia(87%) saturate(2698%) hue-rotate(313deg) brightness(108%) contrast(98%);
+      }
+    }
+
+    + {
+      h1, h2, h3, h4, h5 {
+        .header-link {
+          display: none;
+        }
+      }
+    }
+
+    &:first-child {
+      .header-link {
+        display: none;
+      }
+    }
+  }
+
+  h5 {
+    font-weight: 600;
+    font-family: var(--font-family-primary);
+    margin-bottom: 0.2rem;
+    font-size: 1.05em;
+  }
+
+  li p {
+    margin-bottom: 0;
+    margin-top: 0.5em;
+  }
+
+  li p + ul {
+    margin-bottom: 0.5em;
+  }
+
+  ul { padding-left: 2em; }
+
+  code {
+    font-size: 87.5%;
+    color: var(--gray-900);
+    word-wrap: break-word;
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    background: var(--gray-300);
+    padding: 2px;
+  }
+
+  .center {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1em;
+  }
+}

@@ -356,7 +356,7 @@
 
   --divider-color: light-dark(rgba(0, 0, 0, 0.12), rgba(255, 255, 255, 0.12));
 
-  --background-default: light-dark(#fff, #121212);
+  --background-default: light-dark(var(--grey-050), var(--grey-900));
   --background-paper: light-dark(#fff, #121212);
 
   --surface-base: light-dark(#b4c7dc, #39587b);
