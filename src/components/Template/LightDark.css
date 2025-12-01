@@ -1,0 +1,34 @@
+
+html:has(light-dark.light) {
+  color-scheme: light;
+}
+
+html:has(light-dark.dark) {
+  color-scheme: dark;
+}
+
+
+light-dark {
+  svg {
+    font-size: 1.5rem;
+  }
+
+  &.light {
+    .theme--light {
+      display: none;
+    }
+    .theme--dark {
+      display: block;
+    }
+  }
+
+  &.dark {
+    .theme--light {
+      display: block;
+    }
+    .theme--dark {
+      display: none;
+    }
+  }
+
+}

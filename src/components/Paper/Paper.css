@@ -1,19 +1,22 @@
 
 .ui-paper {
+  --paper-shape: 0;
+
   background-color: var(--background-paper);
   color: var(--text-primary);
   transition: box-shadow var(--transition-duration-standard) var(--transition-ease-in-out);
+  border-radius: var(--paper-shape);
 
   &:not(.ui-paper--square) {
     border-radius: var(--shape-border-radius);
   }
 
-  &.ui-paper--sm { border-radius: var(--shape-rounded-sm);}
-  &.ui-paper--md { border-radius: var(--shape-rounded-md);}
-  &.ui-paper--lg { border-radius: var(--shape-rounded-lg);}
-  &.ui-paper--xl { border-radius: var(--shape-rounded-xl);}
-  &.ui-paper--circle { border-radius: var(--shape-circle);}
-  &.ui-paper--square { border-radius: none;}
+  &.ui-paper--sm { --paper-shape: var(--shape-rounded-sm);}
+  &.ui-paper--md { --paper-shape: var(--shape-rounded-md);}
+  &.ui-paper--lg { --paper-shape: var(--shape-rounded-lg);}
+  &.ui-paper--xl { --paper-shape: var(--shape-rounded-xl);}
+  &.ui-paper--circle { --paper-shape: var(--shape-circle);}
+  &.ui-paper--square { --paper-shape: none;}
 
   &.ui-paper--outlined {
     border: 1px solid var(--divider-color);

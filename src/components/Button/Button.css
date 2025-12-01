@@ -13,7 +13,7 @@
   outline: 0;
   border: 1px solid transparent;
   margin: 0;
-  border-radius: 2em;
+  border-radius: var(--button-rounding);
   padding: 0;
   padding-block: var(--button-padding-vert);
   padding-block-start: calc(var(--button-padding-vert) + 2px);
@@ -87,7 +87,7 @@
 
   &.ui-button--text {
     color: var(--button-hollow-color);
-    --button-rounding: var(--shape-square);
+    --button-rounding: 0;
     --button-bg: transparent;
     --button-hover-bg: var(--button-hollow-hover-bg);
     --button-pressed-bg: var(--button-hollow-pressed-bg);
@@ -222,5 +222,9 @@
 
   &.ui-button--circle {
     --button-rounding: var(--shape-circle);
+  }
+
+  &.ui-button--square {
+    --button-rounding: 0;
   }
 }

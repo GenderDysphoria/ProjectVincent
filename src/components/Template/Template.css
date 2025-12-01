@@ -1,6 +1,6 @@
 :root {
   --ui-sidebar-width: 200px;
-  --ui-topnav-height: 3em;
+  --ui-topnav-height: 3rem;
 }
 
 .ui-template {
@@ -70,7 +70,9 @@
   left: 0;
   right: 0;
   height: var(--ui-topnav-height);
-  background: red;
+  background: var(--grey-800);
+  color: white;
+  box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.3);
 
   display: flex;
   flex-wrap: nowrap;
@@ -78,6 +80,7 @@
   align-items: center;
 
   padding: 0 var(--spacing-2);
+  padding-right: 0;
 
   z-index: var(--zindex-appBar);
 
@@ -91,7 +94,6 @@
   grid-area: sidenav;
 
   background: var(--surface-7);
-  padding-right: var(--spacing-2);
 }
 
 .ui-template-drawer {
@@ -99,6 +101,7 @@
   top: var(--ui-topnav-height);
   left: 0;
   right: 0;
+  min-height: 100vh;
   z-index: var(--zindex-appBar - 1);
 
   background: var(--surface-7);
@@ -155,3 +158,149 @@
   border-left: 1px solid var(--alpha-black-200);
   box-shadow: inset 6px 6px 11px -9px var(--alpha-black-500);
 }
+
+.ui-template-navigation {
+  position: relative;
+
+  --ui-template-nav-border-color: var(--alpha-black-100);
+  --ui-template-nav-bg-color: var(--alpha-white-100);
+  --ui-template-nav-active-bg-color: var(--alpha-white-500);
+  --ui-template-nav-active-border-color: var(--alpha-black-500);
+  --ui-template-nav-hover-bg-color: var(--alpha-white-300);
+  --ui-template-nav-hover-border-color: var(--alpha-black-300);
+}
+
+.ui-template-index {
+  list-style-type: none;
+  counter-reset: section;
+  padding: 0;
+  margin: 0;
+
+  > li > a::before {
+    content: counters(section, ".") ". ";
+    counter-increment: section;
+    position: absolute;
+    left: var(--spacing);
+  }
+
+  > li {
+    position: relative;
+
+    &.ui-template-index-item-active {
+      --ui-template-nav-bg-color: var(--alpha-white-500);
+      --ui-template-nav-border-color: var(--alpha-black-500);
+    }
+
+    > a {
+      display: block;
+      padding: var(--spacing) var(--spacing-2);
+      padding-left: calc(var(--spacing-2) + 2ch);
+      padding-right: var(--spacing-half);
+
+      background-color: var(--ui-template-nav-bg-color);
+      border-top: 1px solid var(--ui-template-nav-border-color);
+    }
+
+    &:last-of-type > a {
+      border-bottom: 1px solid var(--ui-template-nav-border-color);
+    }
+
+    &:hover:not(.active) {
+      & > a {
+        background-color: var(--ui-template-nav-hover-bg-color);
+        border-top: 1px solid var(--ui-template-nav-hover-border-color);
+      }
+
+      & + li:not(.active) > a {
+        border-top: 1px solid var(--ui-template-nav-hover-border-color);
+      }
+    }
+
+    &.active {
+      & > a {
+        background-color: var(--ui-template-nav-active-bg-color);
+        border-top: 1px solid var(--ui-template-nav-active-border-color);
+      }
+
+      & + li > a {
+        border-top: 1px solid var(--ui-template-nav-active-border-color);
+      }
+    }
+  }
+}
+
+.ui-template-lang {
+  position: relative;
+}
+
+.ui-template-language {
+  --button-base-color: var(--text-color-primary);
+
+  &::after {
+    display: inline-block;
+    margin-left: .255em;
+    vertical-align: .255em;
+    content: "";
+    border-top: .3em solid;
+    border-right: .3em solid transparent;
+    border-bottom: 0;
+    border-left: .3em solid transparent;
+  }
+}
+
+.ui-template-navigation:has(.ui-template--show-languages:checked) {
+  .ui-template-languages {
+    display: block;
+  }
+}
+
+.ui-template-languages {
+  --ui-template-nav-hover-bg-color: var(--alpha-black-100);
+  --ui-template-nav-hover-border-color: var(--alpha-black-300);
+
+  display: none;
+  position: absolute;
+  top: calc(100% + 0.3em);
+  left: var(--spacing);
+  right: var(--spacing);
+  z-index: var(--zindex-snackbar);
+
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  /* margin-top: 3px; */
+
+  & > li {
+    &> a{
+      display: block;
+      padding: var(--spacing) var(--spacing-2);
+      padding-right: var(--spacing-half);
+
+      background-color: var(--ui-template-nav-bg-color);
+      border-top: 1px solid var(--ui-template-nav-border-color);
+    }
+
+    &:first-of-type > a {
+      border-top: none;
+      border-top-left-radius: var(--paper-shape);
+      border-top-right-radius: var(--paper-shape);
+    }
+
+    &:hover:not(.active) {
+      & > a {
+        background-color: var(--ui-template-nav-hover-bg-color);
+        border-top-color: var(--ui-template-nav-hover-border-color);
+      }
+
+      & + li:not(.active) > a {
+        border-top-color: var(--ui-template-nav-hover-border-color);
+      }
+    }
+  }
+}
+
+@media (prefer-color-scheme : dark) {
+  
+} 
+
+.icn--light
