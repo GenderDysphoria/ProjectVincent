@@ -1,4 +1,4 @@
-import { threepiece } from '@twipped/utils';
+import { keyBy, threepiece } from '@twipped/utils';
 import { render } from 'essex';
 import log from 'fancy-log';
 import glob from 'fast-glob';
@@ -11,15 +11,15 @@ import Template from '#src/components/Template/Template';
 import BUILD_HASH from '../build-hash.js';
 import { ROOT_DIR } from '../pkg.js';
 
-const PAGE_GLOB = 'public/**/*.{mdx,js}';
-const IGNORE_GLOB = 'public/**/_*.mdx';
+const PAGE_GLOB = [ 'public/**/*.{mdx,js}' ];
+const IGNORE_GLOB = [ 'public/**/_*.mdx', 'public/static/**' ];
 const INDEX_GLOB = 'public/*/_index.json';
 const COMPONENT_GLOB = 'src/components/**/*.js';
 export const WATCH_GLOB = [
-  PAGE_GLOB,
+  ...PAGE_GLOB,
   INDEX_GLOB,
   COMPONENT_GLOB,
-  `!${IGNORE_GLOB}`,
+  ...IGNORE_GLOB.map((s) => `!${s}`),
 ];
 
 const CANONICAL_ROOT = 'https://gdb.fyi/';
@@ -147,6 +147,7 @@ async function buildManifest (options = {}) {
       page.next = next;
       return page;
     });
+    lang.keyed = keyBy(lang.pages, 'key');
   }
 
   manifest = { pages, routes, languages };

@@ -7,10 +7,12 @@ import { ROOT_DIR } from './pkg.js';
 import { WATCH_GLOB as cssGlob } from './tasks/css.js';
 import { WATCH_GLOB as pagesGlob } from './tasks/pages.js';
 import { serverWatchTask } from './tasks/server.js';
+import { WATCH_GLOB as staticJsGlob } from './tasks/static-js.js';
 
 export default async function watch () {
   const disposeServer = await serverWatchTask();
   const disposeCssWatcher = makeWatcher(cssGlob, () => rebuildCss());
+  const disposeJsWatcher = makeWatcher(staticJsGlob, () => rebuildJs());
   const disposePageWatcher = makeWatcher(pagesGlob, () => rebuildPages());
   const disposeGitWatcher = makeWatcher([ '.git/HEAD', '.git/refs/heads/main' ], () => {
     rebuildPages();
@@ -26,6 +28,7 @@ export default async function watch () {
       halting = true;
       disposeServer();
       disposeCssWatcher();
+      disposeJsWatcher();
       disposePageWatcher();
       disposeGitWatcher();
     });
@@ -57,4 +60,8 @@ var rebuildCss = pDebounce(async function rebuildCss () {
 
 var rebuildPages = pDebounce(async function rebuildCss () {
   return invokeTask('pages');
+}, 250);
+
+var rebuildJs = pDebounce(async function rebuildCss () {
+  return invokeTask('js');
 }, 250);
