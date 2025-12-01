@@ -1,6 +1,6 @@
 import babel from '@babel/core';
 import path from 'node:path';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { fileURLToPath } from 'node:url';
 
 const { loadOptionsAsync, transformAsync } = babel;
 

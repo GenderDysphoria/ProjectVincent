@@ -1,4 +1,4 @@
-import fest, { test, expect, describe, afterEach, beforeEach, beforeAll } from '@twipped/festival';
+import fest, { test, expect, describe } from '@twipped/festival';
 import { render } from 'essex';
 
 import Image from './Image.js';

@@ -1,7 +1,7 @@
 import eslintPluginN from 'eslint-plugin-n';
 
 export default {
-  name: 'amorra/node',
+  name: 'twipped/rulesets/node',
 
   plugins: {
     n: eslintPluginN,

@@ -1,7 +1,7 @@
 import stylistic from '@stylistic/eslint-plugin';
 
 export default {
-  name: 'amorra/style',
+  name: 'twipped/rulesets/style',
 
   plugins: {
     '@stylistic': stylistic,

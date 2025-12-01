@@ -1,7 +1,6 @@
 // import { promisify } from 'node:util';
-import { rimraf } from 'rimraf';
 import glob from 'fast-glob';
-
+import { rimraf } from 'rimraf';
 
 export default async function cleanup (source, options = {}) {
   const {

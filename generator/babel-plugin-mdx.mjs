@@ -1,7 +1,7 @@
-import path from 'node:path';
 import parser from '@babel/parser';
-import estreeToBabel from 'estree-to-babel';
 import { compileSync } from '@mdx-js/mdx';
+import estreeToBabel from 'estree-to-babel';
+import path from 'node:path';
 
 export default function babelPluginSyntaxMdx () {
   // Tell Babel to use a different parser.
@@ -12,8 +12,8 @@ export default function babelPluginSyntaxMdx () {
 // other things through to the normal Babel parser.
 function babelParserWithMdx (value, options) {
   if (
-    options.sourceFileName &&
-    /\.mdx?$/.test(path.extname(options.sourceFileName))
+    options.sourceFileName
+    && /\.mdx?$/.test(path.extname(options.sourceFileName))
   ) {
     // Babel does not support async parsers, unfortunately.
     return compileSync(

@@ -2,7 +2,7 @@ import eslintPluginPromise from 'eslint-plugin-promise';
 import globals from 'globals';
 
 export default ({
-  name: 'amorra/base',
+  name: 'twipped/rulesets/base',
 
   languageOptions: {
     ecmaVersion: 2022,

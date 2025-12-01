@@ -1,3 +1,17 @@
-import { server } from './eslint/index.js';
+import { defineConfig } from 'eslint/config';
 
-export default server;
+import { node, browser } from '#eslint';
+
+export default defineConfig([
+  {
+    files: [
+      '**/*.js',
+      '!public/static/**/*.js',
+    ],
+    extends: [ node ],
+  },
+  {
+    files: [ 'public/static/**/*.js' ],
+    extends: [ browser ],
+  },
+]);

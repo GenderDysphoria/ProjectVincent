@@ -1,7 +1,7 @@
 import react from 'eslint-plugin-react';
 
 export const jsx = ({
-  name: 'amorra/jsx',
+  name: 'twipped/rulesets/jsx',
 
   languageOptions: {
     parserOptions: {

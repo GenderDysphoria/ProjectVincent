@@ -1,13 +1,14 @@
+import { defineConfig } from 'eslint/config';
 import importPlugin from 'eslint-plugin-import';
 import globals from 'globals';
 
 import resolveIgnoresFromGitignore from './lib/resolve-gitignore.js';
-import base from './rulesets/base.js';
-import { jsx, jsxStyles } from './rulesets/jsx.js';
-import node from './rulesets/node.js';
-import style from './rulesets/style.js';
+import baseRules from './rulesets/base.js';
+import { jsx as jsxRules, jsxStyles as jsxStyleRules } from './rulesets/jsx.js';
+import nodeRules from './rulesets/node.js';
+import styleRules from './rulesets/style.js';
 
-export const server = [
+export const node = defineConfig([
   {
     ignores: resolveIgnoresFromGitignore(),
   },
@@ -19,7 +20,7 @@ export const server = [
     },
   },
   {
-    name: 'amorra/globals/server',
+    name: 'twipped/node',
     languageOptions: {
       globals: {
         ...globals.node,
@@ -43,14 +44,14 @@ export const server = [
       },
     },
   },
-  base,
-  node,
-  jsx,
-  jsxStyles,
-  style,
-];
+  baseRules,
+  nodeRules,
+  jsxRules,
+  jsxStyleRules,
+  styleRules,
+]);
 
-export const client = [
+export const browser = defineConfig([
   {
     ignores: resolveIgnoresFromGitignore(),
   },
@@ -62,13 +63,14 @@ export const client = [
     },
   },
   {
-    name: 'amorra/globals/client',
+    name: 'twipped/browser',
     languageOptions: {
       globals: {
         ...globals.browser,
       },
     },
   },
-  base,
-  style,
-];
+  importPlugin.flatConfigs.recommended,
+  baseRules,
+  styleRules,
+]);

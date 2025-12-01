@@ -4,6 +4,7 @@ import BUILD_HASH from './build-hash.js';
 import cleanupTask from './tasks/cleanup.js';
 import cssTask from './tasks/css.js';
 import pagesTask from './tasks/pages.js';
+import staticJsTask from './tasks/static-js.js';
 import watch from './watch.js';
 
 const tasks = {
@@ -11,11 +12,17 @@ const tasks = {
   clean: () => cleanupTask([ 'compiled', 'dist' ]),
   css: () => cssTask({
     distPath: `dist/static/${BUILD_HASH}/bundle.css`,
+    minify: process.env.NODE_ENV === 'production',
+  }),
+  js: () => staticJsTask({
+    distPath: `dist/static/${BUILD_HASH}/`,
+    minify: process.env.NODE_ENV === 'production',
   }),
   build: [
     'clean',
     {
       parallel: [
+        'js',
         'css',
         'pages',
       ],
