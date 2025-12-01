@@ -14,7 +14,8 @@ export default async function Image ({
 }) {
   const classes = clsx(
     className,
-    CssPrefix
+    CssPrefix,
+    titlecard && `${CssPrefix}--titlecard`
   );
 
   const [ files, promises ] = await computeSrc(src);
