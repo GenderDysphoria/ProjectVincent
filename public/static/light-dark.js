@@ -45,7 +45,6 @@ class LightDark extends HTMLElement {
 
   onMount = () => {
     const currentCheckbox = this.querySelector(`input[value="${this.#theme}"]`);
-    console.log(currentCheckbox);
     if (currentCheckbox) currentCheckbox.checked = true;
   };
 }
