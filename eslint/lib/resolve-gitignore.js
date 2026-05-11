@@ -1,5 +1,5 @@
 import { gitignoreToMinimatch } from '@humanwhocodes/gitignore-to-minimatch';
-import findUp from 'find-up';
+import { findUpSync } from 'find-up';
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
 
@@ -18,7 +18,7 @@ const FLAT_CONFIG_FILENAMES = [
  * @returns {string|undefined} The filename if found or `undefined` if not.
  */
 function findFlatConfigFileSync () {
-  return findUp.sync(FLAT_CONFIG_FILENAMES);
+  return findUpSync(FLAT_CONFIG_FILENAMES);
 }
 
 /**

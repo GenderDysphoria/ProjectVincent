@@ -76,13 +76,8 @@ export const jsxStyles = ({
     } ],
     '@stylistic/jsx-equals-spacing': [ 'warn', 'never' ],
     '@stylistic/jsx-first-prop-new-line': [ 'warn', 'multiline-multiprop' ],
-    '@stylistic/jsx-indent': [ 'warn', 2, {
-      checkAttributes: false,
-      indentLogicalExpressions: true,
-    } ],
     '@stylistic/jsx-indent-props': [ 'warn', 2 ],
     '@stylistic/jsx-pascal-case': [ 'warn', { allowAllCaps: false } ],
-    '@stylistic/jsx-props-no-multi-spaces': 'warn',
     '@stylistic/jsx-quotes': [ 'warn', 'prefer-double' ],
     '@stylistic/jsx-tag-spacing': [ 'warn', {
       closingSlash: 'never',
