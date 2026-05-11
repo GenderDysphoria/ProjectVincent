@@ -2,8 +2,8 @@ import clsx from 'clsx';
 
 import Paper from '#src/components/Paper';
 
-const CssPrefix = 'ui-disclaimer';
-export default function Disclaimer ({
+const CssPrefix = 'ui-gutter';
+export default function Gutter ({
   component,
   className,
   children,
