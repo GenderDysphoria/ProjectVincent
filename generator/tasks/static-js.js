@@ -13,7 +13,7 @@ export default async function staticJsTask (options) {
   const {
     cwd = ROOT_DIR,
     minify = false,
-    bundlePath,
+    // bundlePath,
     distPath,
     includeGlob,
     excludeGlob,
