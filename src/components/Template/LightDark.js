@@ -2,9 +2,6 @@ import Button from '#src/components/Button';
 import ScriptAsset from '#src/components/ScriptAsset';
 import SvgIcon from '#src/components/SvgIcon';
 
-const CssPrefix = 'ui-light-dark';
-const DARKMODE_ID = `${CssPrefix}--switch-mode`;
-
 export default function LightDark () {
   return (
     <>
