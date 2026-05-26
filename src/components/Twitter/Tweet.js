@@ -34,9 +34,11 @@ export default function Tweet ({
   }
   for (const c of children) {
     if (c.type === TweetBody) {
+      c.typeName = 'body';
       body.push(c);
     }
     if (c.type === TweetMedia) {
+      c.typeName = 'media';
       media.push(c);
     }
   }
@@ -53,7 +55,7 @@ export default function Tweet ({
       </a>
       {body}
       {media.length && (
-        <div className={[ 'tweet-entities', 'lightbox', `entity-count-${media.length}`, `entity-type-${media[0].type}` ]}>
+        <div className={[ 'tweet-entities', 'lightbox', `entity-count-${media.length}`, `entity-type-${media[0].typeName || 'unknown'}` ]}>
           {media}
         </div>
       )}
