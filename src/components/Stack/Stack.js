@@ -1,14 +1,32 @@
 import clsx from 'clsx';
 import { cloneElement } from 'essex';
 
+/**
+ * @typedef StackProps
+ * @property {string|Function} [component]
+ * @property {number} [spacing]
+ * @property {'column' | 'column-reverse' | 'row' | 'row-reverse'} [direction]
+ * @property {'start'|'center'|'end'|'between'|'around'|'stretch'} [justify]
+ * @property {'start'|'center'|'end'|'stretch'} [align]
+ * @property {boolean} [center]
+ * @property {string} [className]
+ * @property {boolean} [divider]
+ */
+
 const CssPrefix = 'ui-stack';
+
+/**
+ *
+ * @param {StackProps} props
+ * @returns {JSX}
+ */
 export default function Stack ({
   component: Component = 'div',
   spacing = 0,
   direction,
   justify,
-  center,
   align = 'start',
+  center,
   className,
   style,
   divider,
