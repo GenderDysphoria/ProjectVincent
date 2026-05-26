@@ -14,6 +14,11 @@ import clsx from 'clsx';
 
 const CssPrefix = 'ui-text';
 
+/**
+ *
+ * @param {TextProps} props
+ * @returns {JSX}
+ */
 export default function Text ({
   component: Component = 'span',
   truncate,
