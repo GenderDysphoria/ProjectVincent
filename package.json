@@ -61,6 +61,7 @@
     "clsx": "^2.1.1",
     "concat-with-sourcemaps": "github:twipped/concat-with-sourcemaps",
     "cssnano": "^7.0.6",
+    "date-fns": "^4.3.0",
     "enhanced-resolve": "^5.16.1",
     "env-schema": "^5.2.1",
     "error-stack-parser": "^2.1.4",

@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { isValid, intlFormat } from 'date-fns';
 
 import Image from '#src/components/Image';
 import { computeSrc } from '#src/components/Image/images';
@@ -20,6 +21,24 @@ export default function Tweet ({
     className,
     CssPrefix
   );
+
+  let utc;
+  date = date ? new Date(date) : null;
+  if (!isValid(date)) date = null;
+  if (date) {
+    utc = date.toUTCString();
+    date = [
+      intlFormat(date, {
+        timeStyle: 'short',
+      }),
+      intlFormat(date, {
+        weekday: 'short',
+        month: 'short',
+        day: 'numeric',
+        year: 'numeric',
+      }),
+    ].join(' - ');
+  }
 
   const media = [];
   const body = [];
@@ -58,6 +77,11 @@ export default function Tweet ({
         <div className={[ 'tweet-entities', 'lightbox', `entity-count-${media.length}`, `entity-type-${media[0].typeName || 'unknown'}` ]}>
           {media}
         </div>
+      ) || null}
+      {date && (
+      <div class="tweet-footer">
+        <span class="tweet-date" title={utc}>{date}</span>
+      </div>
       )}
     </Component>
   );
