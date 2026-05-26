@@ -5,6 +5,7 @@ import { computeSrc } from './images.js';
 const CssPrefix = 'ui-image';
 export default async function Image ({
   href,
+  hrefProps,
   titlecard,
   src,
   srcSizes,
@@ -44,12 +45,13 @@ export default async function Image ({
   );
 
   if (href) {
+    if (href === true) href = full.url;
     const linkprops = { href };
     if (external) {
       linkprops.target = '_blank';
       linkprops.rel = 'noopener';
     }
-    return <a href={href}>{img}</a>;
+    return <a href={href} {...hrefProps}>{img}</a>;
   }
 
   return img;
