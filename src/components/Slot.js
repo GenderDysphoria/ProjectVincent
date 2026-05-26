@@ -14,9 +14,8 @@ export default function Slot ({
   );
 
   if (Component instanceof Element) {
-    return cloneElement(Component, { ...props, ...rest, className: classes, children });
+    return cloneElement(Component, { ...props, ...rest, className: classes }, children);
   }
-
   return (
     <Component {...props} {...rest} className={classes}>{children}</Component>
   );
