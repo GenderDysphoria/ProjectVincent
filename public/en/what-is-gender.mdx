@@ -1,4 +1,4 @@
-import { Note, Gutter, Card, TwitterEmbed, Tweet, Stack, Image, Quote } from '#src/common';
+import { Note, Gutter, Card, TwitterEmbed, Tweet, Stack, Image, Quote, Text } from '#src/common';
 import Disclaimer from './_disclaimer.mdx';
 
 export const meta = {
@@ -82,16 +82,24 @@ Gender, however, is a lot more... esoteric. There are a lot of different ways th
 
 
 <Card>
-  <Card.Header>Examples of some illustrations used to describe gender</Card.Header>
-  <Stack justify="space-around">
+  <Card.Header>
+    Examples of some illustrations used to describe gender
+  </Card.Header>
+  <Stack justify="around" align="center">
     <Image
+      href
       src="/en/images/spectrum.jpg"
+      hrefProps={{style: 'width:30%'}}
     />
     <Image
+      href
       src="/en/images/graph.png"
+      hrefProps={{style: 'width:30%'}}
     />
     <Image
+      href
       src="/en/images/gender_unicorn.jpg"
+      hrefProps={{style: 'width:30%'}}
     />
   </Stack>
   <Card.Content>
