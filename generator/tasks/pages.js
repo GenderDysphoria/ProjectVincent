@@ -78,7 +78,10 @@ async function loadPages (options = {}) {
   const routes = {};
   await Promise.all(
     inputs.map(async (relPath) => {
-      const meta = await loadPage(relPath);
+      const meta = await loadPage(relPath).catch((e) => {
+        console.error('Error while loading ' + relPath);
+        throw e;
+      });
       if (pages[meta.url]) {
         log.error(`Duplicate page for ${meta.url}`, pages[meta.url], meta);
       }
