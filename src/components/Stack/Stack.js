@@ -1,6 +1,8 @@
 import clsx from 'clsx';
 import { cloneElement } from 'essex';
 
+import Divider from '#src/components/Divider';
+
 /**
  * @typedef StackProps
  * @property {string|Function} [component]
@@ -55,6 +57,9 @@ export default function Stack ({
     : style;
 
   if (divider) {
+    if (divider === true) {
+      divider = <Divider orientation="vertical" />;
+    }
     if (!Array.isArray(children)) {
       throw new Error('Stack cannot insert dividers for non-array children');
     }

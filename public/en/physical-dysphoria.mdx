@@ -1,4 +1,5 @@
-import { Note, Gutter, Card, TwitterEmbed, Tweet } from '#src/common';
+import { Note, Gutter, Card, TwitterEmbed, Tweet, Stack } from '#src/common';
+import FactGrid from '#src/components/FactGrid';
 import Disclaimer from './_disclaimer.mdx';
 
 export const meta = {
@@ -14,29 +15,9 @@ export const meta = {
 
 Everyone has heard of the "born in the wrong body" narrative. Physical Dysphoria is discomfort over the shape of one's body due to the sexual characteristics it presents. So what body features are we talking about here?
 
-{/*
-<style>
-.fact-grid h4 { font-weight: 600;grid-row: 1; }
-
-.fact-grid li {break-inside: avoid;}
-
-@media (min-width: 500px) {
-  .fact-grid {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-template-rows: min-content 1fr;
-    grid-column-gap: 1em;
-    font-size: 0.7em;
-  }
-
-  .fact-grid .two-col { column-count: 2; }
-}
-
-</style>
-*/}
-<div class="fact-grid ">
-  <h4>Primary Sex Characteristics</h4>
-  <div>
+<FactGrid>
+  <FactGrid.Header>Primary Sex Characteristics</FactGrid.Header>
+  <FactGrid.Cell>
     The core reproductive features which develop during pregnancy
 
     - Gonads
@@ -52,9 +33,9 @@ Everyone has heard of the "born in the wrong body" narrative. Physical Dysphoria
       - Prostate / Skene's Gland
       - Uterus
 
-  </div>
-  <h4>Secondary Sexual Characteristics</h4>
-  <div class="two-col">
+  </FactGrid.Cell>
+  <FactGrid.Header>Secondary Sexual Characteristics</FactGrid.Header>
+  <FactGrid.Cell twoColumn>
     All sexually dimorphic features which develop during and after puberty as a result of hormone exposure. In general, these features are all nearly identical for both male and female prepubescent children.
 
     - Fat Distribution
@@ -78,8 +59,8 @@ Everyone has heard of the "born in the wrong body" narrative. Physical Dysphoria
     - Breast Development
     - Facial Hair
     - Body Hair (excluding genitals and arm pits)
-  </div>
-</div>
+  </FactGrid.Cell>
+</FactGrid>
 
 <Gutter>
   <Card>
@@ -173,7 +154,8 @@ Everyone absorbs these messages, and trans people internalize the factors which 
 
 What is the end result of this? Kathryn said it best:
 
-<TwitterEmbed>
+<Stack justify="around" align="stretch">
+<TwitterEmbed style="width: 45%">
   <Tweet
     id="947522372315369472"
     href="https://twitter.com/TransSalamander/status/947522372315369472"
@@ -187,6 +169,8 @@ What is the end result of this? Kathryn said it best:
       <p>That's dysphoria. You're literally a trans girl already, babe.</p>
     </Tweet.Body>
   </Tweet>
+</TwitterEmbed>
+<TwitterEmbed style="width: 45%">
   <Tweet
     id="947523244948680705"
     href="https://twitter.com/TransSalamander/status/947523244948680705"
@@ -201,4 +185,4 @@ What is the end result of this? Kathryn said it best:
     </Tweet.Body>
   </Tweet>
 </TwitterEmbed>
-
+</Stack>

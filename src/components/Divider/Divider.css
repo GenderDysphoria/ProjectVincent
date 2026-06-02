@@ -27,6 +27,7 @@
     height: 100%;
     border-bottom-width: 0;
     border-right-width: thin;
+    align-self: center;
 
     &.ui-divider--v-middle {
       margin-top: var(--spacing);

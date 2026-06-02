@@ -1,0 +1,15 @@
+.fact-grid .fact-grid-header { grid-row: 1; }
+
+.fact-grid li {break-inside: avoid;}
+
+@media (min-width: 500px) {
+  .fact-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: min-content 1fr;
+    grid-column-gap: 1em;
+    font-size: var(--font-size-sm);
+  }
+
+  .fact-grid .fact-grid-cell--two-col { column-count: 2; }
+}
