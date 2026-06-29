@@ -64,7 +64,7 @@ export default function Tweet ({
 
   return (
     <Component {...props} className={classes}>
-      <a className="tweet-header" href="https://twitter.com/{{user.screen_name}}" target="_blank" rel="noreferrer">
+      <a className="tweet-header" href={`https://twitter.com/${username}`} target="_blank" rel="noreferrer">
         <b><Image src={avatar} alt="" /></b>
         <strong>
           {displayName}
@@ -80,7 +80,7 @@ export default function Tweet ({
       ) || null}
       {date && (
       <div class="tweet-footer">
-        <span class="tweet-date" title={utc}>{date}</span>
+          <time class="tweet-date" datetime={utc} title={utc}>{date}</time>
       </div>
       )}
     </Component>

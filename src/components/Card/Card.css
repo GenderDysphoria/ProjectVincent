@@ -81,6 +81,14 @@
   &>.ui-card-header-content {
     flex: 1 1 auto;
   }
+
+  &:has(+ .ui-card-content) {
+    padding-bottom: 0;
+  }
+
+  &:has(+ .ui-card-media) {
+    box-shadow: 1px 1px 1px black;
+  }
 }
 
 .ui-card-media {

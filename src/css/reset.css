@@ -35,7 +35,7 @@ body {
   min-height: 100vh;
   line-height: 1.5;
   margin: 0;
-  color: var(--text-primary);
+  color: var(--text-color-primary);
   background-color: var(--background-default);
   @media print {
     background-color: white;

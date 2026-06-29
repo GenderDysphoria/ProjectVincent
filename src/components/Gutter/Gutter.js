@@ -4,17 +4,22 @@ import Paper from '#src/components/Paper';
 
 const CssPrefix = 'ui-gutter';
 export default function Gutter ({
-  component,
+  component: Component = 'div',
   className,
   children,
+  align,
+  printRow,
   ...props
 }) {
   const classes = clsx(
     className,
-    CssPrefix
+    CssPrefix,
+    align === 'end' && 'flex-end',
+    align === 'center' && 'flex-center',
+    !!printRow && 'print-row'
   );
 
   return (
-    <Paper component={component} {...props} className={classes}>{children}</Paper>
+    <Component {...props} className={classes}><Paper>{children}</Paper></Component>
   );
 }

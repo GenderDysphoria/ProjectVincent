@@ -130,6 +130,7 @@
 
     .tweet-logo {
       grid-area: logo;
+      align-self: center;
       height: 20px;
       width: 30px;
     }
