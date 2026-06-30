@@ -1,5 +1,7 @@
 import clsx from 'clsx';
 
+import { loadIcon } from './icons.js';
+
 /**
  * @typedef SvgIconProps
  * @property {string} [component]
@@ -17,12 +19,13 @@ const CssPrefix = 'ui-svg-icon';
  * @param {SvgIconProps} props
  * @returns {JSX}
  */
-export default function SvgIcon ({
+export default async function SvgIcon ({
   className,
   children,
   disabled,
   action,
   size,
+  icon,
   color,
   ...props
 }) {
@@ -33,6 +36,11 @@ export default function SvgIcon ({
     action && `${CssPrefix}--action`,
     size && `${CssPrefix}--size-${size}`
   );
+
+  if (icon) {
+    const Component = await loadIcon(icon);
+    return <Component className={classes} role="img" {...props} />;
+  }
 
   return (
     <svg className={classes} role="img" {...props}>

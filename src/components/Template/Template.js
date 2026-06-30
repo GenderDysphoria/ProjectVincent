@@ -92,12 +92,7 @@ function Hamburger () {
   return (
     <div className={`${CssPrefix}-hamburger`}>
       <Button component="label" for={NAVCHECK_ID} color={null}>
-        <SvgIcon viewBox="0 0 24 24" role="img" aria-label="Menu Button" size="lg">
-          <title>Menu</title>
-          <desc>Three horizontal bars indicating a menu button</desc>
-          <path d="M0 0h24v24H0z" fill="none" />
-          <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" fill="currentColor" />
-        </SvgIcon>
+        <SvgIcon icon="bars" role="img" aria-label="Menu Button" size="lg" />
       </Button>
     </div>
   );
