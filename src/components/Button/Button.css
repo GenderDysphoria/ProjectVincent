@@ -1,5 +1,27 @@
 
 .ui-button {
+  --button-base-highlight: color-mix(in oklab, var(--button-base-color), light-dark(white, black) 20%);
+  --button-base-dimmed: color-mix(in oklab, var(--button-base-color), light-dark(black, white) 20%);
+
+  --button-hollow-color: var(--button-base-color);
+  --button-hollow-bg: var(--button-contrast-color);
+  --button-hollow-border: rgb(from var(--button-base-color) r g b / 50%);
+  --button-hollow-hover-border: var(--button-base-color);
+  --button-hollow-hover-color: color-mix(in oklab, var(--button-base-color), light-dark(black, white) 20%);
+  --button-hollow-hover-bg: light-dark(
+    rgb(from var(--button-base-color) r g b / var(--action-hover-opacity-light)),
+    rgb(from var(--button-base-color) r g b / var(--action-hover-opacity-dark))
+  );
+  --button-hollow-pressed-bg: light-dark(
+    rgb(from var(--button-base-color) r g b / var(--action-selected-opacity-light)),
+    rgb(from var(--button-base-color) r g b / var(--action-selected-opacity-dark))
+  );
+
+  --button-filled-color: var(--button-contrast-color);
+  --button-filled-bg: var(--button-base-color);
+  --button-filled-hover-bg: color-mix(in oklab, var(--button-base-color), light-dark(black, white) 20%);
+  --button-filled-pressed-bg: color-mix(in oklab, var(--button-base-color), light-dark(white, black) 20%);
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -16,7 +38,6 @@
   border-radius: var(--button-rounding);
   padding: 0;
   padding-block: var(--button-padding-vert);
-  padding-block-start: calc(var(--button-padding-vert) + 2px);
   padding-inline: var(--button-padding-horz);
   cursor: pointer;
   user-select: none;
@@ -43,28 +64,6 @@
     pointer-events: none;
     cursor: default;
   }
-
-  --button-base-highlight: color-mix(in oklab, var(--button-base-color), light-dark(white, black) 20%);
-  --button-base-dimmed: color-mix(in oklab, var(--button-base-color), light-dark(black, white) 20%);
-
-  --button-hollow-color: var(--button-base-color);
-  --button-hollow-bg: var(--button-contrast-color);
-  --button-hollow-border: rgb(from var(--button-base-color) r g b / 50%);
-  --button-hollow-hover-border: var(--button-base-color);
-  --button-hollow-hover-color: color-mix(in oklab, var(--button-base-color), light-dark(black, white) 20%);
-  --button-hollow-hover-bg: light-dark(
-    rgb(from var(--button-base-color) r g b / var(--action-hover-opacity-light)),
-    rgb(from var(--button-base-color) r g b / var(--action-hover-opacity-dark))
-  );
-  --button-hollow-pressed-bg: light-dark(
-    rgb(from var(--button-base-color) r g b / var(--action-selected-opacity-light)),
-    rgb(from var(--button-base-color) r g b / var(--action-selected-opacity-dark))
-  );
-
-  --button-filled-color: var(--button-contrast-color);
-  --button-filled-bg: var(--button-base-color);
-  --button-filled-hover-bg: color-mix(in oklab, var(--button-base-color), light-dark(black, white) 20%);
-  --button-filled-pressed-bg: color-mix(in oklab, var(--button-base-color), light-dark(white, black) 20%);
 
   @media (hover:hover) {
     &:hover {
@@ -169,30 +168,35 @@
     font-size: var(--font-size-xs);
     --button-padding-vert: calc(var(--spacing) * 0.25);
     --button-padding-horz: calc(var(--spacing) * 0.5);
+    --button-rounding: 0;
   }
 
   &.ui-button--size-sm {
     font-size: var(--font-size-sm);
     --button-padding-vert: calc(var(--spacing) * 0.5);
     --button-padding-horz: calc(var(--spacing) * 1);
+    --button-rounding: var(--shape-rounded-sm);
   }
 
   &.ui-button--size-md {
     font-size: var(--font-size-md);
     --button-padding-vert: calc(var(--spacing) * 1);
     --button-padding-horz: calc(var(--spacing) * 2);
+    --button-rounding: var(--shape-rounded-md);
   }
 
   &.ui-button--size-lg {
     font-size: var(--font-size-lg);
     --button-padding-vert: calc(var(--spacing) * 1.5);
     --button-padding-horz: calc(var(--spacing) * 2.5);
+    --button-rounding: var(--shape-rounded-lg);
   }
 
   &.ui-button--size-xl {
     font-size: var(--font-size-2xl);
     --button-padding-vert: calc(var(--spacing) * 2);
     --button-padding-horz: calc(var(--spacing) * 3);
+    --button-rounding: var(--shape-rounded-xl);
   }
 
   &.ui-button--color-primary {
