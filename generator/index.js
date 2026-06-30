@@ -3,11 +3,19 @@ import log from 'fancy-log';
 import BUILD_HASH from './build-hash.js';
 import cleanupTask from './tasks/cleanup.js';
 import cssTask from './tasks/css.js';
+import invalidateCloudfront from './tasks/invalidate.js';
 import pagesTask from './tasks/pages.js';
+import publish from './tasks/publish.js';
 import staticJsTask from './tasks/static-js.js';
 import watch from './watch.js';
 
 const tasks = {
+  deploy: () => publish(),
+  cloudfront: () => invalidateCloudfront(),
+  publish: [
+    'deploy',
+    'cloudfront',
+  ],
   pages: () => pagesTask(),
   clean: () => cleanupTask([ 'compiled', 'dist' ]),
   css: () => cssTask({

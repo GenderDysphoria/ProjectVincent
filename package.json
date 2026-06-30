@@ -10,6 +10,8 @@
   "scripts": {
     "start": "./gen watch",
     "test": "./node_modules/.bin/fest --test-reporter=spec",
+    "build": "./gen build",
+    "publish": "./gen publish",
     "lint": "eslint .",
     "lint-fix": "eslint --fix .",
     "hash": "git archive main | md5 > compiled/hash.txt"
@@ -20,6 +22,9 @@
     "node": ">=20.12.0"
   },
   "imports": {
+    "#aws": {
+      "default": "./aws.js"
+    },
     "#eslint": {
       "default": "./eslint/index.js"
     },
@@ -41,6 +46,7 @@
     }
   },
   "devDependencies": {
+    "@aws-sdk/client-cloudfront": "^3.1076.0",
     "@babel/core": "^7.29.7",
     "@babel/parser": "^7.29.7",
     "@babel/preset-env": "^7.29.7",
@@ -60,6 +66,7 @@
     "chalk": "^5.6.2",
     "clsx": "^2.1.1",
     "concat-with-sourcemaps": "github:twipped/concat-with-sourcemaps",
+    "concurrent-transform": "^1.0.0",
     "cssnano": "^7.0.6",
     "date-fns": "^4.3.0",
     "enhanced-resolve": "^5.22.0",
@@ -74,6 +81,8 @@
     "fast-glob": "^3.3.3",
     "fs-extra": "^11.3.5",
     "glob-watcher": "^6.0.0",
+    "gulp-awspublish": "^9.0.0",
+    "gulp-awspublish-router": "^0.2.0",
     "hasha": "^6.0.0",
     "hot-hook": "^0.4.0",
     "image-size": "^2.0.2",
@@ -96,7 +105,8 @@
     "rimraf": "^6.1.3",
     "serve-index": "^1.9.2",
     "sharp": "^0.34.2",
-    "source-map": "^0.7.4"
+    "source-map": "^0.7.4",
+    "vinyl-fs": "^4.0.2"
   },
   "nodemonConfig": {
     "ignore": [
