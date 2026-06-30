@@ -50,7 +50,11 @@ async function loadPage (relPath, options = {}) {
   }
 
   if (!meta.output) {
-    meta.output = path.join(meta.url.slice(1), 'index.html');
+    if (path.extname(meta.url)) {
+      meta.output = meta.url.slice(1);
+    } else {
+      meta.output = path.join(meta.url.slice(1), 'index.html');
+    }
   }
 
   return meta;
@@ -74,6 +78,7 @@ async function loadPages (options = {}) {
     onlyFiles: true,
     dot,
   });
+
   const pages = {};
   const routes = {};
   await Promise.all(

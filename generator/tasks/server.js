@@ -36,6 +36,10 @@ export async function serverWatchTask (options = {}) {
 
   app.get('/i', (req, res) => res.send(''));
 
+  app.use((req, res) => {
+    res.status(404).sendFile(path.resolve(ROOT_DIR, 'dist/404.html'));
+  });
+
   log('Server starting...');
 
   return new Promise((resolve, reject) => {

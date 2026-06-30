@@ -6,7 +6,7 @@ import {
 import { pDelay } from '@twipped/utils';
 import log from 'fancy-log';
 
-export default async function invalidateCloudfront ({ wait = true } = {}) {
+export default async function invalidateCloudfront ({ wait = false } = {}) {
   var credentials;
   try {
     credentials = (await import('#aws')).default;
