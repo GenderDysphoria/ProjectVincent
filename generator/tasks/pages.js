@@ -190,6 +190,7 @@ async function renderPageBody (page, options = {}) {
       {
         metadata: page,
         BUILD_HASH,
+        pages: manifest.pages,
         routes: manifest.routes,
         languages: manifest.languages,
       }
@@ -201,7 +202,6 @@ async function renderPageBody (page, options = {}) {
     await fs.writeFile(destPath, page.body);
   } catch (e) {
     e.message = `Error while rendering ${page.file}: ${e.message}`;
-    e.stack = `Error while rendering ${page.file}:\n${e.stack}`;
     throw e;
   }
 

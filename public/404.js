@@ -3,7 +3,7 @@ export const meta = {
   url: '/404.html',
 };
 
-export default function SiteLanding () {
+export default function NotFound () {
   return (
     <>
       <article>

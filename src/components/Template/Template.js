@@ -2,6 +2,7 @@ import clsx from 'clsx';
 
 import Article from '#src/components/Article';
 import Button from '#src/components/Button';
+import Pager from '#src/components/Pager/Pager';
 import Paper from '#src/components/Paper';
 import SvgIcon from '#src/components/SvgIcon';
 import Text from '#src/components/Text';
@@ -41,6 +42,7 @@ export default function Template ({
         <Article className={`${CssPrefix}-body`}>
           {/* <pre><code>{JSON.stringify({ meta: this.metadata, lang }, null, 2)}</code></pre> */}
           {children}
+          <Pager />
         </Article>
         <div className="ui-template-gutter-left" />
         <div className="ui-template-gutter-right" />
