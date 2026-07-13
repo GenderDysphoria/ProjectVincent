@@ -78,6 +78,7 @@
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
+  /* gap: var(--spacing-3); */
 
   padding: 0 var(--spacing-2);
   padding-right: 0;
@@ -88,6 +89,15 @@
     flex: 0 0;
     white-space: nowrap;
   }
+
+  a {
+    color: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .spacer { flex: 1; }
 }
 
 .ui-template-sidenav {

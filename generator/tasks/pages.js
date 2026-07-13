@@ -1,3 +1,4 @@
+import { createIntl, createIntlCache } from '@formatjs/intl';
 import { keyBy, threepiece } from '@twipped/utils';
 import { render } from 'essex';
 import log from 'fancy-log';
@@ -23,6 +24,8 @@ export const WATCH_GLOB = [
 ];
 
 const CANONICAL_ROOT = 'https://gdb.fyi/';
+
+const intlCache = createIntlCache();
 
 async function loadPage (relPath, options = {}) {
   const {
@@ -144,7 +147,7 @@ async function buildManifest (options = {}) {
     loadPages(options),
     loadIndexes(options),
   ]);
-  // console.log(pages);
+
   for (const lang of Object.values(languages)) {
     lang.pages = threepiece(lang.pages, ([ , prev ] = [], [ , curr ] = [], [ , next ] = []) => {
       const page = pages[curr];
@@ -156,6 +159,7 @@ async function buildManifest (options = {}) {
       return page;
     });
     lang.keyed = keyBy(lang.pages, 'key');
+    lang.intl = createIntl({ locale: lang.lang, messages: lang.messages }, intlCache);
   }
 
   manifest = { pages, routes, languages };
@@ -177,6 +181,7 @@ async function renderPageBody (page, options = {}) {
 
   try {
     const { Page: PageBody } = page;
+    const lang = manifest.languages[page.lang];
     page.body = await render(
       <HtmlPage
         lang={page.lang}
@@ -190,6 +195,8 @@ async function renderPageBody (page, options = {}) {
       {
         metadata: page,
         BUILD_HASH,
+        lang,
+        intl: lang.intl,
         pages: manifest.pages,
         routes: manifest.routes,
         languages: manifest.languages,

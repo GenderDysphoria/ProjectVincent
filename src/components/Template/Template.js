@@ -2,6 +2,7 @@ import clsx from 'clsx';
 
 import Article from '#src/components/Article';
 import Button from '#src/components/Button';
+import { FormattedMessage } from '#src/components/Intl';
 import Pager from '#src/components/Pager/Pager';
 import Paper from '#src/components/Paper';
 import SvgIcon from '#src/components/SvgIcon';
@@ -28,7 +29,8 @@ export default function Template ({
     <>
       <input type="checkbox" id={NAVCHECK_ID} className="hidden" aria-hidden="true" />
       <div className={`${CssPrefix}-topnav`}>
-        <Text component="h1" family="brand" size="2xl">The Gender Dysphoria Bible</Text>
+        <Text component="h1" family="brand" size="2xl"><FormattedMessage id="SITE_TITLE" /></Text>
+
         <LightDark />
         <Hamburger />
       </div>
@@ -47,6 +49,7 @@ export default function Template ({
         <div className="ui-template-gutter-left" />
         <div className="ui-template-gutter-right" />
       </Component>
+      <Footer />
     </>
   );
 }
@@ -97,5 +100,38 @@ function Hamburger () {
         <SvgIcon icon="bars" role="img" aria-label="Menu Button" size="lg" />
       </Button>
     </div>
+  );
+}
+
+function Footer () {
+  const year = (new Date()).getFullYear();
+
+  return (
+    <footer>
+      <p class="patreon">
+        <FormattedMessage
+          id="FOOTER_PATREON"
+          values={{
+            a: (...chunks) => <a href="https://www.patreon.com/curvyandtrans" target="_blank" rel="noreferrer">{chunks}</a>,
+            b: (...chunks) => <a href="https://ko-fi.com/curvyandtrans" target="_blank" rel="noreferrer">{chunks}</a>,
+          }}
+        />
+      </p>
+      <p class="copyright">
+        <FormattedMessage
+          id="FOOTER_COPYRIGHT"
+          values={{
+            a: (...chunks) => <a href="https://creativecommons.org/licenses/by-nc-sa/2.0/" target="_blank" rel="noreferrer">{chunks}</a>,
+          }}
+        />
+        <span class="cc-by-nc-sa">
+          <SvgIcon icon="cc" />
+          <SvgIcon icon="cc-by" />
+          <SvgIcon icon="cc-nc" />
+          <SvgIcon icon="cc-sa" />
+        </span><br />&copy; {year} Twipped Media <FormattedMessage id="FOOTER_COPYRIGHT2" />
+      </p>
+      <p class="foot-nav"><a href="/privacy.html"><FormattedMessage id="FOOTER_PRIVACY_POLICY" /></a></p>
+    </footer>
   );
 }
