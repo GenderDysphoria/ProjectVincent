@@ -29,14 +29,16 @@ export default function Template ({
     <>
       <input type="checkbox" id={NAVCHECK_ID} className="hidden" aria-hidden="true" />
       <div className={`${CssPrefix}-topnav`}>
-        <Text component="h1" family="brand" size="2xl"><FormattedMessage id="SITE_TITLE" /></Text>
+        <div className="container">
+          <Text component="h1" family="brand" size="2xl"><FormattedMessage id="SITE_TITLE" /></Text>
 
-        <div class="spacer" />
-        <Button color={null} target="_blank" rel="noreferrer" href="https://github.com/GenderDysphoria/GenderDysphoria.fyi" title="Github"><SvgIcon icon="github" role="img" aria-label="Github" size="md" /></Button>
-        <Button color={null} target="_blank" rel="noreferrer" href="https://patreon.com/curvyandtrans" title="Patreon"><SvgIcon icon="patreon" role="img" aria-label="Patreon" size="md" /></Button>
-        <Button color={null} target="_blank" rel="noreferrer" href="https://ko-fi.com/curvyandtrans" title="Ko-Fi"><SvgIcon icon="ko-fi" role="img" aria-label="Ko-fi" size="md" /></Button>
-        <LightDark />
-        <Hamburger />
+          <div class="spacer" />
+          <Button color={null} target="_blank" rel="noreferrer" href="https://github.com/GenderDysphoria/GenderDysphoria.fyi" title="Github"><SvgIcon icon="github" role="img" aria-label="Github" size="md" /></Button>
+          <Button color={null} target="_blank" rel="noreferrer" href="https://patreon.com/curvyandtrans" title="Patreon"><SvgIcon icon="patreon" role="img" aria-label="Patreon" size="md" /></Button>
+          <Button color={null} target="_blank" rel="noreferrer" href="https://ko-fi.com/curvyandtrans" title="Ko-Fi"><SvgIcon icon="ko-fi" role="img" aria-label="Ko-fi" size="md" /></Button>
+          <LightDark />
+          <Hamburger />
+        </div>
       </div>
       <div className={`${CssPrefix}-drawer`}>
         <Navigation />
