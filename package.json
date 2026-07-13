@@ -88,7 +88,6 @@
     "fs-extra": "^11.3.5",
     "glob-watcher": "^6.0.0",
     "gulp-awspublish": "^9.0.0",
-    "gulp-awspublish-router": "^0.2.0",
     "hasha": "^6.0.0",
     "hot-hook": "^0.4.0",
     "image-size": "^2.0.2",

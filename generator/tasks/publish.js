@@ -114,8 +114,8 @@ export default async function publish () {
   var publisher = awspublish.create(credentials);
 
   return pipeline(
-    vfs.src('dist/**/*'),
-    awspublish.gzip({ ext: '.gz' }),
+    vfs.src('dist/**/*', { encoding: false }),
+    awspublish.gzip(),
     router,
     parallelize(publisher.publish(), 10),
     publisher.sync(),
