@@ -23,7 +23,7 @@ export default function Paper ({
         ? (
         <Button variant="contained" color="primary" size="sm" href={prev.url} className="prev">
           <SvgIcon icon="angle-left" />
-          {prev.linkTitle}
+          <span>{prev.linkTitle}</span>
         </Button>
           )
         : (
@@ -31,7 +31,7 @@ export default function Paper ({
           )}
       {next && (
         <Button variant="contained" color="primary" size="sm" href={next.url} className="next">
-          {next.linkTitle}
+          <span>{next.linkTitle}</span>
           <SvgIcon icon="angle-right" />
         </Button>
       )}
