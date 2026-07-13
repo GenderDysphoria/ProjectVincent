@@ -17,7 +17,7 @@
     ;
 
   }
-  @media only screen and (min-width: $breakpoint-md) and (max-width: $breakpoint-xl) {
+  @media only screen and (width >= $breakpoint-lg) {
     grid-template-columns: var(--ui-sidebar-width) 1fr;
     grid-template-areas:
       "topnav topnav"
@@ -25,7 +25,7 @@
     ;
   }
 
-  @media only screen and (min-width: $breakpoint-xl) {
+  @media only screen and (width >= $breakpoint-xl) {
     grid-template-columns: 1fr var(--ui-sidebar-width) calc($breakpoint-xl - var(--ui-sidebar-width)) 1fr;
     grid-template-areas:
       "gutterLeft topnav topnav gutterRight"
@@ -39,7 +39,7 @@
 }
 
 /* On mobile, if the show-nav isn't checked, hide the sidenav */
-@media only screen and (max-width: $breakpoint-md) {
+@media only screen and (width < $breakpoint-lg) {
   .ui-template-sidenav {
     display: none;
   }
@@ -58,7 +58,7 @@
 }
 
 /* On desktop, hide the drawer and the hamburger */
-@media only screen and (min-width: $breakpoint-md) {
+@media only screen and (width >= $breakpoint-lg) {
   .ui-template-drawer, .ui-template-hamburger {
     display: none;
   }
@@ -69,6 +69,7 @@
   top: 0;
   left: 0;
   right: 0;
+  height: var(--ui-topnav-height);
   background: var(--grey-800);
   color: white;
   box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.3);
@@ -84,7 +85,7 @@
     padding: 0 var(--spacing-2);
     padding-right: 0;
 
-    @media screen and (min-width: $breakpoint-lg) {
+    @media screen and (width >= $breakpoint-xl) {
       width: $breakpoint-xl;
       margin: 0 auto;
     }
@@ -94,6 +95,7 @@
   h1 {
     flex: 0 0;
     white-space: nowrap;
+    font-size: var(--font-size-2xl);
   }
 
   a {
@@ -104,6 +106,24 @@
   }
 
   .spacer { flex: 1; }
+  
+  @media (width < $breakpoint-md) {
+    .link { display: none; }
+  }
+
+  @media (width < $breakpoint-sm) {
+    h1 {
+      font-size: var(--font-size-lg);
+    }
+  }
+
+  @media (width < $breakpoint-xs) {
+    h1 {
+      font-size: var(--font-size-md);
+    }
+
+    light-dark { display: none;}
+  }
 }
 
 .ui-template-sidenav {
@@ -117,10 +137,35 @@
   top: var(--ui-topnav-height);
   left: 0;
   right: 0;
-  min-height: 100vh;
+  min-height: 100%;
   z-index: var(--zindex-appBar - 1);
 
-  background: var(--surface-7);
+  display: flex;
+  justify-content: stretch;
+  align-items: start;
+  background: var(--alpha-black-600);
+  > .ui-template-navigation {
+    background: var(--surface-7);
+    flex-grow: 1;
+  }
+
+  @media screen and (width > $breakpoint-sm) {
+    background: var(--alpha-black-600);
+    justify-content: end;
+
+    > .ui-template-navigation {
+      background: var(--surface-7);
+      flex-basis: 40ch;
+      flex-grow: 0;
+      flex-shrink: 1;
+      border: 1px solid var(--alpha-black-500);
+      box-shadow: var(--shadow-4);
+    }
+  }
+
+  @media screen and (width > $breakpoint-lg) {
+    display: none;
+  }
 }
 
 .ui-template-hamburger {
@@ -143,17 +188,12 @@
     padding: var(--spacing) var(--spacing-2);
   }
 
-  @media screen and (min-width: $breakpoint-md) {
-    margin-right: 20vw;
-    .ui-disclaimer { margin-right: calc(-20vw - var(--spacing-2)); }
+  @media screen and (width > $breakpoint-md) {
+    margin-right: 300px;
+    .ui-disclaimer { margin-right: calc(-300px - var(--spacing-2)); }
   }
 
-  @media screen and (min-width: $breakpoint-lg) {
-    margin-right: 30vw;
-    .ui-disclaimer { margin-right: calc(-30vw - var(--spacing-2)); }
-  }
-
-  @media screen and (min-width: $breakpoint-xl) {
+  @media screen and (width >= $breakpoint-xl) {
     margin-right: 400px;
     .ui-disclaimer { margin-right: calc(-400px - var(--spacing-2)); }
   }

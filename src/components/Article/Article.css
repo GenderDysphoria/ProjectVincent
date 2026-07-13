@@ -2,16 +2,9 @@
   font-family: var(--font-family-primary);
   font-weight: var(--font-weight-regular);
 
-  /* > h1:first-child {
-    margin-top: 0.5em;
-  } */
-
   @media only screen and (max-width: 500px) {
     padding: 1em 1em;
 
-    /* > h1:first-of-type {
-      margin-top: 0.25em;
-    } */
   }
 
   h1, h2, h3, h4, h5 { a {

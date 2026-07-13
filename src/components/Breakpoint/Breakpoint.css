@@ -1,0 +1,45 @@
+
+.ui-breakpoint {
+  position: fixed;
+  top: 3em;
+  left: 0;
+  right: 0;
+  height: 2em;
+  z-index: 10000;
+  background: red;
+  display: grid;
+
+  > * {
+    position: absolute;
+    height: 2em;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+  }
+
+  .xs { width: $breakpoint-xs; }
+  .sm { width: $breakpoint-sm; }
+  .md { width: $breakpoint-md; }
+  .lg { width: $breakpoint-lg; }
+  .xl { width: $breakpoint-xl; }
+
+  @media screen and (width < $breakpoint-xl) {
+    .xl { display: none }
+  }
+
+  @media screen and (width < $breakpoint-lg) {
+    .lg { display: none }
+  }
+
+  @media screen and (width < $breakpoint-md) {
+    .md { display: none }
+  }
+
+  @media screen and (width < $breakpoint-sm) {
+    .sm { display: none }
+  }
+
+  @media screen and (width < $breakpoint-xs) {
+    .xs { display: none }
+  }
+}

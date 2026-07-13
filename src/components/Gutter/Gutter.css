@@ -1,19 +1,19 @@
 
 .ui-gutter {
 
-  @media screen and (width >= 800px) {
+  @media screen and (width >= $breakpoint-md) {
     position: relative;
     height: 0;
     left: calc(100% + 1em);
-    width: 400px;
+    width: 300px;
     padding: 0 1em;
 
-    @media (max-width: 1000px) {
-      width: 300px;
+    @media (width >= $breakpoint-xl) {
+      width: 400px;
     }
   }
 
-  @media screen and (500px >= width >= 800px) {
+  @media screen and ($breakpoint-sm < width < $breakpoint-md) {
     float: right;
     width: 300px;
     margin-left: 1em;
