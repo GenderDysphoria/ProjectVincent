@@ -39,6 +39,7 @@ export default function Template ({
           <Hamburger />
         </div>
       </div>
+      <div className={`${CssPrefix}-topnav-filler`} />
       {false && <Breakpoint />}
       <div className={`${CssPrefix}-drawer`}>
         <ExtLinks />

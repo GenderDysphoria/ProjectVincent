@@ -6,13 +6,10 @@
 .ui-template {
   display: grid;
   background-color: light-dark(#f0f0f0, #171717);
-  
-  grid-template-rows: var(--ui-topnav-height) 1fr;
 
   @media only screen and (max-width: $breakpoint-md) {
     grid-template-columns: 100%;
     grid-template-areas: 
-      "topnav"
       "body"
     ;
 
@@ -20,7 +17,6 @@
   @media only screen and (width >= $breakpoint-lg) {
     grid-template-columns: var(--ui-sidebar-width) 1fr;
     grid-template-areas:
-      "topnav topnav"
       "sidenav body"
     ;
   }
@@ -28,7 +24,6 @@
   @media only screen and (width >= $breakpoint-xl) {
     grid-template-columns: 1fr var(--ui-sidebar-width) calc($breakpoint-xl - var(--ui-sidebar-width)) 1fr;
     grid-template-areas:
-      "gutterLeft topnav topnav gutterRight"
       "gutterLeft sidenav body gutterRight"
     ;
 
@@ -131,6 +126,10 @@
   }
 }
 
+.ui-template-topnav-filler {
+  height: var(--ui-topnav-height);
+}
+
 .ui-template-sidenav {
   grid-area: sidenav;
 
@@ -139,7 +138,7 @@
 
 .ui-template-drawer {
   position: relative;
-  top: var(--ui-topnav-height);
+  top: 0;
   left: 0;
   right: 0;
   min-height: 100%;
