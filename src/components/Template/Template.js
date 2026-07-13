@@ -34,15 +34,14 @@ export default function Template ({
           <Text component="h1" family="brand"><FormattedMessage id="SITE_TITLE" /></Text>
 
           <div class="spacer" />
-          <Button className="link" color={null} target="_blank" rel="noreferrer" href="https://github.com/GenderDysphoria/GenderDysphoria.fyi" title="Github"><SvgIcon icon="github" role="img" aria-label="Github" size="md" /></Button>
-          <Button className="link" color={null} target="_blank" rel="noreferrer" href="https://patreon.com/curvyandtrans" title="Patreon"><SvgIcon icon="patreon" role="img" aria-label="Patreon" size="md" /></Button>
-          <Button className="link" color={null} target="_blank" rel="noreferrer" href="https://ko-fi.com/curvyandtrans" title="Ko-Fi"><SvgIcon icon="ko-fi" role="img" aria-label="Ko-fi" size="md" /></Button>
+          <ExtLinks />
           <LightDark />
           <Hamburger />
         </div>
       </div>
       {false && <Breakpoint />}
       <div className={`${CssPrefix}-drawer`}>
+        <ExtLinks />
         <Navigation />
       </div>
       <Component {...props} className={classes}>
@@ -98,6 +97,16 @@ function Navigation () {
         ))}
       </ol>
     </nav>
+  );
+}
+
+function ExtLinks () {
+  return (
+    <div class="ext-links">
+      <Button className="link" color={null} target="_blank" rel="noreferrer" href="https://github.com/GenderDysphoria/GenderDysphoria.fyi" title="Github"><SvgIcon icon="github" role="img" aria-label="Github" size="md" /></Button>
+      <Button className="link" color={null} target="_blank" rel="noreferrer" href="https://patreon.com/curvyandtrans" title="Patreon"><SvgIcon icon="patreon" role="img" aria-label="Patreon" size="md" /></Button>
+      <Button className="link" color={null} target="_blank" rel="noreferrer" href="https://ko-fi.com/curvyandtrans" title="Ko-Fi"><SvgIcon icon="ko-fi" role="img" aria-label="Ko-fi" size="md" /></Button>
+    </div>
   );
 }
 

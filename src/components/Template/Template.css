@@ -86,7 +86,7 @@
     padding-right: 0;
 
     @media screen and (width >= $breakpoint-xl) {
-      width: $breakpoint-xl;
+      width: var(--breakpoint-xl);
       margin: 0 auto;
     }
 
@@ -106,9 +106,14 @@
   }
 
   .spacer { flex: 1; }
+
+  .ext-links {
+    flex-shrink: 0;
+    display: flex;
+  }
   
-  @media (width < $breakpoint-md) {
-    .link { display: none; }
+  @media (width < $breakpoint-lg) {
+    .ext-links { display: none; }
   }
 
   @media (width < $breakpoint-sm) {
@@ -141,9 +146,12 @@
   z-index: var(--zindex-appBar - 1);
 
   display: flex;
+  flex-direction: column;
   justify-content: stretch;
-  align-items: start;
+  align-items: end;
   background: var(--alpha-black-600);
+  color: white;
+
   > .ui-template-navigation {
     background: var(--surface-7);
     flex-grow: 1;
@@ -224,6 +232,7 @@
   --ui-template-nav-active-border-color: var(--alpha-black-500);
   --ui-template-nav-hover-bg-color: var(--alpha-white-300);
   --ui-template-nav-hover-border-color: var(--alpha-black-300);
+  color: var(--text-color-primary);
 }
 
 .ui-template-index {
