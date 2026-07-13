@@ -7,11 +7,12 @@
   "bin": {
     "gen": "./generator/bin.js"
   },
+  "private": true,
   "scripts": {
     "start": "./gen watch",
     "test": "./node_modules/.bin/fest --test-reporter=spec",
     "build": "./gen build",
-    "publish": "./gen publish",
+    "deploy": "./gen build && ./gen publish",
     "lint": "eslint .",
     "lint-fix": "eslint --fix .",
     "hash": "git archive main | md5 > compiled/hash.txt"
