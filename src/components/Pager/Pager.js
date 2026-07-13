@@ -19,12 +19,16 @@ export default function Paper ({
 
   return (
     <Component className={classes}>
-      {prev && (
+      {prev
+        ? (
         <Button variant="contained" color="primary" size="sm" href={prev.url} className="prev">
           <SvgIcon icon="angle-left" />
           {prev.linkTitle}
         </Button>
-      )}
+          )
+        : (
+        <div />
+          )}
       {next && (
         <Button variant="contained" color="primary" size="sm" href={next.url} className="next">
           {next.linkTitle}
