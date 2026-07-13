@@ -46,7 +46,7 @@
   }
 
   #ui-template-show-nav:is(:checked) ~ * {
-    &.ui-template {
+    &.ui-template, &.footer {
       display: none;
     }
   }
