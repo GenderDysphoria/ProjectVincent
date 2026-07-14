@@ -8,7 +8,7 @@ export default function HtmlPage ({
   children,
   head,
 }) {
-  const { BUILD_HASH, metadata } = this;
+  const { BUILD_HASH, metadata, intl } = this;
   return (
     <Fragment>
       <RawHtml>{'<!DOCTYPE html>'}</RawHtml>
@@ -18,12 +18,13 @@ export default function HtmlPage ({
           <meta http-equiv="X-UA-Compatible" content="IE=edge" />
           <meta charset="UTF-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-          <meta property="og:site_name" content="Amorra" />
+          <meta property="og:site_name" content={intl.formatMessage({ id: 'SITE_TITLE', defaultMessage: 'The Gender Dysphoria Bible' })} />
           {metadata.title && <meta property="og:title" content={metadata.title} />}
           {metadata.description && <meta property="og:description" content={metadata.description} />}
           {metadata.image && <meta property="og:image" content={metadata.image} />}
           <meta property="og:url" content={canonical} />
           <link rel="canonical" href={canonical} />
+          <meta name="fediverse:creator" content="twipped@twipped.social" />
           <title>{title}</title>
 
           <link rel="preconnect" href="//fonts.gstatic.com/" crossorigin />
