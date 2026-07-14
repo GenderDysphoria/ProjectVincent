@@ -8,6 +8,7 @@ export default function Gutter ({
   className,
   children,
   align,
+  printInline,
   printRow,
   ...props
 }) {
@@ -16,7 +17,8 @@ export default function Gutter ({
     CssPrefix,
     align === 'end' && 'flex-end',
     align === 'center' && 'flex-center',
-    !!printRow && 'print-row'
+    !!printRow && 'print-row',
+    !!printInline && 'print-inline'
   );
 
   return (
