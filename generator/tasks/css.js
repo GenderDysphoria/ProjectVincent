@@ -13,8 +13,8 @@ import psNested from 'postcss-nested';
 import psEnv from 'postcss-preset-env';
 import psSimpleVars from 'postcss-simple-vars';
 
-import BUILD_HASH from '../build-hash.js';
-import { ROOT_DIR } from '../pkg.js';
+import BUILD_HASH from '#gen/build-hash';
+import { ROOT_DIR, IS_PROD } from '#gen/config';
 
 export const INCLUDE_GLOB = 'src/**/*.css';
 export const EXCLUDE_GLOB = 'src/**/_*.css';
@@ -52,7 +52,7 @@ async function loadFiles (options = {}) {
 export default async function cssTask (options) {
   const {
     cwd = ROOT_DIR,
-    minify = false,
+    minify = IS_PROD,
     bundlePath,
     distPath,
   } = options = {

@@ -4,14 +4,14 @@ import { render } from 'essex';
 import log from 'fancy-log';
 import glob from 'fast-glob';
 import fs from 'fs-extra';
+import { minify } from 'html-minifier-terser';
 import path from 'node:path';
 
+import BUILD_HASH from '#gen/build-hash';
+import { ROOT_DIR, IS_PROD } from '#gen/config';
 import HtmlPage from '#src/components/HtmlPage';
 import Template from '#src/components/Template/Template';
 import { headingComponents } from '#src/components/Text/Text';
-
-import BUILD_HASH from '../build-hash.js';
-import { ROOT_DIR } from '../pkg.js';
 
 const PAGE_GLOB = [ 'public/**/*.{mdx,js}' ];
 const IGNORE_GLOB = [ 'public/**/_*.mdx', 'public/static/**' ];
@@ -25,6 +25,16 @@ export const WATCH_GLOB = [
 ];
 
 const CANONICAL_ROOT = 'https://gdb.fyi/';
+
+const MINIFY_CONFIG = {
+  conservativeCollapse: true,
+  collapseWhitespace: true,
+  minifyCSS: true,
+  removeComments: true,
+  removeRedundantAttributes: true,
+};
+
+const shrink = (input) => (IS_PROD ? minify(input, MINIFY_CONFIG) : input);
 
 const intlCache = createIntlCache();
 
@@ -203,6 +213,13 @@ async function renderPageBody (page, options = {}) {
         languages: manifest.languages,
       }
     );
+
+    try {
+      page.body = await shrink(page.body);
+    } catch (e) {
+      e.message = `Error while minifying page "${page.input}": ${e.message.slice(0, 50)}`;
+      throw e;
+    }
 
     const destPath = path.resolve(cwd, distPath, page.output);
     log(`    Wrote ${path.relative(ROOT_DIR, destPath)}`);

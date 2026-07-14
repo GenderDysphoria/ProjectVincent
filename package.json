@@ -12,7 +12,7 @@
     "start": "./gen watch",
     "test": "./node_modules/.bin/fest --test-reporter=spec",
     "build": "./gen build",
-    "deploy": "./gen build && ./gen publish",
+    "deploy": "NODE_ENV=production ./gen build && ./gen publish",
     "lint": "eslint .",
     "lint-fix": "eslint --fix .",
     "hash": "git archive main | md5 > compiled/hash.txt"
@@ -20,7 +20,7 @@
   "author": "Jocelyn Badgley <jocelyn.badgley@zenbusiness.com>",
   "license": "MIT",
   "engines": {
-    "node": ">=20.12.0"
+    "node": ">=22.18.0"
   },
   "imports": {
     "#aws": {
@@ -90,6 +90,7 @@
     "gulp-awspublish": "^9.0.0",
     "hasha": "^6.0.0",
     "hot-hook": "^0.4.0",
+    "html-minifier-terser": "^7.2.0",
     "image-size": "^2.0.2",
     "import-essex": "^0.3.0",
     "lodash": "^4.18.1",

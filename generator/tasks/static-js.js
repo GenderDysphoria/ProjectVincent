@@ -2,8 +2,8 @@ import * as esbuild from 'esbuild';
 import log from 'fancy-log';
 import glob from 'fast-glob';
 
-import BUILD_HASH from '../build-hash.js';
-import { ROOT_DIR } from '../pkg.js';
+import BUILD_HASH from '#gen/build-hash';
+import { ROOT_DIR, IS_PROD } from '#gen/config';
 
 export const INCLUDE_GLOB = [ 'public/static/*/index.js', 'public/static/*.js' ];
 export const EXCLUDE_GLOB = [ ];
@@ -12,7 +12,7 @@ export const WATCH_GLOB = [ ...INCLUDE_GLOB, ...EXCLUDE_GLOB.map((s) => `!${s}`)
 export default async function staticJsTask (options) {
   const {
     cwd = ROOT_DIR,
-    minify = false,
+    minify = IS_PROD,
     // bundlePath,
     distPath,
     includeGlob,
