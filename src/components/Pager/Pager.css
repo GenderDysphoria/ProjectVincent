@@ -28,4 +28,8 @@
   svg:last-child {
     margin-left: var(--spacing-half);
   }
+
+  @media print {
+    display: none;
+  }
 }
