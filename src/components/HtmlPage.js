@@ -27,6 +27,28 @@ export default function HtmlPage ({
           <meta name="fediverse:creator" content="twipped@twipped.social" />
           <title>{title}</title>
 
+          {/* <!-- generics --> */}
+          <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+          <link rel="icon" type="image/png"    href="/favicon32.png" sizes="32x32" />
+          <link rel="icon" type="image/png"    href="/favicon57.png" sizes="57x57" />
+          <link rel="icon" type="image/png"    href="/favicon76.png" sizes="76x76" />
+          <link rel="icon" type="image/png"    href="/favicon96.png" sizes="96x96" />
+          <link rel="icon" type="image/png"    href="/favicon128.png" sizes="128x128" />
+          <link rel="icon" type="image/png"    href="/favicon192.png" sizes="192x192" />
+          <link rel="icon" type="image/png"    href="/favicon228.png" sizes="228x228" />
+
+          {/* <!-- Android --> */}
+          <link rel="shortcut icon" sizes="196x196" href="/favicon196.png" />
+
+          {/* <!-- iOS --> */}
+          <link rel="apple-touch-icon"             type="image/png" sizes="120x120" href="/favicon120.png" />
+          <link rel="apple-touch-icon"             type="image/png" sizes="152x152" href="/favicon152.png" />
+          <link rel="apple-touch-icon"             type="image/png" sizes="180x180" href="/favicon180.png" />
+          <link rel="apple-touch-icon-precomposed" type="image/png" sizes="57x57"   href="/favicon57.png" />
+          <link rel="apple-touch-icon-precomposed" type="image/png" sizes="72x72"   href="/favicon72.png" />
+          <link rel="apple-touch-icon-precomposed" type="image/png" sizes="120x120" href="/favicon120.png" />
+          <link rel="apple-touch-icon-precomposed" type="image/png" sizes="144x144" href="/favicon144.png" />
+
           <link rel="preconnect" href="//fonts.gstatic.com/" crossorigin />
           <link rel="preconnect" href="//fonts.googleapis.com" />
           <link href="//fonts.googleapis.com/css?family=Sriracha:400" rel="stylesheet" />

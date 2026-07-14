@@ -2,6 +2,7 @@ import log from 'fancy-log';
 
 import BUILD_HASH from './build-hash.js';
 import cleanupTask from './tasks/cleanup.js';
+import copy from './tasks/copy.js';
 import cssTask from './tasks/css.js';
 import invalidateCloudfront from './tasks/invalidate.js';
 import pagesTask from './tasks/pages.js';
@@ -18,6 +19,7 @@ const tasks = {
   ],
   pages: () => pagesTask(),
   clean: () => cleanupTask([ 'compiled', 'dist' ]),
+  copy: () => copy(),
   css: () => cssTask({
     distPath: `dist/static/${BUILD_HASH}/bundle.css`,
     minify: process.env.NODE_ENV === 'production',
@@ -30,6 +32,7 @@ const tasks = {
     'clean',
     {
       parallel: [
+        'copy',
         'js',
         'css',
         'pages',
