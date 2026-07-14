@@ -1,6 +1,10 @@
 :root {
   --html-font-size: 16px;
 
+  @media print {
+    --html-font-size: 14px;
+  }
+
   --font-family-primary: "Lato",
     Arial,
     ui-sans-serif,
