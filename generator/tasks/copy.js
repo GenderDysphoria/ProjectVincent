@@ -7,6 +7,7 @@ import { ROOT_DIR, resolve } from '#gen/config';
 
 export const INCLUDE_GLOB = [
   'public/favicon*',
+  'public/**/*.pdf',
 ];
 export const EXCLUDE_GLOB = [];
 

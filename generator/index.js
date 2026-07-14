@@ -6,6 +6,7 @@ import copy from './tasks/copy.js';
 import cssTask from './tasks/css.js';
 import invalidateCloudfront from './tasks/invalidate.js';
 import pagesTask from './tasks/pages.js';
+import pdfs from './tasks/pdfs.js';
 import publish from './tasks/publish.js';
 import staticJsTask from './tasks/static-js.js';
 import watch from './watch.js';
@@ -28,6 +29,7 @@ const tasks = {
     distPath: `dist/static/${BUILD_HASH}/`,
     minify: process.env.NODE_ENV === 'production',
   }),
+  pdfs: [ 'clean', 'build', () => pdfs() ],
   build: [
     'clean',
     {

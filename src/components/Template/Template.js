@@ -95,6 +95,12 @@ function Navigation () {
       </div>
       <ul className={`${CssPrefix}-index`}>
         <li className={key === 'fulltext' ? 'active' : null}><a href={`/${lang.lang}/fulltext`}><FormattedMessage id="FULL_TEXT" /></a></li>
+        <li>
+          <a href={`/${lang.lang}/gdb.pdf`}>
+            <FormattedMessage id="PDF_DOWNLOAD" />
+            <SvgIcon icon="pdf" />
+          </a>
+        </li>
       </ul>
       <ol className={`${CssPrefix}-index`}>
         {lang.pages.map((page) => (

@@ -294,6 +294,12 @@
       border-bottom: 1px solid var(--ui-template-nav-border-color);
     }
 
+    svg {
+      margin-left: 1ch;
+      vertical-align: text-top;
+      font-size: 14px;
+    }
+
     &:hover:not(.active) {
       & > a {
         background-color: var(--ui-template-nav-hover-bg-color);
