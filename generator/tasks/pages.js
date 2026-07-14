@@ -8,6 +8,7 @@ import path from 'node:path';
 
 import HtmlPage from '#src/components/HtmlPage';
 import Template from '#src/components/Template/Template';
+import { headingComponents } from '#src/components/Text/Text';
 
 import BUILD_HASH from '../build-hash.js';
 import { ROOT_DIR } from '../pkg.js';
@@ -189,7 +190,7 @@ async function renderPageBody (page, options = {}) {
         canonical={`${path.join(CANONICAL_ROOT, page.url)}`}
       >
         <Template>
-          <PageBody />
+          <PageBody components={headingComponents} />
         </Template>
       </HtmlPage>,
       {

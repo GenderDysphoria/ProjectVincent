@@ -1,7 +1,7 @@
 
 .ui-card, .ui-card.ui-paper {
   overflow: hidden;
-  box-shadow: 0 1px 3px rgb(from var(--trans-blue-dark) r g b / 50%);
+  --ui-paper--shadow: 0 1px 3px rgb(from var(--trans-blue-dark) r g b / 50%);
   background-color: var(--surface-2);
   margin-bottom: var(--spacing);
 }
@@ -96,6 +96,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  page-break-inside: avoid;
 
   &.ui-card-media--media {
     width: 100%;

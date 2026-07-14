@@ -21,13 +21,12 @@
   }
 
   @media print {
-
     page-break-inside: avoid;
     clear: both;
 
     &:not(.print-inline) {
       float: right;
-      width: 40vw;
+      width: 25vw;
       margin-left: 1em;
     }
   }

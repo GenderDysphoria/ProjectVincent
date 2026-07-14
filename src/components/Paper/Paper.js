@@ -7,6 +7,8 @@ export default function Paper ({
   outlined,
   elevation = 0,
   surface = 0,
+  square,
+  circle,
   className,
   gutter,
   style,
@@ -17,6 +19,8 @@ export default function Paper ({
     CssPrefix,
     size && `${CssPrefix}--${size}`,
     outlined && `${CssPrefix}--outlined`,
+    square && `${CssPrefix}--square`,
+    circle && `${CssPrefix}--circle`,
     elevation && `${CssPrefix}--elevation-${elevation}`,
     surface && `${CssPrefix}--surface-${surface}`
   );

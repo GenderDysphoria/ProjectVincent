@@ -1,16 +1,62 @@
 .ui-article {
   font-family: var(--font-family-primary);
   font-weight: var(--font-weight-regular);
+  
+  color-adjust: exact;
+  -webkit-print-color-adjust: exact;
 
   @media only screen and (max-width: 500px) {
     padding: 1em 1em;
 
   }
 
-  h1, h2, h3, h4, h5 { a {
-    color: inherit;
-    overflow: hidden;
-  } }
+  h1, h2, h3, h4, h5 {
+    clear: left;
+    display: flex;
+
+    a {
+      color: inherit;
+      overflow: hidden;
+      text-decoration: inherit;
+    }
+
+    .header-link {
+      flex: 1;
+      font-size: 0.75em;
+      text-decoration: none;
+      align-self: center;
+      text-align: right;
+      opacity: 0.15;
+
+      &:hover {
+        opacity: 1;
+      }
+
+      img {
+        height: 1em;
+      }
+    }
+
+    + {
+      h1, h2, h3, h4, h5 {
+        .header-link {
+          display: none;
+        }
+      }
+    }
+
+    &:first-child {
+      .header-link {
+        display: none;
+      }
+    }
+  }
+
+  @media print {
+    h1 {
+      page-break-before: always;
+    }
+  }
 
   -webkit-font-smoothing: antialiased;
   transition: background-color 0.5s;
@@ -61,6 +107,7 @@
     color-adjust: exact;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
+    page-break-inside: avoid;
 
     position: relative;
     overflow: hidden;
@@ -172,5 +219,37 @@
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 1em;
+  }
+}
+
+
+.toc {
+  @media (min-width: 500px) {
+    h1, h2, h3, h4 {
+      justify-content: center;
+    }
+  }
+
+  ol, ul {
+
+    @media (max-width: 400px) {
+      padding-left: 1.5em;
+    }
+
+    @media (max-width: 500px) {
+      padding-left: 2em;
+    }
+
+    @media (min-width: 500px) {
+      columns: 2;
+      padding-left: 3em;
+    }
+
+    @media (min-width: 1100px) {
+      padding-left: 5em;
+    }
+
+    li { margin-bottom: 0.5em; }
+    p { margin: 0; }
   }
 }

@@ -5,6 +5,7 @@ import Button from '#src/components/Button';
 import { FormattedMessage } from '#src/components/Intl';
 import Pager from '#src/components/Pager/Pager';
 import Paper from '#src/components/Paper';
+import Stack from '#src/components/Stack';
 import SvgIcon from '#src/components/SvgIcon';
 import Text from '#src/components/Text';
 
@@ -92,6 +93,9 @@ function Navigation () {
           ))}
         </Paper>
       </div>
+      <ul className={`${CssPrefix}-index`}>
+        <li className={key === 'fulltext' ? 'active' : null}><a href={`/${lang.lang}/fulltext`}><FormattedMessage id="FULL_TEXT" /></a></li>
+      </ul>
       <ol className={`${CssPrefix}-index`}>
         {lang.pages.map((page) => (
           <li className={page.key === key ? 'active' : null}><a href={page.url}>{page.linkTitle}</a></li>

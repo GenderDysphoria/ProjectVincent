@@ -12,4 +12,8 @@
   & strong {
     fontWeight: var(--font-weight-regular);
   }
+
+  .no-disclaimer & {
+    display: none;
+  }
 }
