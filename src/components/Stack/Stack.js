@@ -29,6 +29,7 @@ export default function Stack ({
   justify,
   align = 'start',
   center,
+  wrap,
   className,
   style,
   divider,
@@ -42,6 +43,7 @@ export default function Stack ({
   const classes = clsx(
     className,
     CssPrefix,
+    wrap && `${CssPrefix}--wrap`,
     direction && `${CssPrefix}--direction-${direction}`,
     justify && `${CssPrefix}--justify-${justify}`,
     align && `${CssPrefix}--align-${align}`
