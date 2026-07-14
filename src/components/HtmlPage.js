@@ -1,5 +1,8 @@
 import { Fragment, RawHtml, Priority } from 'essex';
 
+import { IS_PROD } from '#gen/config';
+import ScriptAsset from '#src/components/ScriptAsset';
+
 export default function HtmlPage ({
   lang = 'en',
   title,
@@ -58,9 +61,11 @@ export default function HtmlPage ({
           <link href="//fonts.googleapis.com/css?family=Gothic+A1:300,400,600" rel="stylesheet" />
           <link rel="stylesheet" href={`/static/${BUILD_HASH}/bundle.css`} type="text/css" />
           {head}
+          <ScriptAsset src="i.js" data-i-url={IS_PROD ? 't.genderdysphoria.fyi/i' : '/i'} />
         </head>
         <body className={className}>
           {children}
+          <noscript><img src={(IS_PROD ? 't.genderdysphoria.fyi/i' : '/i') +  '?stage=noscript'} style="display: none" /></noscript>
         </body>
       </html>
     </Fragment>
