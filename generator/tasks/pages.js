@@ -8,20 +8,21 @@ import { minify } from 'html-minifier-terser';
 import path from 'node:path';
 
 import BUILD_HASH from '#gen/build-hash';
-import { ROOT_DIR, IS_PROD } from '#gen/config';
+import { ROOT_DIR, IS_PROD, resolve } from '#gen/config';
 import HtmlPage from '#src/components/HtmlPage';
 import Template from '#src/components/Template/Template';
 import { headingComponents } from '#src/components/Text/Text';
 
+const INDEX_GLOB = 'public/*/_index.js';
 const PAGE_GLOB = [ 'public/**/*.{mdx,js}' ];
-const IGNORE_GLOB = [ 'public/**/_*.mdx', 'public/static/**' ];
-const INDEX_GLOB = 'public/*/_index.json';
+const IGNORE_GLOB = [ 'public/**/_*.mdx', 'public/static/**', INDEX_GLOB ];
 const COMPONENT_GLOB = 'src/components/**/*.js';
 export const WATCH_GLOB = [
   ...PAGE_GLOB,
   INDEX_GLOB,
   COMPONENT_GLOB,
-  ...IGNORE_GLOB.map((s) => `!${s}`),
+  '!public/**/_*.mdx',
+  '!public/static/**',
 ];
 
 const CANONICAL_ROOT = 'https://gdb.fyi/';
@@ -138,12 +139,12 @@ async function loadIndexes (options = {}) {
 
   await Promise.all(
     inputs.map(async (relPath) => {
-      const contents = await fs.readFile(relPath, 'utf8');
-      const language = JSON.parse(contents);
+      const absPath = resolve(relPath);
+      const language = (await import(absPath)).default;
       languages[language.lang] = language;
     })
   );
-
+  // console.log(languages);
   return languages;
 }
 
