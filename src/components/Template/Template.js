@@ -5,7 +5,7 @@ import Button from '#src/components/Button';
 import { FormattedMessage } from '#src/components/Intl';
 import Pager from '#src/components/Pager/Pager';
 import Paper from '#src/components/Paper';
-import Stack from '#src/components/Stack';
+// import Stack from '#src/components/Stack';
 import SvgIcon from '#src/components/SvgIcon';
 import Text from '#src/components/Text';
 

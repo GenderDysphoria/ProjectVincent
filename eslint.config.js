@@ -1,6 +1,5 @@
+import { node, browser } from '@twipped/eslint-config';
 import { defineConfig } from 'eslint/config';
-
-import { node, browser } from '#eslint';
 
 export default defineConfig([
   {

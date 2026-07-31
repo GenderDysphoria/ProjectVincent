@@ -9,7 +9,7 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-import { file as fileOperation, memory as memoryOperation } from '#gen/cache';
+import { memory as memoryOperation } from '#gen/cache';
 import { resolve } from '#gen/config';
 import { ROOT_DIR } from '#gen/pkg';
 

@@ -1,7 +1,3 @@
-import { RawHtml } from 'essex';
-
-import EnglishIntro, { meta as eMeta } from './en/index.mdx';
-
 export const meta = {
   title: 'GDB Privacy Policy',
   url: '/privacy.html',
