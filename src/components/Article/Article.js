@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 
 const CssPrefix = 'ui-article';
-export default function Note ({
+export default function Article ({
   component: Component = 'article',
   className,
   children,

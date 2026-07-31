@@ -43,9 +43,41 @@ export default {
   },
   glossary: {
     agab: {
-      sortAs: 'AGAB',
       title: 'A·GAB',
-      description: [ 'Assigned Gender At Birth.' ],
+      description: 'Assigned Gender At Birth',
+    },
+    amab: {
+      title: 'A·MAB',
+      description: 'A person assigned the male gender at birth based on external genitalia',
+      aliases: [ 'AMABs' ],
+    },
+    afab: {
+      title: 'A·FAB',
+      description: 'A person assigned the female gender at birth based on external genitalia',
+      aliases: [ 'AFABs' ],
+    },
+    GLAAD: {
+      description: [ 'Gay & Lesbian Alliance Against Defamation', 'A US based organization that protests defamatory coverage of queer people and pushes for their acceptance.', ' Official website: https://www.glaad.org/' ],
+    },
+    SoC: {
+      description: [
+        'Standards of Care',
+        'A guidebook of standard practices for caring for a unique cohort of patients.',
+      ],
+    },
+    WPATH: {
+      title: 'W·PATH',
+      description: [
+        'World Professional Association for Transgender Health',
+        'A global health organization focused on understanding and treatment of gender incongruence and gender dysphoria, and creating standardized treatment for transgender and gender variant people.',
+      ],
+    },
+    DSM: {
+      description: 'Diagnostic and Statistical Manual of Mental Disorders, a publication by the American Psychiatric Association cataloging all diagnosable mental health conditions.',
+    },
+    karyotype: {
+      description: 'The overall collection of chromosomes in an organism\'s genetic structure.',
+      aliases: [ 'kareotype' ],
     },
   },
 };
