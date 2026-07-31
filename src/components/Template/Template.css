@@ -217,13 +217,8 @@
   }
 
   @media screen and (width > $breakpoint-md) {
-    margin-right: 300px;
-    .ui-disclaimer { margin-right: calc(-300px - var(--spacing-2)); }
-  }
-
-  @media screen and (width >= $breakpoint-xl) {
-    margin-right: 400px;
-    .ui-disclaimer { margin-right: calc(-400px - var(--spacing-2)); }
+    margin-right: var(--gutter-width);
+    .ui-disclaimer { margin-right: calc((var(--gutter-width) * -1) - var(--spacing-2)); }
   }
 }
 

@@ -1,3 +1,15 @@
+:root {
+  --gutter-width: 300px;
+
+  @media screen and ($breakpoint-lg < width < $breakpoint-xl) {
+    --gutter-width: 26vw;
+  }
+
+  @media screen and (width >= $breakpoint-xl) {
+    --gutter-width: 400px;
+  }
+}
+
 
 .ui-gutter {
 
@@ -5,17 +17,13 @@
     position: relative;
     height: 0;
     left: calc(100% + 1em);
-    width: 300px;
+    width: var(--gutter-width);
     padding: 0 1em;
-
-    @media (width >= $breakpoint-xl) {
-      width: 400px;
-    }
   }
 
   @media screen and ($breakpoint-sm < width < $breakpoint-md) {
     float: right;
-    width: 300px;
+    width: var(--gutter-width);
     margin-left: 1em;
     zoom: 0.9;
   }

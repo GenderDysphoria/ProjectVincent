@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { RawHtml } from 'essex';
 
 import Article from '#src/components/Article';
 import Button from '#src/components/Button';
@@ -6,6 +7,7 @@ import { FormattedMessage } from '#src/components/Intl';
 import Pager from '#src/components/Pager/Pager';
 import Paper from '#src/components/Paper';
 // import Stack from '#src/components/Stack';
+import ScriptAsset from '#src/components/ScriptAsset';
 import SvgIcon from '#src/components/SvgIcon';
 import Text from '#src/components/Text';
 
@@ -51,10 +53,14 @@ export default function Template ({
           <Navigation />
         </div>
         <Article className={`${CssPrefix}-body`}>
+          <script type="application/json" id="glossary">
+            <RawHtml>{JSON.stringify(this.lang.glossary)}</RawHtml>
+          </script>
           {/* <pre><code>{JSON.stringify({ meta: this.metadata, lang }, null, 2)}</code></pre> */}
           {children}
           <Pager />
         </Article>
+        <ScriptAsset src="glossary.js" />
         <div className="ui-template-gutter-left" />
         <div className="ui-template-gutter-right" />
       </Component>
